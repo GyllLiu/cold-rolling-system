@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.vinext/
+dist/
+.wrangler/
+.venv/
+data/*.db
+data/*.db-*
+data/card_uploads/
+__pycache__/
+.pytest_cache/
+.env
+.DS_Store
+tsconfig.tsbuildinfo

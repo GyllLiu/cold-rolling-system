@@ -1,0 +1,2110 @@
+{
+  "model_version": "direct-ridge-high-speed-v0.3",
+  "generated_at": "2026-07-29T07:09:47.216900+00:00",
+  "model_family": "standardized polynomial ridge regression",
+  "inference_method": "fixed coefficient equation; no neighbour lookup or averaging",
+  "training_datasets": [
+    "260712",
+    "260713",
+    "260714",
+    "260716",
+    "260717",
+    "260718"
+  ],
+  "validation_dataset": "260719",
+  "training_case_count": 281,
+  "validation_case_count": 64,
+  "development_folds": [
+    {
+      "index": 1,
+      "training_datasets": [
+        "260712",
+        "260713"
+      ],
+      "validation_dataset": "260714"
+    },
+    {
+      "index": 2,
+      "training_datasets": [
+        "260712",
+        "260713",
+        "260714"
+      ],
+      "validation_dataset": "260716"
+    },
+    {
+      "index": 3,
+      "training_datasets": [
+        "260712",
+        "260713",
+        "260714",
+        "260716"
+      ],
+      "validation_dataset": "260717"
+    },
+    {
+      "index": 4,
+      "training_datasets": [
+        "260712",
+        "260713",
+        "260714",
+        "260716",
+        "260717"
+      ],
+      "validation_dataset": "260718"
+    }
+  ],
+  "training_policy": {
+    "learning_eligible_only": true,
+    "high_speed_plateau_only": true,
+    "low_speed_role": "operator_tuning_excluded_from_targets",
+    "model_selection": "four rolling-origin date folds",
+    "validation_used_for_tuning": false,
+    "historical_neighbour_method_used_at_inference": false
+  },
+  "input_features": [
+    "entry_thickness_set_mode",
+    "exit_thickness_set_mode",
+    "width_set_mode",
+    "total_reduction_ratio",
+    "entry_thickness_actual_median"
+  ],
+  "input_coverage": {
+    "entry_thickness_set_mode": {
+      "min": 0.57,
+      "p01": 0.756,
+      "p99": 7.0,
+      "max": 7.0
+    },
+    "exit_thickness_set_mode": {
+      "min": 0.338,
+      "p01": 0.365,
+      "p99": 3.827,
+      "max": 4.94
+    },
+    "width_set_mode": {
+      "min": 1000.0,
+      "p01": 1000.0,
+      "p99": 1560.0,
+      "max": 1575.0
+    },
+    "total_reduction_ratio": {
+      "min": 0.272727,
+      "p01": 0.281481,
+      "p99": 0.785714,
+      "max": 0.785714
+    },
+    "entry_thickness_actual_median": {
+      "min": 0.561821,
+      "p01": 0.763441,
+      "p99": 7.194118,
+      "max": 7.268403
+    }
+  },
+  "models": {
+    "intermediate_thickness_set_mode": {
+      "label": "中间厚度直接预测",
+      "unit": "mm",
+      "role": "thickness_control",
+      "priority": "primary",
+      "reliability": "high",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 1,
+      "ridge_lambda": 0.01,
+      "target_transform": "reduction_share",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "coefficients": [
+        0.626098487488,
+        0.000923353359,
+        0.00288600076,
+        -0.002542302857,
+        0.034013869582
+      ],
+      "hard_min": 0.01,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.044992,
+        "p80_absolute_error": 0.0683,
+        "p95_absolute_error": 0.150771,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.031116
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.046073
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.023394
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.067741
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 0.0683,
+        "p95_half_width": 0.150771
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.03586,
+          "rmse": 0.048059,
+          "p80_absolute_error": 0.060761,
+          "p95_absolute_error": 0.107288,
+          "bias": 0.007329,
+          "r2": 0.998731
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.134922,
+          "rmse": 0.204684,
+          "p80_absolute_error": 0.2,
+          "p95_absolute_error": 0.3925,
+          "bias": 0.004922,
+          "r2": 0.976983
+        },
+        "mae_improvement_percent": 73.421
+      }
+    },
+    "tm1_gap_command_median": {
+      "label": "F1综合辊缝直接预测",
+      "unit": "μm",
+      "role": "machine_setup",
+      "priority": "primary",
+      "reliability": "medium",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 1,
+      "ridge_lambda": 0.1,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "coefficients": [
+        2580.875934206406,
+        1192.961137674868,
+        778.474967037886,
+        -95.218684428528,
+        -47.270292177236,
+        -734.740338164864
+      ],
+      "hard_min": 0.0,
+      "hard_max": 20000.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 144.795141,
+        "p80_absolute_error": 227.235198,
+        "p95_absolute_error": 337.014226,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 117.675733
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 173.309136
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 146.73187
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 126.678275
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 227.235198,
+        "p95_half_width": 337.014226
+      },
+      "final_test": {
+        "direct": {
+          "mae": 144.787009,
+          "rmse": 188.257982,
+          "p80_absolute_error": 231.350018,
+          "p95_absolute_error": 367.545594,
+          "bias": -111.803816,
+          "r2": 0.979767
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 205.062989,
+          "rmse": 301.790809,
+          "p80_absolute_error": 281.427527,
+          "p95_absolute_error": 491.745172,
+          "bias": -78.810763,
+          "r2": 0.948004
+        },
+        "mae_improvement_percent": 29.394
+      }
+    },
+    "tm2_gap_command_median": {
+      "label": "F2综合辊缝直接预测",
+      "unit": "μm",
+      "role": "machine_setup",
+      "priority": "primary",
+      "reliability": "medium",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 1.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        1691.505179743385,
+        258.274249352366,
+        415.897553194321,
+        -84.666475670602,
+        -214.091704402391,
+        65.047728319738,
+        133.922017838952,
+        145.320325847231,
+        -20.999258155308,
+        -35.477633517812,
+        -19.273321817554,
+        5.760813554317,
+        -29.417238568943,
+        -18.829333209298,
+        -83.091748090928,
+        -19.393421864026,
+        2.788394909374,
+        67.303474337324,
+        11.417064455958,
+        -5.658802392683,
+        -149.656008552596
+      ],
+      "hard_min": 0.0,
+      "hard_max": 20000.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 139.909304,
+        "p80_absolute_error": 211.579023,
+        "p95_absolute_error": 359.987178,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 108.390006
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 175.690061
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 174.637446
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 90.972662
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 211.579023,
+        "p95_half_width": 359.987178
+      },
+      "final_test": {
+        "direct": {
+          "mae": 207.974688,
+          "rmse": 246.963115,
+          "p80_absolute_error": 301.209512,
+          "p95_absolute_error": 502.2788,
+          "bias": -201.322055,
+          "r2": 0.923597
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 230.328189,
+          "rmse": 349.201453,
+          "p80_absolute_error": 320.979956,
+          "p95_absolute_error": 572.575476,
+          "bias": -181.663706,
+          "r2": 0.847245
+        },
+        "mae_improvement_percent": 9.705
+      }
+    },
+    "uncoiler_tension_set_median": {
+      "label": "开卷张力直接预测",
+      "unit": "",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        7.316864258106,
+        0.286184303399,
+        0.326020871572,
+        0.048528642466,
+        0.049219151408,
+        0.306383217067,
+        -0.12254474472,
+        -0.133149586311,
+        -0.020251264133,
+        -0.056078749516,
+        -0.109803760491,
+        -0.130198527186,
+        -0.087357296614,
+        -0.071117440463,
+        -0.151391930375,
+        -0.001021122347,
+        -0.003249242706,
+        0.059949994219,
+        0.024822835513,
+        -0.015800939946,
+        -0.090352140749
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.416952,
+        "p80_absolute_error": 0.715143,
+        "p95_absolute_error": 1.140947,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.253162
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.440011
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.422686
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.473508
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 0.715143,
+        "p95_half_width": 1.140947
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.408985,
+          "rmse": 0.504168,
+          "p80_absolute_error": 0.60717,
+          "p95_absolute_error": 0.813209,
+          "bias": -0.047112,
+          "r2": 0.724082
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.403205,
+          "rmse": 0.611175,
+          "p80_absolute_error": 0.997,
+          "p95_absolute_error": 1.0,
+          "bias": -0.123984,
+          "r2": 0.594528
+        },
+        "mae_improvement_percent": -1.434
+      }
+    },
+    "interstand_tension_set_median": {
+      "label": "机架张力直接预测",
+      "unit": "",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "medium",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 0.01,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        8.408162509905,
+        -0.028788629145,
+        -0.720646759018,
+        0.264639757235,
+        0.141222533131,
+        3.587550438434,
+        -0.06958159947,
+        6.017565787905,
+        1.805729549089,
+        2.255046816257,
+        -6.391106444526,
+        -2.322861565268,
+        -0.426493192029,
+        -2.354200996781,
+        0.823711405077,
+        0.103497903271,
+        -0.255541437619,
+        -1.505914425278,
+        -0.388183645264,
+        0.807435050615,
+        1.390624257084
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.531552,
+        "p80_absolute_error": 0.807944,
+        "p95_absolute_error": 1.483737,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.370636
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.510609
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.53868
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.633134
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 0.807944,
+        "p95_half_width": 1.483737
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.598744,
+          "rmse": 0.74461,
+          "p80_absolute_error": 0.825123,
+          "p95_absolute_error": 1.511643,
+          "bias": -0.064796,
+          "r2": 0.924882
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.603986,
+          "rmse": 0.889497,
+          "p80_absolute_error": 1.0,
+          "p95_absolute_error": 2.14873,
+          "bias": 0.056642,
+          "r2": 0.892805
+        },
+        "mae_improvement_percent": 0.868
+      }
+    },
+    "coiler_tension_set_median": {
+      "label": "卷取张力直接预测",
+      "unit": "",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "medium",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 1,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "coefficients": [
+        6.461199323843,
+        0.591730258177,
+        1.049788784586,
+        0.288474839636,
+        -0.005306370439,
+        0.638400072288
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.589151,
+        "p80_absolute_error": 0.965201,
+        "p95_absolute_error": 1.425807,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.720337
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.574238
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.523285
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.587218
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 0.965201,
+        "p95_half_width": 1.425807
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.653179,
+          "rmse": 0.942102,
+          "p80_absolute_error": 0.955005,
+          "p95_absolute_error": 2.093572,
+          "bias": -0.018016,
+          "r2": 0.870675
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.917511,
+          "rmse": 1.217736,
+          "p80_absolute_error": 1.191995,
+          "p95_absolute_error": 2.659786,
+          "bias": -0.050308,
+          "r2": 0.783931
+        },
+        "mae_improvement_percent": 28.81
+      }
+    },
+    "f1_bending_set_median": {
+      "label": "F1弯辊力直接预测",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "medium",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 100.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        53.781944212335,
+        5.477302022227,
+        4.287439851593,
+        -0.985784451345,
+        3.621398047382,
+        5.611517678584,
+        0.466851545775,
+        -0.227561541247,
+        -1.378563225543,
+        1.296439511365,
+        0.462260353877,
+        -1.046946374686,
+        0.982640891031,
+        1.281206034422,
+        -0.062430243593,
+        -0.780748678972,
+        -1.884811626737,
+        -1.386354473313,
+        -0.509289981459,
+        1.077786921342,
+        0.474151282806
+      ],
+      "hard_min": null,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 16.185323,
+        "p80_absolute_error": 28.970903,
+        "p95_absolute_error": 34.958982,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 15.760069
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 16.260013
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 14.32498
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 17.760975
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 28.970903,
+        "p95_half_width": 34.958982
+      },
+      "final_test": {
+        "direct": {
+          "mae": 15.018358,
+          "rmse": 18.511145,
+          "p80_absolute_error": 25.432747,
+          "p95_absolute_error": 33.314867,
+          "bias": 3.025788,
+          "r2": 0.540251
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 18.953565,
+          "rmse": 23.070997,
+          "p80_absolute_error": 30.515979,
+          "p95_absolute_error": 37.481768,
+          "bias": 3.046352,
+          "r2": 0.285854
+        },
+        "mae_improvement_percent": 20.762
+      }
+    },
+    "f2_bending_set_median": {
+      "label": "F2弯辊力直接预测",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 1,
+      "ridge_lambda": 100.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "coefficients": [
+        43.30587180427,
+        2.643817029975,
+        7.178492311855,
+        -0.903829401954,
+        -3.720742616057,
+        2.203838371305
+      ],
+      "hard_min": null,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 19.390573,
+        "p80_absolute_error": 30.807667,
+        "p95_absolute_error": 46.931973,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 15.63586
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 19.167917
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 16.82239
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 23.579928
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 30.807667,
+        "p95_half_width": 46.931973
+      },
+      "final_test": {
+        "direct": {
+          "mae": 19.960022,
+          "rmse": 25.574514,
+          "p80_absolute_error": 30.801784,
+          "p95_absolute_error": 47.296359,
+          "bias": 4.385411,
+          "r2": 0.158737
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 19.166317,
+          "rmse": 23.926559,
+          "p80_absolute_error": 31.970453,
+          "p95_absolute_error": 42.958696,
+          "bias": 6.634634,
+          "r2": 0.263661
+        },
+        "mae_improvement_percent": -4.141
+      }
+    },
+    "tm1_tilt_set_median": {
+      "label": "F1倾斜量直接预测",
+      "unit": "μm",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 1,
+      "ridge_lambda": 100.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "coefficients": [
+        -2.658795017794,
+        -1.031653602013,
+        -1.642275582384,
+        -2.056791864821,
+        1.347294714773,
+        -0.846092819762
+      ],
+      "hard_min": null,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 14.293762,
+        "p80_absolute_error": 23.631255,
+        "p95_absolute_error": 38.472624,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 17.462712
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 13.813742
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 15.574345
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 12.164049
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 23.631255,
+        "p95_half_width": 38.472624
+      },
+      "final_test": {
+        "direct": {
+          "mae": 12.659124,
+          "rmse": 16.036634,
+          "p80_absolute_error": 20.913192,
+          "p95_absolute_error": 30.502107,
+          "bias": -2.171898,
+          "r2": -0.116094
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 14.402502,
+          "rmse": 18.324816,
+          "p80_absolute_error": 21.727984,
+          "p95_absolute_error": 37.255973,
+          "bias": -4.217491,
+          "r2": -0.457316
+        },
+        "mae_improvement_percent": 12.105
+      }
+    },
+    "tm2_tilt_set_median": {
+      "label": "F2倾斜量直接预测",
+      "unit": "μm",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 1,
+      "ridge_lambda": 100.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "coefficients": [
+        20.315289761566,
+        -3.290046651884,
+        -2.372270445129,
+        0.515372468319,
+        -2.96254571912
+      ],
+      "hard_min": null,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 22.901659,
+        "p80_absolute_error": 39.091624,
+        "p95_absolute_error": 51.673368,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 9.810323
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 16.861389
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 25.205069
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 34.529859
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 39.091624,
+        "p95_half_width": 51.673368
+      },
+      "final_test": {
+        "direct": {
+          "mae": 16.894533,
+          "rmse": 20.739718,
+          "p80_absolute_error": 26.574943,
+          "p95_absolute_error": 40.862496,
+          "bias": -15.737398,
+          "r2": -1.949
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 22.261421,
+          "rmse": 27.022039,
+          "p80_absolute_error": 35.584251,
+          "p95_absolute_error": 44.984253,
+          "bias": -14.09551,
+          "r2": -4.006166
+        },
+        "mae_improvement_percent": 24.108
+      }
+    },
+    "main_speed_set_median": {
+      "label": "高速主速度直接预测",
+      "unit": "m/min",
+      "role": "secondary_reference",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "coefficients": [
+        332.576651688241,
+        -35.397069418183,
+        -40.917499670481,
+        0.109183655644,
+        -4.333069655936,
+        8.352330907486,
+        20.964920166001,
+        10.899083424101,
+        5.9831612983,
+        16.864238910611,
+        0.187783150356,
+        18.881295851704,
+        -1.350920074873,
+        -1.770535300505,
+        -0.276103085415
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 69.061312,
+        "p80_absolute_error": 109.365872,
+        "p95_absolute_error": 181.115582,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 52.027376
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 59.582548
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 82.09139
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 78.213292
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 109.365872,
+        "p95_half_width": 181.115582
+      },
+      "final_test": {
+        "direct": {
+          "mae": 61.333459,
+          "rmse": 80.557418,
+          "p80_absolute_error": 107.992079,
+          "p95_absolute_error": 175.240279,
+          "bias": 33.556958,
+          "r2": 0.17167
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 74.171189,
+          "rmse": 90.450634,
+          "p80_absolute_error": 125.367145,
+          "p95_absolute_error": 157.104076,
+          "bias": 26.030765,
+          "r2": -0.044276
+        },
+        "mae_improvement_percent": 17.308
+      }
+    },
+    "f1_roll_force_sum_median": {
+      "label": "F1轧制力预计",
+      "unit": "T",
+      "role": "monitor_only",
+      "priority": "monitor",
+      "reliability": "monitor",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        318.730131537585,
+        10.517293630994,
+        -2.040429429404,
+        32.204297235893,
+        27.543632651789,
+        30.967294349876,
+        -12.285034310171,
+        -16.009005081511,
+        2.257893580124,
+        3.413271862496,
+        3.542196922219,
+        -0.780784507361,
+        2.716194518874,
+        -13.135110331864,
+        -4.501616410233,
+        4.568399757324,
+        -2.685015397503,
+        1.072715399402,
+        -7.911765913726,
+        15.420892220066,
+        17.704553193061
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 30.558253,
+        "p80_absolute_error": 48.98411,
+        "p95_absolute_error": 73.103721,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 26.740055
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 36.494972
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 38.838646
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 19.757932
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 48.98411,
+        "p95_half_width": 73.103721
+      },
+      "final_test": {
+        "direct": {
+          "mae": 38.032324,
+          "rmse": 52.21794,
+          "p80_absolute_error": 56.307498,
+          "p95_absolute_error": 108.892764,
+          "bias": 9.065678,
+          "r2": 0.522834
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 39.89242,
+          "rmse": 51.946265,
+          "p80_absolute_error": 57.358377,
+          "p95_absolute_error": 111.662029,
+          "bias": 3.960125,
+          "r2": 0.527786
+        },
+        "mae_improvement_percent": 4.663
+      }
+    },
+    "f2_roll_force_sum_median": {
+      "label": "F2轧制力预计",
+      "unit": "T",
+      "role": "monitor_only",
+      "priority": "monitor",
+      "reliability": "monitor",
+      "feature_set": "spec5",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "entry_thickness_actual_median"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        3.994104697509
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        2.234722393839
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "coefficients": [
+        327.298526519702,
+        18.503527018906,
+        18.14801837908,
+        29.042717431639,
+        7.676482624459,
+        23.517893295504,
+        -3.171099364365,
+        -4.410190973632,
+        1.471368823202,
+        -0.906960693019,
+        1.384436522711,
+        -6.016345915325,
+        8.741533829739,
+        -0.283911997618,
+        1.242368867485,
+        3.34724979308,
+        -4.009859992149,
+        -4.536145198666,
+        -7.032624239302,
+        0.124648777645,
+        5.011524897028
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 29.093052,
+        "p80_absolute_error": 48.155094,
+        "p95_absolute_error": 79.866374,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 28.25435
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 31.010675
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 31.981052
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 25.233042
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "absolute rolling-origin residual",
+        "coverage": 0.8,
+        "half_width": 48.155094,
+        "p95_half_width": 79.866374
+      },
+      "final_test": {
+        "direct": {
+          "mae": 35.678756,
+          "rmse": 45.657447,
+          "p80_absolute_error": 50.951906,
+          "p95_absolute_error": 92.663517,
+          "bias": 6.022772,
+          "r2": 0.672107
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 38.064009,
+          "rmse": 50.031764,
+          "p80_absolute_error": 62.414285,
+          "p95_absolute_error": 107.557909,
+          "bias": 0.416374,
+          "r2": 0.606268
+        },
+        "mae_improvement_percent": 6.266
+      }
+    }
+  },
+  "spec_overlap": {
+    "test_case_count": 64,
+    "exact_spec_overlap_count": 5,
+    "exact_spec_overlap_percent": 7.812
+  },
+  "exit_quality_observation": {
+    "case_count": 64,
+    "median_segment_p95_absolute_error_mm": 0.00819,
+    "median_segment_p95_relative_error_percent": 0.52468,
+    "worst_segment_p95_relative_error_percent": 1.459211
+  },
+  "summary": {
+    "target_count": 13,
+    "direct_win_count": 11,
+    "mean_mae_improvement_percent": 17.064,
+    "historical_baseline": "standardized spec 5-nearest median; evaluation only"
+  }
+}

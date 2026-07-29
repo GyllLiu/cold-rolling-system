@@ -1,0 +1,20 @@
+{
+  auto_https off
+  admin off
+}
+
+:8080 {
+  bind 127.0.0.1
+
+  basic_auth {
+    {$PUBLIC_USERNAME} {$PUBLIC_PASSWORD_HASH}
+  }
+
+  handle /api/* {
+    reverse_proxy 127.0.0.1:8000
+  }
+
+  handle {
+    reverse_proxy 127.0.0.1:3000
+  }
+}
