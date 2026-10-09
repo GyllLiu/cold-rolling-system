@@ -1,0 +1,551 @@
+{
+  "schema_version": "cold-tandem-equipment-physics-v0.7.0",
+  "generated_at": "2026-09-04T02:05:13.789515+00:00",
+  "status": "accepted_as_physical_guard_not_displayed_recommendation",
+  "fallback_artifact": "equipment_physics_v067.json",
+  "equipment": {
+    "work_roll_diameter_mm": 380.0,
+    "work_roll_radius_mm": 190.0,
+    "support_roll_diameter_mm": 1000.0,
+    "roll_body_length_mm": 1750.0,
+    "maximum_total_rolling_force_t_per_stand": 1000.0,
+    "normal_speed_range_m_per_min": [
+      400.0,
+      1000.0
+    ],
+    "roll_young_modulus_mpa": 210000.0,
+    "roll_poisson_ratio": 0.3
+  },
+  "normal_lubrication": {
+    "friction_coefficient": 0.08,
+    "source": "workshop director supplied nominal coefficient; held fixed",
+    "identifiability_warning": "without forward slip or labelled lubricant condition, friction and flow stress cannot be identified independently",
+    "eligible_golden_plateaus": 1127,
+    "stand_samples": 2254
+  },
+  "material_hardening": {
+    "family": "Swift",
+    "instantaneous_flow_stress_formula": "sigma(epsilon)=K*(epsilon_0+epsilon)^n",
+    "cumulative_true_strain_formula": "epsilon_cumulative=epsilon_temper+ln(h_after_last_full_anneal/h_current)",
+    "mean_flow_stress_formula": "sigma_m=K*((epsilon_0+epsilon_2)^(n+1)-(epsilon_0+epsilon_1)^(n+1))/((n+1)*(epsilon_2-epsilon_1))",
+    "parameters": {
+      "1060": {
+        "K_mpa": 105.160345,
+        "epsilon_0": 0.018168,
+        "n": 0.31294,
+        "fit_basis": "least-squares Swift fit to literature-bounded O/H12/H14/H16/H18 typical yield-strength knots",
+        "strength_knots": [
+          [
+            0.0,
+            30.0
+          ],
+          [
+            0.287682,
+            75.0
+          ],
+          [
+            0.693147,
+            90.0
+          ],
+          [
+            1.098612,
+            105.0
+          ],
+          [
+            1.386294,
+            125.0
+          ]
+        ]
+      },
+      "1100": {
+        "K_mpa": 134.570122,
+        "epsilon_0": 0.002863,
+        "n": 0.229985,
+        "fit_basis": "least-squares Swift fit to literature-bounded O/H12/H14/H16/H18 typical yield-strength knots",
+        "strength_knots": [
+          [
+            0.0,
+            35.0
+          ],
+          [
+            0.287682,
+            105.0
+          ],
+          [
+            0.693147,
+            115.0
+          ],
+          [
+            1.098612,
+            140.0
+          ],
+          [
+            1.386294,
+            150.0
+          ]
+        ]
+      },
+      "3003": {
+        "K_mpa": 165.8476,
+        "epsilon_0": 0.003168,
+        "n": 0.24714,
+        "fit_basis": "least-squares Swift fit to literature-bounded O/H12/H14/H16/H18 typical yield-strength knots",
+        "strength_knots": [
+          [
+            0.0,
+            40.0
+          ],
+          [
+            0.287682,
+            125.0
+          ],
+          [
+            0.693147,
+            145.0
+          ],
+          [
+            1.098612,
+            170.0
+          ],
+          [
+            1.386294,
+            185.0
+          ]
+        ]
+      }
+    },
+    "temper_equivalent_prestrain": {
+      "annealed": 0.0,
+      "h14": 0.693147,
+      "h16": 1.098612,
+      "h18": 1.386294,
+      "h22": 0.287682,
+      "h24": 0.693147,
+      "h26": 1.098612,
+      "unannealed": 0.693147
+    },
+    "partial_anneal_warning": "H22/H24/H26 use H12/H14/H16 strength-level proxies only; H2 recovery history is not equivalent to H1 cold-work history",
+    "deployment": "relative material correction only, clipped to 0.85-1.15 until labelled plant alloy/temper data are available"
+  },
+  "model": {
+    "family": "Swift mean-flow stress + Hill/Bland-Ford force factor + iterative Hitchcock flattening",
+    "reduction": "r=(h_in-h_out)/h_in",
+    "contact_length": "L=sqrt(R_flattened*(h_in-h_out))",
+    "q_factor": "Q=1.08+1.79*mu*r*sqrt(R_flattened/h_in)-1.02*r",
+    "back_tension_weight": 0.7,
+    "front_tension_weight": 0.3,
+    "effective_pressure": "max(1,1.15*sigma_m-(0.7*sigma_back+0.3*sigma_front))",
+    "force": "P=B*L*Q*effective_pressure*C_width",
+    "hitchcock": "R_flattened=R*(1+16*(1-nu^2)/(pi*E)*P/(B*(h_in-h_out)))",
+    "iteration": {
+      "maximum_iterations": 50,
+      "radius_tolerance_mm": 1e-08
+    },
+    "bands": {
+      "f1": [
+        {
+          "entry_thickness_low_mm": 0.0,
+          "entry_thickness_high_mm": 0.75,
+          "count": 39,
+          "effective_flow_stress_p05_mpa": 118.448208,
+          "effective_flow_stress_median_mpa": 174.103455,
+          "effective_flow_stress_p95_mpa": 222.730178
+        },
+        {
+          "entry_thickness_low_mm": 0.75,
+          "entry_thickness_high_mm": 1.25,
+          "count": 92,
+          "effective_flow_stress_p05_mpa": 126.134038,
+          "effective_flow_stress_median_mpa": 176.358637,
+          "effective_flow_stress_p95_mpa": 193.89568
+        },
+        {
+          "entry_thickness_low_mm": 1.25,
+          "entry_thickness_high_mm": 2.0,
+          "count": 171,
+          "effective_flow_stress_p05_mpa": 86.139987,
+          "effective_flow_stress_median_mpa": 158.217335,
+          "effective_flow_stress_p95_mpa": 191.469158
+        },
+        {
+          "entry_thickness_low_mm": 2.0,
+          "entry_thickness_high_mm": 3.0,
+          "count": 291,
+          "effective_flow_stress_p05_mpa": 132.593438,
+          "effective_flow_stress_median_mpa": 154.978916,
+          "effective_flow_stress_p95_mpa": 187.599225
+        },
+        {
+          "entry_thickness_low_mm": 3.0,
+          "entry_thickness_high_mm": 4.5,
+          "count": 69,
+          "effective_flow_stress_p05_mpa": 105.253688,
+          "effective_flow_stress_median_mpa": 149.096363,
+          "effective_flow_stress_p95_mpa": 185.586822
+        },
+        {
+          "entry_thickness_low_mm": 4.5,
+          "entry_thickness_high_mm": 8.0,
+          "count": 465,
+          "effective_flow_stress_p05_mpa": 104.687849,
+          "effective_flow_stress_median_mpa": 133.360176,
+          "effective_flow_stress_p95_mpa": 160.745017
+        }
+      ],
+      "f2": [
+        {
+          "entry_thickness_low_mm": 0.0,
+          "entry_thickness_high_mm": 0.75,
+          "count": 105,
+          "effective_flow_stress_p05_mpa": 131.764905,
+          "effective_flow_stress_median_mpa": 198.665309,
+          "effective_flow_stress_p95_mpa": 226.755215
+        },
+        {
+          "entry_thickness_low_mm": 0.75,
+          "entry_thickness_high_mm": 1.25,
+          "count": 182,
+          "effective_flow_stress_p05_mpa": 111.302992,
+          "effective_flow_stress_median_mpa": 184.240827,
+          "effective_flow_stress_p95_mpa": 206.6416
+        },
+        {
+          "entry_thickness_low_mm": 1.25,
+          "entry_thickness_high_mm": 2.0,
+          "count": 270,
+          "effective_flow_stress_p05_mpa": 156.31692,
+          "effective_flow_stress_median_mpa": 181.061173,
+          "effective_flow_stress_p95_mpa": 216.046891
+        },
+        {
+          "entry_thickness_low_mm": 2.0,
+          "entry_thickness_high_mm": 3.0,
+          "count": 111,
+          "effective_flow_stress_p05_mpa": 163.625167,
+          "effective_flow_stress_median_mpa": 185.220718,
+          "effective_flow_stress_p95_mpa": 215.54474
+        },
+        {
+          "entry_thickness_low_mm": 3.0,
+          "entry_thickness_high_mm": 4.5,
+          "count": 422,
+          "effective_flow_stress_p05_mpa": 147.06619,
+          "effective_flow_stress_median_mpa": 169.224302,
+          "effective_flow_stress_p95_mpa": 206.904837
+        },
+        {
+          "entry_thickness_low_mm": 4.5,
+          "entry_thickness_high_mm": 8.0,
+          "count": 37,
+          "effective_flow_stress_p05_mpa": 147.80758,
+          "effective_flow_stress_median_mpa": 166.683694,
+          "effective_flow_stress_p95_mpa": 207.99056
+        }
+      ]
+    },
+    "width_correction": {
+      "base": "force is directly proportional to width B",
+      "residual_formula": "C_width is a piecewise shrunken median(actual_force/physical_force) fitted within each stand and width band",
+      "bands": {
+        "f1": [
+          {
+            "width_low_mm": 1000.0,
+            "width_high_mm": 1150.0,
+            "count": 174,
+            "factor": 0.9742732594651207
+          },
+          {
+            "width_low_mm": 1150.0,
+            "width_high_mm": 1220.0,
+            "count": 293,
+            "factor": 1.0344670965468974
+          },
+          {
+            "width_low_mm": 1220.0,
+            "width_high_mm": 1280.0,
+            "count": 407,
+            "factor": 0.9779904926006061
+          },
+          {
+            "width_low_mm": 1280.0,
+            "width_high_mm": 1350.0,
+            "count": 180,
+            "factor": 0.9995496902607035
+          },
+          {
+            "width_low_mm": 1350.0,
+            "width_high_mm": 1575.0,
+            "count": 45,
+            "factor": 0.9671971614686244
+          }
+        ],
+        "f2": [
+          {
+            "width_low_mm": 1000.0,
+            "width_high_mm": 1150.0,
+            "count": 167,
+            "factor": 0.9792361866221454
+          },
+          {
+            "width_low_mm": 1150.0,
+            "width_high_mm": 1220.0,
+            "count": 289,
+            "factor": 1.050491582081958
+          },
+          {
+            "width_low_mm": 1220.0,
+            "width_high_mm": 1280.0,
+            "count": 421,
+            "factor": 0.9671710403403734
+          },
+          {
+            "width_low_mm": 1280.0,
+            "width_high_mm": 1350.0,
+            "count": 180,
+            "factor": 1.0102636286772428
+          },
+          {
+            "width_low_mm": 1350.0,
+            "width_high_mm": 1575.0,
+            "count": 45,
+            "factor": 1.028604732600911
+          }
+        ]
+      },
+      "warning": "plant-specific residual correction; not an industry-universal coefficient"
+    }
+  },
+  "validation": {
+    "method": "leave-one-production-date-out",
+    "n": 2254,
+    "mae_t": 40.620996,
+    "p95_absolute_error_t": 115.378653,
+    "bias_t": 0.034269,
+    "by_date": [
+      {
+        "dataset": "260703",
+        "n": 52,
+        "mae_t": 62.88868,
+        "p95_absolute_error_t": 132.792439
+      },
+      {
+        "dataset": "260712",
+        "n": 106,
+        "mae_t": 27.187099,
+        "p95_absolute_error_t": 94.132042
+      },
+      {
+        "dataset": "260713",
+        "n": 82,
+        "mae_t": 54.398888,
+        "p95_absolute_error_t": 190.10459
+      },
+      {
+        "dataset": "260714",
+        "n": 90,
+        "mae_t": 31.220115,
+        "p95_absolute_error_t": 94.269041
+      },
+      {
+        "dataset": "260716",
+        "n": 182,
+        "mae_t": 33.560662,
+        "p95_absolute_error_t": 81.966694
+      },
+      {
+        "dataset": "260717",
+        "n": 122,
+        "mae_t": 35.547684,
+        "p95_absolute_error_t": 93.974732
+      },
+      {
+        "dataset": "260718",
+        "n": 160,
+        "mae_t": 34.061116,
+        "p95_absolute_error_t": 86.223466
+      },
+      {
+        "dataset": "260719",
+        "n": 180,
+        "mae_t": 45.169905,
+        "p95_absolute_error_t": 137.059358
+      },
+      {
+        "dataset": "260724",
+        "n": 6,
+        "mae_t": 17.482345,
+        "p95_absolute_error_t": 27.744724
+      },
+      {
+        "dataset": "260725",
+        "n": 22,
+        "mae_t": 30.096405,
+        "p95_absolute_error_t": 74.079065
+      },
+      {
+        "dataset": "260726",
+        "n": 66,
+        "mae_t": 38.649164,
+        "p95_absolute_error_t": 94.107825
+      },
+      {
+        "dataset": "260728",
+        "n": 154,
+        "mae_t": 61.840232,
+        "p95_absolute_error_t": 167.714257
+      },
+      {
+        "dataset": "260729",
+        "n": 86,
+        "mae_t": 51.6446,
+        "p95_absolute_error_t": 101.183731
+      },
+      {
+        "dataset": "260730",
+        "n": 128,
+        "mae_t": 25.332094,
+        "p95_absolute_error_t": 65.809173
+      },
+      {
+        "dataset": "260731",
+        "n": 152,
+        "mae_t": 26.861097,
+        "p95_absolute_error_t": 64.341932
+      },
+      {
+        "dataset": "260801",
+        "n": 160,
+        "mae_t": 35.958441,
+        "p95_absolute_error_t": 75.595349
+      },
+      {
+        "dataset": "260802",
+        "n": 98,
+        "mae_t": 29.146758,
+        "p95_absolute_error_t": 61.51296
+      },
+      {
+        "dataset": "260803",
+        "n": 162,
+        "mae_t": 49.402808,
+        "p95_absolute_error_t": 115.655587
+      },
+      {
+        "dataset": "260804",
+        "n": 142,
+        "mae_t": 54.438559,
+        "p95_absolute_error_t": 138.573072
+      },
+      {
+        "dataset": "260805",
+        "n": 104,
+        "mae_t": 49.621085,
+        "p95_absolute_error_t": 96.184973
+      }
+    ]
+  },
+  "comparison_to_v067": {
+    "baseline_mae_t": 42.688617,
+    "baseline_p95_t": 115.115588,
+    "mae_change_percent": -4.8435,
+    "p95_change_percent": 0.2285
+  },
+  "comparison_to_displayed_v061": {
+    "warning": "all-date frozen-model replay is partly in-sample; 260805 is the comparable untouched holdout",
+    "frozen_v061_all_dates": {
+      "n": 2254,
+      "mae_t": 37.547545,
+      "p95_absolute_error_t": 99.050861,
+      "mape_percent": 15.091408,
+      "bias_t": 4.994084,
+      "by_stand": {
+        "f1": {
+          "n": 1127,
+          "mae_t": 40.280097,
+          "p95_absolute_error_t": 104.047239,
+          "mape_percent": 16.062177,
+          "bias_t": 3.362591
+        },
+        "f2": {
+          "n": 1127,
+          "mae_t": 34.814994,
+          "p95_absolute_error_t": 93.262127,
+          "mape_percent": 14.120639,
+          "bias_t": 6.625577
+        }
+      }
+    },
+    "frozen_v061_holdout_260805": {
+      "n": 104,
+      "mae_t": 42.690897,
+      "p95_absolute_error_t": 89.437913,
+      "mape_percent": 12.924345,
+      "bias_t": -3.199445,
+      "by_stand": {
+        "f1": {
+          "n": 52,
+          "mae_t": 45.114367,
+          "p95_absolute_error_t": 94.177402,
+          "mape_percent": 13.148756,
+          "bias_t": -13.397247
+        },
+        "f2": {
+          "n": 52,
+          "mae_t": 40.267427,
+          "p95_absolute_error_t": 82.354052,
+          "mape_percent": 12.699933,
+          "bias_t": 6.998357
+        }
+      }
+    },
+    "physical_v070_holdout_260805": {
+      "dataset": "260805",
+      "n": 104,
+      "mae_t": 49.621085,
+      "p95_absolute_error_t": 96.184973
+    },
+    "holdout_mae_change_percent": 16.2334
+  },
+  "deployment_policy": {
+    "displayed_force": "retain frozen v0.6.1 DAT recommendation with bounded material correction because it wins the untouched 260805 holdout",
+    "hard_force_gate": "max(physical_median+physical_LODO_P95_error, physical_P95_flow_stress, DAT_reference+DAT_P95_error)<=1000T",
+    "route_ranking": "within equal finishing quality and pass count, prefer lower physical force utilization and smoother force curve",
+    "material_policy": "Swift relative correction is bounded until labelled alloy/temper validation"
+  },
+  "sources": [
+    {
+      "title": "Bland and Ford, The Calculation of Roll Force and Torque in Cold Strip Rolling with Tensions",
+      "url": "https://doi.org/10.1243/PIME_PROC_1948_159_015_02"
+    },
+    {
+      "title": "On-line model for strip profile in cold rolling, Appendix II",
+      "url": "https://www.jstage.jst.go.jp/article/isijinternational/60/2/60_ISIJINT-2019-233/_html/-char/en"
+    },
+    {
+      "title": "Swift, Plastic instability under plane stress",
+      "url": "https://doi.org/10.1016/0022-5096(52)90002-1"
+    },
+    {
+      "title": "Properties of Wrought Aluminum and Aluminum Alloys",
+      "url": "https://materialsdata.nist.gov/bitstream/handle/11115/179/Properties%20of%20Wrought%20Aluminum.pdf"
+    },
+    {
+      "title": "Inverse flow-stress identification from actual cold rolling mill data",
+      "url": "https://doi.org/10.1016/j.jmatprotec.2007.11.188"
+    },
+    {
+      "title": "Experimental Study of Roll Flattening in Cold Rolling Process",
+      "url": "https://www.jstage.jst.go.jp/article/isijinternational/58/4/58_ISIJINT-2017-623/_html/-char/en"
+    },
+    {
+      "title": "The Aluminum Association standards and temper-designation system",
+      "url": "https://www.aluminum.org/standards"
+    }
+  ],
+  "limitations": [
+    "current Golden DAT has no validated alloy, temper, or cross-pass coil linkage",
+    "material hardening parameters are literature-bounded priors, not plant-identified constitutive curves",
+    "mu=0.08 cannot be independently verified without forward-slip or equivalent interface measurements",
+    "historical physical validation uses measured high-speed tensions; product use adds the separate tension-recommendation error"
+  ]
+}

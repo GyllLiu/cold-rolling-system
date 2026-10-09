@@ -1,0 +1,17 @@
+{
+  "version": "tandem-data-scope-v0.7.2",
+  "rule": "exclude measured F1=0/F2>0, inactive or unknown stands, and explicit intermediate annealing",
+  "raw_data_modified": false,
+  "golden_source_rows": 1127,
+  "tandem_history_records": 1127,
+  "golden_exclusions": {},
+  "production_segment_exclusions": {
+    "stand_activity_unknown": 320
+  },
+  "eligible_dat_cases_before": 761,
+  "retained_dat_training_cases": 761,
+  "balanced_training_cases": 620,
+  "removed_training_ids": [],
+  "model_refit_required": false,
+  "limitation": "audit covers existing derived windows/segments; no claim that raw DAT contains no single-stand intervals"
+}

@@ -1,0 +1,489 @@
+{
+  "schema_version": "cold-rolling-process-framework-rules-v1",
+  "framework_version": "process-framework-v0.1-draft",
+  "status": "draft_requires_process_owner_approval",
+  "purpose": "Use standards, equipment limits and approved plant practice to decide which DAT segments may become parameter-model labels. DAT observations are evidence, not ground truth.",
+  "principles": {
+    "dat_is_not_ground_truth": true,
+    "rules_precede_model_training": true,
+    "production_auto_apply": false,
+    "rolling_force_is_monitoring_not_operator_setpoint": true,
+    "gap_recommendation_uses_high_speed_stable_segments_only": true,
+    "flatness_is_runtime_feedback_until_units_orientation_and_delay_are_confirmed": true,
+    "out_of_scope_prediction_must_be_rejected": true
+  },
+  "authority_hierarchy": [
+    {
+      "level": "L0",
+      "name": "mandatory_safety",
+      "conflict_policy": "always_wins"
+    },
+    {
+      "level": "L1",
+      "name": "product_material_temper_and_heat_treatment_standards",
+      "conflict_policy": "wins_over_equipment_practice_and_data"
+    },
+    {
+      "level": "L2",
+      "name": "approved_mill_and_furnace_capability",
+      "conflict_policy": "wins_over_local_heuristics_and_data"
+    },
+    {
+      "level": "L3",
+      "name": "process_owner_approved_plant_rules",
+      "conflict_policy": "wins_over_statistical_patterns"
+    },
+    {
+      "level": "L4",
+      "name": "dat_empirical_evidence",
+      "conflict_policy": "may_only_refine_within_L0_to_L3_envelope"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "GB-30079.3-2013",
+      "authority_level": "L0",
+      "title": "铝及铝合金板、带、箔安全生产规范 第3部分：冷轧",
+      "status_on_2026-08-19": "current_until_2026-08-31",
+      "url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=71F772D7E93CD3A7E05397BE0A0AB82A"
+    },
+    {
+      "source_id": "GB-30079-2026",
+      "authority_level": "L0",
+      "title": "铝及铝合金板、带、箔生产安全规范",
+      "status_on_2026-08-19": "effective_2026-09-01",
+      "url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=4C3F6F0A5DCE51C9E06397BE0A0AE746"
+    },
+    {
+      "source_id": "GBT-3880.1-2023",
+      "authority_level": "L1",
+      "title": "一般工业用铝及铝合金板、带材 第1部分：一般要求",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=D5F7CC1CCE9C8CAB1B1F7CAEEFB1F6D7"
+    },
+    {
+      "source_id": "GBT-3880.2-2024",
+      "authority_level": "L1",
+      "title": "一般工业用铝及铝合金板、带材 第2部分：力学性能",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=C8F4FC40AD8234BD4A230560E9780142"
+    },
+    {
+      "source_id": "GBT-3880.3-2024",
+      "authority_level": "L1",
+      "title": "一般工业用铝及铝合金板、带材 第3部分：尺寸偏差",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=687D8B9988E356FA14ACA1405C809236"
+    },
+    {
+      "source_id": "GBT-16475-2023",
+      "authority_level": "L1",
+      "title": "变形铝及铝合金产品状态代号",
+      "url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=027A6096AF95643EE06397BE0A0A0867"
+    },
+    {
+      "source_id": "YST-591-2025",
+      "authority_level": "L1",
+      "title": "变形铝及铝合金热处理",
+      "url": "https://std.samr.gov.cn/hb/search/stdHBDetailed?id=3A1D7F9CDB2ECF67E06397BE0A0AE45F"
+    },
+    {
+      "source_id": "ANSI-H35-AA",
+      "authority_level": "L1",
+      "title": "The Aluminum Association alloy, temper and dimensional standards",
+      "url": "https://www.aluminum.org/standards"
+    },
+    {
+      "source_id": "AA-ASD-2024",
+      "authority_level": "L1",
+      "title": "Aluminum Standards and Data 2024",
+      "url": "https://www.aluminum.org/aluminum-standards-data-2024"
+    },
+    {
+      "source_id": "DIRECTOR-DESIGN-2026-08-19",
+      "authority_level": "L3",
+      "title": "二连轧智能工艺系统·设计思路报告",
+      "status": "plant_rule_proposal_not_yet_approved_as_machine_limit"
+    },
+    {
+      "source_id": "MILL-VENDOR-REPLY-2026-08-23",
+      "authority_level": "L3",
+      "title": "冷轧工艺咨询回复",
+      "status": "direction_audited_exact_pass_bands_pending_linked_multi_pass_data"
+    },
+    {
+      "source_id": "DAT-HIGH-SPEED-CURRENT",
+      "authority_level": "L4",
+      "title": "555 valid high-speed stable segment candidates from currently imported DAT datasets",
+      "status": "observational_evidence_requires_governance"
+    }
+  ],
+  "unit_definitions": {
+    "thickness": "mm",
+    "width": "mm",
+    "total_tension_hmi": "T (metric tonne-force as displayed by HMI)",
+    "unit_tension": "kN/mm²",
+    "unit_tension_formula": "q_kN_per_mm2 = 9.80665 * total_tension_T / (width_mm * local_thickness_mm)",
+    "rolling_force": "T per HMI/DAT channel naming",
+    "flatness": "native DAT value; engineering unit not yet confirmed"
+  },
+  "data_grade_policy": {
+    "A": "gold candidate: technically complete, stable, structurally valid and within all currently enforceable gates; process-owner approval is still required before training",
+    "B": "review candidate: usable observation with one or more soft-rule warnings, incomplete flatness evidence or provisional-quality warning",
+    "C": "process anomaly: raw data remains useful for risk or rejection modelling but must not be a parameter target",
+    "D": "corrupt or incomplete record: exclude from parameter and risk modelling",
+    "require_human_gold_approval": true,
+    "model_training_grades_after_approval": [
+      "A"
+    ],
+    "risk_training_grades": [
+      "C"
+    ]
+  },
+  "audit_thresholds": {
+    "minimum_high_speed_samples": {
+      "value": 120,
+      "unit": "samples_at_1Hz",
+      "authority_level": "L3",
+      "status": "provisional_data_quality_gate"
+    },
+    "gold_exit_error_abs_p95_ratio": {
+      "value": 0.01,
+      "unit": "fraction_of_target_exit_thickness",
+      "authority_level": "L3",
+      "status": "provisional_until_product_tolerance_table_is_linked"
+    },
+    "maximum_exit_error_abs_p95_ratio_for_parameter_target": {
+      "value": 0.015,
+      "unit": "fraction_of_target_exit_thickness",
+      "authority_level": "L3",
+      "status": "provisional_until_product_tolerance_table_is_linked"
+    },
+    "entry_actual_deviation_review_ratio": {
+      "value": 0.05,
+      "unit": "fraction_of_entry_set_thickness",
+      "authority_level": "L3",
+      "status": "provisional_sensor_and_route_consistency_gate"
+    },
+    "entry_actual_deviation_anomaly_ratio": {
+      "value": 0.1,
+      "unit": "fraction_of_entry_set_thickness",
+      "authority_level": "L3",
+      "status": "provisional_sensor_and_route_consistency_gate"
+    },
+    "f1_true_strain_share_review_low": {
+      "value": 0.49,
+      "authority_level": "L4",
+      "status": "observed_soft_prior"
+    },
+    "f1_true_strain_share_review_high": {
+      "value": 0.56,
+      "authority_level": "L4",
+      "status": "observed_soft_prior"
+    },
+    "unit_tension_conversion_review_ratio": {
+      "value": 0.05,
+      "unit": "maximum_relative_difference_across_three_sections",
+      "authority_level": "L3_L4",
+      "status": "provisional_channel_consistency_gate"
+    },
+    "unit_tension_conversion_anomaly_ratio": {
+      "value": 0.1,
+      "unit": "maximum_relative_difference_across_three_sections",
+      "authority_level": "L3_L4",
+      "status": "provisional_channel_consistency_gate"
+    },
+    "tension_actual_set_tracking_review_ratio": {
+      "value": 0.03,
+      "unit": "maximum_relative_difference_across_three_sections",
+      "authority_level": "L3_L4",
+      "status": "provisional_high_speed_control_tracking_gate"
+    },
+    "tension_actual_set_tracking_anomaly_ratio": {
+      "value": 0.05,
+      "unit": "maximum_relative_difference_across_three_sections",
+      "authority_level": "L3_L4",
+      "status": "provisional_high_speed_control_tracking_gate"
+    }
+  },
+  "empirical_evidence": {
+    "f1_true_strain_share": {
+      "sample_count": 345,
+      "median": 0.5227897406,
+      "p10": 0.4988798023,
+      "p90": 0.5544664411,
+      "interpretation": "plant soft prior, not universal hard constraint"
+    },
+    "f1_relative_reduction_greater_than_f2": {
+      "sample_count": 345,
+      "support_fraction": 0.8869565217
+    },
+    "total_tension_coiler_gt_interstand_gt_uncoiler": {
+      "sample_count": 345,
+      "support_fraction": 0.0260869565,
+      "interpretation": "must not be used as a rule on total HMI tension"
+    },
+    "unit_tension_coiler_gt_interstand_gt_uncoiler": {
+      "sample_count": 345,
+      "support_fraction": 0.9536231884,
+      "interpretation": "soft warning rule only until process owner approves exceptions"
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "SAFE-ADVISORY-001",
+      "title": "No automatic machine application",
+      "category": "safety",
+      "authority_level": "L0",
+      "source_ids": [
+        "GB-30079.3-2013",
+        "GB-30079-2026"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "failure_disposition": "block_production_release"
+    },
+    {
+      "rule_id": "DATA-STABLE-001",
+      "title": "Only stable high-speed plateau may be a parameter target",
+      "category": "data_governance",
+      "authority_level": "L3",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "failure_disposition": "grade_C"
+    },
+    {
+      "rule_id": "GEOMETRY-ORDER-001",
+      "title": "Thickness must reduce through both stands",
+      "category": "geometry",
+      "authority_level": "L3",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "formula": "entry_thickness > intermediate_thickness > exit_thickness > 0",
+      "failure_disposition": "grade_C"
+    },
+    {
+      "rule_id": "REDUCTION-F1-SHARE-001",
+      "title": "F1 normally carries slightly more true strain than F2",
+      "category": "pass_schedule",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "soft",
+      "status": "warning",
+      "formula": "alpha_F1 = ln(h0/h1) / ln(h0/h2)",
+      "failure_disposition": "grade_B_review"
+    },
+    {
+      "rule_id": "PASS-TANDEM-DEFINITION-001",
+      "title": "One pass means one complete traversal through F1 and F2",
+      "category": "pass_schedule",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "MILL-VENDOR-REPLY-2026-08-23",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard_definition",
+      "status": "enforced",
+      "formula": "one tandem pass = F1 followed by F2; another pass requires coiling and reloading without reversing strip direction",
+      "failure_disposition": "reject_route_definition"
+    },
+    {
+      "rule_id": "REDUCTION-STAND-GUIDANCE-001",
+      "title": "The vendor opening-to-finishing pass schedule is route-level guidance",
+      "category": "pass_schedule",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "MILL-VENDOR-REPLY-2026-08-23",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "soft_route_guidance",
+      "status": "direction_enforced_exact_bands_pending_linked_multi_pass_data",
+      "evidence": "The current 555 high-speed segments do not carry a reliable coil/pass ordinal, so they cannot identify opening, middle or finishing passes and cannot validate or refute the vendor's 40%-55% opening and 20%-35% finishing bands.",
+      "failure_disposition": "enforce_front_heavy_back_light_direction_and_flag_exact_band_for_process_review"
+    },
+    {
+      "rule_id": "REDUCTION-F1-GREATER-001",
+      "title": "F1 performs the main deformation and F2 trims the remaining reduction",
+      "category": "pass_schedule",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "MILL-VENDOR-REPLY-2026-08-23",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "soft",
+      "status": "supported",
+      "evidence": "F1 reduction exceeds F2 in 90.81% of 555 accepted high-speed segments; the proposed 5-15 percentage-point gap occurs in only 23.06% and is not a hard rule",
+      "failure_disposition": "grade_B_review"
+    },
+    {
+      "rule_id": "TENSION-UNIT-001",
+      "title": "Tension hierarchy must be evaluated on unit tension, not total HMI tonnes",
+      "category": "tension",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "MILL-VENDOR-REPLY-2026-08-23",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard_definition_soft_order",
+      "status": "warning",
+      "formula": "q = 9.80665*T/(b*h); expected q_coiler > q_interstand > q_uncoiler",
+      "failure_disposition": "grade_B_review"
+    },
+    {
+      "rule_id": "ANNEAL-3003-REVIEW-001",
+      "title": "3003 cumulative reduction at approximately 70% triggers process review, not automatic annealing",
+      "category": "material_state",
+      "authority_level": "L3",
+      "source_ids": [
+        "MILL-VENDOR-REPLY-2026-08-23"
+      ],
+      "kind": "review_gate",
+      "status": "provisional_until_plant_recipe_approval",
+      "formula": "cumulative_reduction = 1 - current_thickness / thickness_after_last_approved_full_anneal",
+      "failure_disposition": "show_intermediate_anneal_review_checkpoint"
+    },
+    {
+      "rule_id": "TENSION-CHANNEL-CONSISTENCY-001",
+      "title": "DAT direct unit-tension channels must agree with section-normalized total tension within a reviewed tolerance",
+      "category": "tension",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "data_quality_and_process_consistency",
+      "status": "warning_then_anomaly",
+      "formula": "compare DAT unit tension with 9.80665*T_set/(width*local_set_thickness); deviations may include actual/set thickness effects and require review",
+      "failure_disposition": "grade_B_or_C"
+    },
+    {
+      "rule_id": "TENSION-TRACKING-001",
+      "title": "Actual tension must track set tension during the selected high-speed plateau",
+      "category": "tension_control",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "data_quality_and_process_consistency",
+      "status": "warning_then_anomaly",
+      "failure_disposition": "grade_B_or_C"
+    },
+    {
+      "rule_id": "SAFETY-STATE-001",
+      "title": "A strip-break or drive-fault state cannot become a parameter target",
+      "category": "safety_and_data_governance",
+      "authority_level": "L0_L3",
+      "source_ids": [
+        "GB-30079.3-2013",
+        "GB-30079-2026",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard",
+      "status": "enforced_for_confirmed_signal_semantics",
+      "failure_disposition": "grade_C"
+    },
+    {
+      "rule_id": "ANNEAL-STATE-001",
+      "title": "Annealing is an explicit material-state transition",
+      "category": "material_state",
+      "authority_level": "L1_L3",
+      "source_ids": [
+        "GBT-16475-2023",
+        "YST-591-2025",
+        "ANSI-H35-AA",
+        "DIRECTOR-DESIGN-2026-08-19"
+      ],
+      "kind": "hard",
+      "status": "enforced_for_route_planning",
+      "formula": "full anneal may reset cumulative cold-work state only under an approved material route; partial anneal must not be treated as a full reset",
+      "failure_disposition": "route_requires_engineering_review"
+    },
+    {
+      "rule_id": "FORCE-MONITOR-001",
+      "title": "Rolling force is predicted for load checking, not entered as an operator setpoint",
+      "category": "human_machine_boundary",
+      "authority_level": "L3",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "failure_disposition": "block_ui_action"
+    },
+    {
+      "rule_id": "GAP-RECOMMENDATION-001",
+      "title": "Gap recommendation is trained only from high-speed stable segments and presented as one operator-confirmed value",
+      "category": "human_machine_boundary",
+      "authority_level": "L3",
+      "source_ids": [
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "failure_disposition": "block_ui_release"
+    },
+    {
+      "rule_id": "FLATNESS-RUNTIME-001",
+      "title": "Flatness remains runtime monitoring until unit, orientation and delay are confirmed",
+      "category": "flatness",
+      "authority_level": "L3_L4",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19",
+        "DAT-HIGH-SPEED-CURRENT"
+      ],
+      "kind": "hard",
+      "status": "enforced",
+      "failure_disposition": "no_adjustment_direction"
+    },
+    {
+      "rule_id": "QUALITY-TOLERANCE-001",
+      "title": "Product-specific thickness tolerance must come from the applicable product/customer table",
+      "category": "product_quality",
+      "authority_level": "L1",
+      "source_ids": [
+        "GBT-3880.1-2023",
+        "GBT-3880.2-2024",
+        "GBT-3880.3-2024",
+        "AA-ASD-2024"
+      ],
+      "kind": "pending_numeric_table",
+      "status": "pending_confirmation",
+      "failure_disposition": "provisional_gate_only"
+    },
+    {
+      "rule_id": "EQUIPMENT-LIMITS-001",
+      "title": "Force, torque, power, speed, tension, gap, roll diameter and furnace limits are plant-specific",
+      "category": "equipment",
+      "authority_level": "L2",
+      "source_ids": [
+        "DIRECTOR-DESIGN-2026-08-19"
+      ],
+      "kind": "pending_plant_limits",
+      "status": "pending_confirmation",
+      "failure_disposition": "shadow_mode_only"
+    }
+  ],
+  "pending_engineering_inputs": [
+    "approved product/customer thickness tolerance tables",
+    "alloy and temper catalogue used by this plant",
+    "full and partial annealing route definitions by alloy/temper",
+    "maximum cumulative true strain before anneal by material state",
+    "per-stand and tandem-pass reduction limits",
+    "F1/F2 operation-side and drive-side rolling-force limits",
+    "motor current, torque and power limits",
+    "unit-tension lower and upper limits by local thickness and material state",
+    "operator adoption, adjustment count and final stable thickness feedback for high-speed-DAT gap recommendations",
+    "flatness engineering unit, operation/drive orientation and transport delay"
+    ,
+    "PLC variable-table confirmation for emergency-stop signal polarity and fault-code semantics"
+  ]
+}

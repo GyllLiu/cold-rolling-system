@@ -1,0 +1,167 @@
+{
+  "schema_version": "cold-rolling-material-state-v0.6.1",
+  "model_version": "literature-bounded-material-state-v0.6.1",
+  "generated_at": "2026-08-21T09:01:04.858009+00:00",
+  "status": "provisional_physics_correction_requires_labelled_plant_validation",
+  "reference": {
+    "alloy": "1100",
+    "incoming_state": "annealed",
+    "reason": "central commercially-pure grade used only to anchor relative force sensitivity"
+  },
+  "incoming_state": {
+    "annealed_initial_true_strain": 0.0,
+    "unannealed_initial_true_strain": 0.693147,
+    "unannealed_assumption": "H14-equivalent fallback; binary hard state cannot distinguish the specific H temper",
+    "initial_true_strain_by_temper": {
+      "annealed": 0.0,
+      "h14": 0.693147,
+      "h16": 1.098612,
+      "h18": 1.386294,
+      "h22": 0.287682,
+      "h24": 0.693147,
+      "h26": 1.098612
+    },
+    "temper_mapping_status": "H22/H24/H26 use H12/H14/H16 strength-level proxy only; engineering approximation pending alloy-temper-product data",
+    "unknown_policy": "no material correction"
+  },
+  "force_correction": {
+    "formula": "clip(mean_yield(alloy,state,strain_interval) / mean_yield(1100-O,route_strain_interval), 0.85, 1.15)",
+    "minimum_multiplier": 0.85,
+    "maximum_multiplier": 1.15,
+    "scope": "F1/F2 predicted total force and derived side forces; no direct gap or tension scaling",
+    "reason_for_bound": "DAT has no temper labels; keep the literature sensitivity inside the current force model's observed error scale"
+  },
+  "alloys": {
+    "1060": {
+      "yield_strength_curve_mpa": [
+        [
+          0.0,
+          30.0
+        ],
+        [
+          0.287682,
+          75.0
+        ],
+        [
+          0.693147,
+          90.0
+        ],
+        [
+          1.098612,
+          105.0
+        ],
+        [
+          1.386294,
+          125.0
+        ]
+      ],
+      "temper_knots": [
+        "O",
+        "H12",
+        "H14",
+        "H16",
+        "H18"
+      ]
+    },
+    "1100": {
+      "yield_strength_curve_mpa": [
+        [
+          0.0,
+          35.0
+        ],
+        [
+          0.287682,
+          105.0
+        ],
+        [
+          0.693147,
+          115.0
+        ],
+        [
+          1.098612,
+          140.0
+        ],
+        [
+          1.386294,
+          150.0
+        ]
+      ],
+      "temper_knots": [
+        "O",
+        "H12",
+        "H14",
+        "H16",
+        "H18"
+      ]
+    },
+    "3003": {
+      "yield_strength_curve_mpa": [
+        [
+          0.0,
+          40.0
+        ],
+        [
+          0.287682,
+          125.0
+        ],
+        [
+          0.693147,
+          145.0
+        ],
+        [
+          1.098612,
+          170.0
+        ],
+        [
+          1.386294,
+          185.0
+        ]
+      ],
+      "temper_knots": [
+        "O",
+        "H12",
+        "H14",
+        "H16",
+        "H18"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "title": "Properties of Wrought Aluminum and Aluminum Alloys",
+      "url": "https://materialsdata.nist.gov/bitstream/handle/11115/179/Properties%20of%20Wrought%20Aluminum.pdf",
+      "use": "typical O/H12/H14/H16/H18 yield strengths for 1060, 1100 and 3003"
+    },
+    {
+      "title": "Introduction to Aluminum Alloys and Tempers",
+      "url": "https://materialsdata.nist.gov/bitstream/handle/11115/186/Understanding%20Temper%20Designation.pdf",
+      "use": "temper meaning and typical mechanical-property cross-check"
+    },
+    {
+      "title": "GB/T 16475-2023",
+      "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F2A7A140EEAE49982CD4CD6F71CDC91C",
+      "use": "Chinese wrought-aluminium temper designation system"
+    },
+    {
+      "title": "ANSI H35.1/H35.1M 2024",
+      "url": "https://www.aluminum.org/ansi-h351h351m",
+      "use": "alloy and temper designation system; state code is not a universal rolling-force equation"
+    },
+    {
+      "title": "Hydro aluminium temper designation chart",
+      "url": "https://www.hydro.com/contentassets/14e9b5069c2e471186197a3d5de01033/langenuen-suspension-bridge-aluminium-girder-alternative.pdf",
+      "use": "H2 means strain hardened and partially annealed; final digit 2/4/6 denotes quarter/half/three-quarter hard level"
+    },
+    {
+      "title": "Physics-constrained cold-rolling force model",
+      "url": "https://link.springer.com/article/10.1007/s10845-025-02729-8",
+      "use": "rolling force depends on mean material flow stress across the pass"
+    }
+  ],
+  "limitations": [
+    "No validated alloy or incoming-temper labels exist in the current DAT foundation.",
+    "The correction is a bounded engineering prior, not a learned causal effect.",
+    "H22/H24/H26 share nominal strength levels with H12/H14/H16 but have different process histories; the proxy must not be treated as equivalence of process route or guaranteed properties.",
+    "Gap correction requires mill modulus/zero convention; tension correction requires an approved stress policy."
+  ]
+}

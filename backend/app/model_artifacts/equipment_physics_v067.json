@@ -1,0 +1,288 @@
+{
+  "schema_version": "cold-tandem-equipment-physics-v0.6.7",
+  "generated_at": "2026-08-30T13:49:37.554503+00:00",
+  "equipment": {
+    "work_roll_diameter_mm": 380.0,
+    "work_roll_radius_mm": 190.0,
+    "support_roll_diameter_mm": 1000.0,
+    "roll_body_length_mm": 1750.0,
+    "maximum_total_rolling_force_t_per_stand": 1000.0,
+    "normal_speed_range_m_per_min": [
+      400.0,
+      1000.0
+    ],
+    "roll_young_modulus_mpa": 210000.0,
+    "roll_poisson_ratio": 0.3
+  },
+  "normal_lubrication": {
+    "friction_coefficient": 0.08,
+    "source": "workshop director supplied nominal coefficient; held fixed while Golden data invert effective flow stress",
+    "identifiability_warning": "unlabelled DAT cannot separately identify friction and material flow stress; μ=0.08 is an engineering assumption, not a fitted truth",
+    "eligible_golden_plateaus": 1127,
+    "stand_samples": 2254
+  },
+  "model": {
+    "family": "Bland-Ford-Hill-inspired mean-pressure model with iterative Hitchcock roll flattening",
+    "contact_length": "sqrt(R_flattened * delta_h)",
+    "friction_factor": "(exp(mu*contact_length/mean_thickness)-1)/(mu*contact_length/mean_thickness)",
+    "force": "width * contact_length * max(1, 1.15*effective_flow_stress-mean_tension_stress) * friction_factor",
+    "bands": {
+      "f1": [
+        {
+          "entry_thickness_low_mm": 0.0,
+          "entry_thickness_high_mm": 0.75,
+          "count": 39,
+          "effective_flow_stress_p05_mpa": 118.160813,
+          "effective_flow_stress_median_mpa": 165.930883,
+          "effective_flow_stress_p95_mpa": 212.219623
+        },
+        {
+          "entry_thickness_low_mm": 0.75,
+          "entry_thickness_high_mm": 1.25,
+          "count": 92,
+          "effective_flow_stress_p05_mpa": 120.157155,
+          "effective_flow_stress_median_mpa": 168.827878,
+          "effective_flow_stress_p95_mpa": 185.33679
+        },
+        {
+          "entry_thickness_low_mm": 1.25,
+          "entry_thickness_high_mm": 2.0,
+          "count": 171,
+          "effective_flow_stress_p05_mpa": 82.584947,
+          "effective_flow_stress_median_mpa": 149.120722,
+          "effective_flow_stress_p95_mpa": 183.644644
+        },
+        {
+          "entry_thickness_low_mm": 2.0,
+          "entry_thickness_high_mm": 3.0,
+          "count": 291,
+          "effective_flow_stress_p05_mpa": 122.594533,
+          "effective_flow_stress_median_mpa": 144.162434,
+          "effective_flow_stress_p95_mpa": 173.801566
+        },
+        {
+          "entry_thickness_low_mm": 3.0,
+          "entry_thickness_high_mm": 4.5,
+          "count": 69,
+          "effective_flow_stress_p05_mpa": 96.698044,
+          "effective_flow_stress_median_mpa": 137.322412,
+          "effective_flow_stress_p95_mpa": 169.765007
+        },
+        {
+          "entry_thickness_low_mm": 4.5,
+          "entry_thickness_high_mm": 8.0,
+          "count": 465,
+          "effective_flow_stress_p05_mpa": 92.51973,
+          "effective_flow_stress_median_mpa": 112.88695,
+          "effective_flow_stress_p95_mpa": 139.908841
+        }
+      ],
+      "f2": [
+        {
+          "entry_thickness_low_mm": 0.0,
+          "entry_thickness_high_mm": 0.75,
+          "count": 105,
+          "effective_flow_stress_p05_mpa": 127.941984,
+          "effective_flow_stress_median_mpa": 190.039309,
+          "effective_flow_stress_p95_mpa": 217.431252
+        },
+        {
+          "entry_thickness_low_mm": 0.75,
+          "entry_thickness_high_mm": 1.25,
+          "count": 182,
+          "effective_flow_stress_p05_mpa": 108.320728,
+          "effective_flow_stress_median_mpa": 176.757599,
+          "effective_flow_stress_p95_mpa": 198.234059
+        },
+        {
+          "entry_thickness_low_mm": 1.25,
+          "entry_thickness_high_mm": 2.0,
+          "count": 270,
+          "effective_flow_stress_p05_mpa": 148.349198,
+          "effective_flow_stress_median_mpa": 171.780073,
+          "effective_flow_stress_p95_mpa": 202.952187
+        },
+        {
+          "entry_thickness_low_mm": 2.0,
+          "entry_thickness_high_mm": 3.0,
+          "count": 111,
+          "effective_flow_stress_p05_mpa": 152.502139,
+          "effective_flow_stress_median_mpa": 173.735001,
+          "effective_flow_stress_p95_mpa": 206.435851
+        },
+        {
+          "entry_thickness_low_mm": 3.0,
+          "entry_thickness_high_mm": 4.5,
+          "count": 422,
+          "effective_flow_stress_p05_mpa": 129.041328,
+          "effective_flow_stress_median_mpa": 152.088424,
+          "effective_flow_stress_p95_mpa": 188.80536
+        },
+        {
+          "entry_thickness_low_mm": 4.5,
+          "entry_thickness_high_mm": 8.0,
+          "count": 37,
+          "effective_flow_stress_p05_mpa": 136.944908,
+          "effective_flow_stress_median_mpa": 151.201028,
+          "effective_flow_stress_p95_mpa": 194.456974
+        }
+      ]
+    }
+  },
+  "observed": {
+    "f1": {
+      "count": 1127,
+      "contact_length_median_mm": 13.351132,
+      "flattened_radius_median_mm": 200.601064,
+      "friction_factor_median": 1.251092
+    },
+    "f2": {
+      "count": 1127,
+      "contact_length_median_mm": 10.690411,
+      "flattened_radius_median_mm": 206.604488,
+      "friction_factor_median": 1.310177
+    }
+  },
+  "validation": {
+    "method": "leave-one-production-date-out",
+    "n": 2254,
+    "mae_t": 42.688617,
+    "p95_absolute_error_t": 115.115587,
+    "bias_t": -0.871813,
+    "by_date": [
+      {
+        "dataset": "260703",
+        "n": 52,
+        "mae_t": 61.954123,
+        "p95_absolute_error_t": 127.489727
+      },
+      {
+        "dataset": "260712",
+        "n": 106,
+        "mae_t": 30.356438,
+        "p95_absolute_error_t": 111.80502
+      },
+      {
+        "dataset": "260713",
+        "n": 82,
+        "mae_t": 56.803481,
+        "p95_absolute_error_t": 178.822017
+      },
+      {
+        "dataset": "260714",
+        "n": 90,
+        "mae_t": 28.402353,
+        "p95_absolute_error_t": 88.137187
+      },
+      {
+        "dataset": "260716",
+        "n": 182,
+        "mae_t": 36.941113,
+        "p95_absolute_error_t": 81.425523
+      },
+      {
+        "dataset": "260717",
+        "n": 122,
+        "mae_t": 35.35185,
+        "p95_absolute_error_t": 109.963285
+      },
+      {
+        "dataset": "260718",
+        "n": 160,
+        "mae_t": 33.224553,
+        "p95_absolute_error_t": 102.210161
+      },
+      {
+        "dataset": "260719",
+        "n": 180,
+        "mae_t": 45.246999,
+        "p95_absolute_error_t": 141.85114
+      },
+      {
+        "dataset": "260724",
+        "n": 6,
+        "mae_t": 31.309213,
+        "p95_absolute_error_t": 40.289073
+      },
+      {
+        "dataset": "260725",
+        "n": 22,
+        "mae_t": 31.831634,
+        "p95_absolute_error_t": 94.173213
+      },
+      {
+        "dataset": "260726",
+        "n": 66,
+        "mae_t": 39.924812,
+        "p95_absolute_error_t": 80.129746
+      },
+      {
+        "dataset": "260728",
+        "n": 154,
+        "mae_t": 72.360474,
+        "p95_absolute_error_t": 158.948055
+      },
+      {
+        "dataset": "260729",
+        "n": 86,
+        "mae_t": 61.954205,
+        "p95_absolute_error_t": 107.643815
+      },
+      {
+        "dataset": "260730",
+        "n": 128,
+        "mae_t": 27.068211,
+        "p95_absolute_error_t": 78.59581
+      },
+      {
+        "dataset": "260731",
+        "n": 152,
+        "mae_t": 31.21702,
+        "p95_absolute_error_t": 60.750272
+      },
+      {
+        "dataset": "260801",
+        "n": 160,
+        "mae_t": 38.083439,
+        "p95_absolute_error_t": 78.685853
+      },
+      {
+        "dataset": "260802",
+        "n": 98,
+        "mae_t": 30.939962,
+        "p95_absolute_error_t": 76.703096
+      },
+      {
+        "dataset": "260803",
+        "n": 162,
+        "mae_t": 50.846153,
+        "p95_absolute_error_t": 112.423243
+      },
+      {
+        "dataset": "260804",
+        "n": 142,
+        "mae_t": 53.960629,
+        "p95_absolute_error_t": 133.642404
+      },
+      {
+        "dataset": "260805",
+        "n": 104,
+        "mae_t": 46.544398,
+        "p95_absolute_error_t": 93.583227
+      }
+    ],
+    "use": "equipment feasibility and route ranking only; does not replace the displayed DAT force model"
+  },
+  "planning_policy": {
+    "hard_force_gate": "max(DAT prediction + DAT P95 error, physics P95 estimate) <= 1000 T",
+    "ranking": "within the same quality band and pass count, prefer lower maximum force utilisation and smoother force/reduction curve",
+    "bite_condition": "reported for threading review only; not used as a hard high-speed reduction limit because the tandem strip is already threaded and tensioned",
+    "support_roll_use": "equipment traceability and future roll-deflection model; not inserted into the plane-strain bite-force equation",
+    "speed_use": "defines the nominal lubrication regime; motor power/torque cannot be constrained until their limits are supplied"
+  },
+  "sources": [
+    "https://doi.org/10.1155/2022/9167017",
+    "https://doi.org/10.1002/srin.200005714",
+    "https://doi.org/10.1016/0924-0136(92)90346-T"
+  ]
+}

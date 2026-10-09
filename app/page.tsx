@@ -1,292 +1,378 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { api } from "./lib/api";
-import type { Recommendation, RecommendationParameter } from "./lib/types";
-import { ConfidenceGauge, Field, PageHeader, StatusPill } from "./ui/components";
+import { FormEvent, useEffect, useState } from "react";
+import {
+  createFrameworkPlan,
+  incomingStateLabel,
+  targetStateLabel,
+  type IncomingState,
+  type ProcessFrameworkPlan,
+  type TargetState,
+} from "./lib/process-framework";
+import {
+  getOperatingEnvelopeSummary,
+  riskLabel,
+  type ForcePrediction,
+  type PassPlan,
+} from "./lib/route-planner";
+import { exportRouteTrialCsv, readRouteTrialRecords, saveRouteTrial } from "./lib/trial-log";
 
-const groups = [
-  {
-    role: "thickness_control",
-    title: "厚度核心",
-    note: "中间厚度是两机架压下分配的核心预测。",
-  },
-  {
-    role: "machine_setup",
-    title: "机器首设",
-    note: "综合辊缝、三段张力、弯辊与倾斜量，均由回归方程直接计算。",
-  },
-  {
-    role: "secondary_reference",
-    title: "次要参考",
-    note: "速度不参与厚度目标加权；厚度调好后再由主操确认高速值。",
-  },
-  {
-    role: "monitor_only",
-    title: "负荷校核",
-    note: "轧制力只用于检查预测工况是否合理，不是写入参数。",
-  },
-] as const;
+const alloys = ["1060", "1100", "3003"] as const;
 
-export default function RecommendationsPage() {
-  const [result, setResult] = useState<Recommendation | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+export default function ProcessPlanningPage() {
   const [form, setForm] = useState({
-    entry_thickness: "",
-    target_exit_thickness: "",
-    incoming_width: "",
+    alloy: "1060",
+    incomingState: "annealed" as IncomingState,
+    entryThickness: "",
+    targetThickness: "",
+    width: "",
+    targetState: "h18" as TargetState,
   });
+  const [plan, setPlan] = useState<ProcessFrameworkPlan | null>(null);
+  const [error, setError] = useState("");
+  const [recordCount, setRecordCount] = useState(0);
 
-  async function submit(event: FormEvent) {
+  useEffect(() => {
+    const timer = window.setTimeout(() => setRecordCount(readRouteTrialRecords().length), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  function submit(event: FormEvent) {
     event.preventDefault();
-    setLoading(true);
+    generatePlan();
+  }
+
+  function generatePlan() {
     setError("");
-    setResult(null);
     try {
-      const response = await api<Recommendation>("/api/recommendations", {
-        method: "POST",
-        body: JSON.stringify({
-          entry_thickness: Number(form.entry_thickness),
-          target_exit_thickness: Number(form.target_exit_thickness),
-          incoming_width: Number(form.incoming_width),
-        }),
+      const nextPlan = createFrameworkPlan({
+        alloy: form.alloy,
+        incomingState: form.incomingState,
+        entryThickness: Number(form.entryThickness),
+        targetThickness: Number(form.targetThickness),
+        width: Number(form.width),
+        targetState: form.targetState,
       });
-      setResult(response);
+      setPlan(nextPlan);
+      setRecordCount(saveRouteTrial(nextPlan));
     } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "生成失败");
-    } finally {
-      setLoading(false);
+      setPlan(null);
+      setError(reason instanceof Error ? reason.message : "产品条件有误，请检查后重试");
     }
   }
 
+  function reset() {
+    setForm({ ...form, entryThickness: "", targetThickness: "", width: "" });
+    setPlan(null);
+    setError("");
+  }
+
   return (
-    <div className="page-stack">
-      <PageHeader
-        eyebrow="直接预测"
-        title="冷二联首设参数"
-        description="现场只填三个会影响模型计算的规格。批号、卷号、牌号和纸卡不会参与机器参数预测，因此这里不要求工人填写。"
-      />
-      <div className="content-grid recommendation-layout">
-        <form className="panel form-panel" onSubmit={submit}>
-          <div className="panel-heading">
+    <div className="mill-page">
+      <header className="mill-hero">
+        <div className="mill-hero-copy">
+          <span className="mill-kicker">永恒科技 · 冷二联轧</span>
+          <h1>工艺推演台</h1>
+          <p>按整套二机架道次规划厚度、张力、辊缝与机架负荷。</p>
+        </div>
+        <div className="mill-hero-track" aria-hidden="true">
+          <span>来料</span><i /><b><small>主变形</small>F1</b><i /><b><small>精调</small>F2</b><i /><span>成品</span>
+        </div>
+      </header>
+
+      <div className="rule-strip" aria-label="本道次计算口径">
+        <span><b>一个道次</b>F1 + F2 完整通过</span>
+        <span><b>压下顺序</b>前重后轻</span>
+        <span><b>张力口径</b>按 kN/mm² 逐段校核</span>
+      </div>
+
+      <div className="mill-workbench">
+        <form className="spec-console" onSubmit={submit}>
+          <header className="console-heading">
+            <span>输入</span>
+            <h2>本卷条件</h2>
+          </header>
+
+          <fieldset className="alloy-switch">
+            <legend>牌号</legend>
             <div>
-              <span className="kicker">INPUT / DAT SPEC</span>
-              <h2>三个必要输入</h2>
+              {alloys.map((alloy) => (
+                <button
+                  type="button"
+                  key={alloy}
+                  className={form.alloy === alloy ? "is-active" : ""}
+                  onClick={() => setForm({ ...form, alloy })}
+                >{alloy}</button>
+              ))}
             </div>
-            <StatusPill tone="info">固定方程</StatusPill>
+          </fieldset>
+
+          <div className="spec-grid">
+            <NumberField label="来料厚度" unit="mm" value={form.entryThickness} placeholder="6.000" onChange={(value) => setForm({ ...form, entryThickness: value })} />
+            <NumberField label="目标厚度" unit="mm" value={form.targetThickness} placeholder="0.700" onChange={(value) => setForm({ ...form, targetThickness: value })} />
+            <NumberField label="产品宽度" unit="mm" value={form.width} placeholder="1213" step="1" onChange={(value) => setForm({ ...form, width: value })} />
+            <label className="spec-field">
+              <span>来料工艺状态</span>
+              <select value={form.incomingState} onChange={(event) => setForm({ ...form, incomingState: event.target.value as IncomingState })}>
+                <option value="annealed">经过退火 / O态软料</option>
+                <option value="unannealed">铸轧直入 / 未退火</option>
+                <option value="h14">H14 / 半硬</option>
+                <option value="h16">H16 / 3/4硬</option>
+                <option value="h18">H18 / 全硬</option>
+                <option value="h22">H22 / 1/4硬（部分退火）</option>
+                <option value="h24">H24 / 半硬（部分退火）</option>
+                <option value="h26">H26 / 3/4硬（部分退火）</option>
+                <option value="unknown">状态未知</option>
+              </select>
+            </label>
+            <label className="spec-field spec-field-wide">
+              <span>目标状态</span>
+              <select value={form.targetState} onChange={(event) => setForm({ ...form, targetState: event.target.value as TargetState })}>
+                <option value="annealed">O态 / 已退火</option>
+                <option value="h14">H14 / 半硬</option>
+                <option value="h16">H16 / 3/4硬</option>
+                <option value="h18">H18 / 全硬</option>
+                <option value="h22">H22 / 1/4硬（部分退火）</option>
+                <option value="h24">H24 / 半硬（部分退火）</option>
+                <option value="h26">H26 / 3/4硬（部分退火）</option>
+                <option value="unspecified">暂不指定</option>
+              </select>
+            </label>
           </div>
 
-          <div className="card-picker-note">
-            <b>不再匹配历史卷</b>
-            <span>输入规格后，模型直接计算 11 项首设和 2 项负荷校核。</span>
+          {error ? <div className="console-error" role="alert">{error}</div> : null}
+          <div className="console-actions">
+            <button className="action-primary" type="button" onClick={generatePlan}><span>计算整道次方案</span><b>→</b></button>
+            <button className="action-quiet" type="button" onClick={reset}>清空</button>
           </div>
-
-          <div className="form-grid recommendation-input-grid">
-            <Field label="入口厚度" hint="mm">
-              <input
-                type="number"
-                min="0.01"
-                max="20"
-                step="0.001"
-                inputMode="decimal"
-                value={form.entry_thickness}
-                onChange={(event) => setForm({ ...form, entry_thickness: event.target.value })}
-                placeholder="例如 1.500"
-                required
-              />
-            </Field>
-            <Field label="目标出口厚度" hint="mm">
-              <input
-                type="number"
-                min="0.01"
-                max="20"
-                step="0.001"
-                inputMode="decimal"
-                value={form.target_exit_thickness}
-                onChange={(event) => setForm({ ...form, target_exit_thickness: event.target.value })}
-                placeholder="例如 0.770"
-                required
-              />
-            </Field>
-            <Field label="来料宽度" hint="mm">
-              <input
-                type="number"
-                min="1"
-                max="5000"
-                step="1"
-                inputMode="numeric"
-                value={form.incoming_width}
-                onChange={(event) => setForm({ ...form, incoming_width: event.target.value })}
-                placeholder="例如 1213"
-                required
-              />
-            </Field>
+          <div className="trial-record-bar">
+            <span>本机记录 <b>{recordCount}</b></span>
+            <button type="button" onClick={() => exportRouteTrialCsv()} disabled={!recordCount}>导出CSV</button>
           </div>
-
-          <div className="form-context">
-            入口在线实测厚度可由 DAT 自动传入；当前手工页面未接设备时，后台自动使用入口设定厚度，不增加现场填写项。
-          </div>
-          {error ? <div className="alert alert-danger">{error}</div> : null}
-          <button className={`button button-primary button-block ${loading ? "button-loading" : ""}`} disabled={loading}>
-            {loading ? "正在执行直接预测…" : "直接计算首设参数"}
-          </button>
         </form>
 
-        <section className={`panel result-panel result-cabin ${result || loading ? "has-output" : ""}`}>
-          <div className="cabin-scanline" aria-hidden />
-          <div className="panel-heading cabin-heading">
-            <div>
-              <span className="kicker">OUTPUT / DIRECT MODEL</span>
-              <h2>预测值与验证误差区间</h2>
-            </div>
-            {result ? (
-              <StatusPill tone={result.status === "recommendable" ? "success" : "warning"}>
-                {statusText(result.status)}
-              </StatusPill>
-            ) : (
-              <StatusPill tone="neutral">待命</StatusPill>
-            )}
-          </div>
-
-          {loading ? (
-            <div className="result-stack cabin-loading">
-              <div className="confidence-row cabin-confidence">
-                <ConfidenceGauge value={null} />
-                <div>
-                  <h3>正在计算固定回归方程…</h3>
-                  <p>不检索历史案例，不做加权平均</p>
-                  <div className="cabin-loading-bar" aria-hidden><i /></div>
-                </div>
-              </div>
-              <div className="parameter-chips">
-                {Array.from({ length: 4 }, (_, index) => (
-                  <div className="parameter-chip is-skeleton" key={index}>
-                    <span className="chip-label skeleton skeleton-line short" />
-                    <strong className="skeleton skeleton-value" />
-                    <small className="skeleton skeleton-line" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          ) : !result ? (
-            <div className="result-placeholder cabin-idle">
-              <ConfidenceGauge value={null} />
-              <h3>等待产品规格</h3>
-              <p>模型只读取入口厚度、出口目标厚度和来料宽度。超出训练范围时会明确拒绝强行给值。</p>
-              <div className="cabin-idle-hints">
-                <span>DIRECT RIDGE</span>
-                <span>0719封存验证</span>
-                <span>PLC只读</span>
-              </div>
-            </div>
-          ) : (
-            <div className="result-stack">
-              <div className="confidence-row cabin-confidence">
-                <ConfidenceGauge value={result.confidence_score} />
-                <div>
-                  <h3>{result.result_payload.headline}</h3>
-                  <p>
-                    模型 {result.model_version} ·
-                    {result.result_payload.coverage?.in_domain ? " 规格在训练覆盖内" : " 规格超出训练覆盖"}
-                  </p>
-                </div>
-              </div>
-
-              {result.result_payload.model ? (
-                <div className="model-validation-strip">
-                  <div><span>TRAIN</span><b>0712—0718</b></div>
-                  <div><span>高速稳定段</span><b>{result.result_payload.model.training_case_count}</b></div>
-                  <div><span>SEALED TEST</span><b>{result.result_payload.model.validation_dataset}</b></div>
-                  <div>
-                    <span>优于历史基线</span>
-                    <b className="good-number">
-                      {result.result_payload.model.direct_win_count}/{result.result_payload.model.target_count}
-                    </b>
-                  </div>
-                </div>
-              ) : null}
-
-              {result.result_payload.parameters.length ? (
-                groups.map((group) => {
-                  const rows = result.result_payload.parameters.filter((row) => row.role === group.role);
-                  if (!rows.length) return null;
-                  return (
-                    <div key={group.role}>
-                      <h3 className="section-title cabin-section-title">{group.title}</h3>
-                      <p className="section-note">{group.note}</p>
-                      <div className="parameter-chips">
-                        {rows.map((row) => <ParameterChip key={row.code} row={row} />)}
-                      </div>
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="cabin-empty-params">当前规格未输出参数：{statusText(result.status)}。</div>
-              )}
-
-              {result.result_payload.parameters.length ? (
-                <div>
-                  <h3 className="section-title cabin-section-title">0719验证误差明细</h3>
-                  <div className="parameter-table cabin-table">
-                    <div className="parameter-head">
-                      <span>参数</span>
-                      <span>预测</span>
-                      <span>MAE</span>
-                      <span>可靠性</span>
-                    </div>
-                    {result.result_payload.parameters.map((row) => (
-                      <div className="parameter-row" key={row.code}>
-                        <span><b>{row.label}</b><small>{row.unit || "设备原单位"}</small></span>
-                        <strong>{formatParam(row.reference)}</strong>
-                        <span>{formatParam(row.final_test_mae)}</span>
-                        <span>{reliabilityText(row.reliability)}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-
-              {result.result_payload.risks?.length ? (
-                <div className="alert alert-warning cabin-alert">
-                  <b>使用边界</b>
-                  {result.result_payload.risks.map((risk) => <span key={risk}>{risk}</span>)}
-                </div>
-              ) : null}
-            </div>
-          )}
-        </section>
+        <main className="recipe-stage">
+          {!plan ? <EmptyOutput /> : <PlanOutput key={plan.id} plan={plan} />}
+        </main>
       </div>
     </div>
   );
 }
 
-function ParameterChip({ row }: { row: RecommendationParameter }) {
-  return (
-    <article className={`parameter-chip reliability-${row.reliability}`}>
-      <span className="chip-label">{row.label}</span>
-      <strong className="chip-value">
-        {formatParam(row.reference)}
-        <small>{row.unit}</small>
-      </strong>
-      <span className="chip-range">
-        80%误差区间 {formatParam(row.low)} — {formatParam(row.high)}
-      </span>
-      <small>{reliabilityText(row.reliability)} · 0719 MAE {formatParam(row.final_test_mae)}</small>
-    </article>
-  );
+function NumberField({ label, unit, value, placeholder, step = "0.001", onChange }: {
+  label: string; unit: string; value: string; placeholder: string; step?: string; onChange: (value: string) => void;
+}) {
+  return <label className="spec-field">
+    <span>{label}</span>
+    <div className="unit-input">
+      <input type="number" min="0.001" max="5000" step={step} inputMode="decimal" value={value} onChange={(event) => onChange(event.target.value)} placeholder={placeholder} required />
+      <b>{unit}</b>
+    </div>
+  </label>;
 }
 
-function statusText(status: Recommendation["status"]) {
-  return status === "recommendable" ? "可供主操确认" : status === "reference_only" ? "边界参考" : "超范围拒绝";
+function EmptyOutput() {
+  return <section className="recipe-empty">
+    <div className="empty-rail" aria-hidden="true"><i /><b>F1</b><i /><b>F2</b><i /></div>
+    <h2>等待本卷条件</h2>
+    <p>计算后按道次展开 F1 主变形、F2 精调及三段张力。</p>
+  </section>;
 }
 
-function reliabilityText(value: RecommendationParameter["reliability"]) {
-  return value === "high" ? "高" : value === "medium" ? "中" : value === "monitor" ? "仅校核" : "低";
+function PlanOutput({ plan: original }: { plan: ProcessFrameworkPlan }) {
+  const [alternativeId, setAlternativeId] = useState<number | null>(null);
+  const alternative = original.alternatives?.find(item => item.candidateId === alternativeId);
+  const plan = alternative ? { ...original, passes: alternative.passes, passCount: alternative.passCount,
+    finishingBand: alternative.finishingBand, risk: alternative.risk, assessment: alternative.assessment } : original;
+  return <div className="recipe-stack">
+    <section className="recipe-banner">
+      <div>
+        <span className="mill-kicker">整道次工艺方案</span>
+        <h2><b>{plan.input.alloy}</b> {format(plan.input.entryThickness)} <i>→</i> {format(plan.input.targetThickness)} <small>mm</small></h2>
+        <p>{format(plan.input.width)} mm · {incomingStateLabel(plan.input.incomingState)} · {targetStateLabel(plan.input.targetState)}</p>
+      </div>
+      <div className="recipe-verdict">
+        <span>{alternative ? "当前方案" : "推荐道次"}<strong>{plan.passCount}</strong></span>
+        <span>总压下率<strong>{format(plan.totalReductionPercent)}<small>%</small></strong></span>
+        <em className={`risk-${plan.risk}`}>数据：{plan.assessment.dataCoverage === "unavailable" ? "参数未覆盖" : riskLabel(plan.assessment.dataCoverage)}</em>
+      </div>
+    </section>
+
+    {original.alternatives?.length ? <section className="route-rail-card">
+      <header className="section-label"><span>同时比较</span><h2>两套道次方案</h2></header>
+      <div className="route-options">
+        {[{ candidateId: original.selection.selectedCandidateId, label: "末道调整优选", passCount: original.passCount,
+          passes: original.passes, explanation: "末道更接近板形调整目标，质量效果仍需现场验证。" }, ...original.alternatives].map(option => {
+          const isPrimary = option.candidateId === original.selection.selectedCandidateId;
+          const active = isPrimary ? !alternative : alternativeId === option.candidateId;
+          return <article key={option.candidateId} className={active ? "is-active" : ""}>
+            <h3>{option.label} · {option.passCount}道</h3>
+            <p>{format(original.input.entryThickness)} → {option.passes.map(pass => format(pass.exitThickness)).join(" → ")} mm</p>
+            <p>{option.explanation}</p>
+            <button type="button" aria-pressed={active} onClick={() => setAlternativeId(isPrimary ? null : option.candidateId)}>
+              {active ? "正在查看" : "查看逐道参数"}
+            </button>
+          </article>;
+        })}
+      </div>
+    </section> : null}
+    <RouteRail plan={plan} />
+    <section className="route-rail-card">
+      <p>负荷校核：{plan.assessment.equipment === "not_evaluated" ? "未评估" : plan.assessment.equipment === "over_limit" ? "超出设备上限" : plan.assessment.equipment === "near_limit" ? "接近设备上限" : "在已确认力限值内"} · 工艺质量：{plan.assessment.quality === "review_required" ? "需要复核" : "满足暂定规则"}</p>
+      <p>板形、轮胎印和目标状态尚无质量结果验证。负荷校核仅覆盖轧制力与张力，不代表已核准设备全部能力。</p>
+      <details><summary>查看路线选择依据</summary><p>{plan.selection.explanation}</p>
+        <p>负荷仅用于超限筛选，不参与候选排序。{plan.ruleSummary?.thicknessRegion.name}按0.1—7.0 mm线性三等分判断。</p>
+        {plan.ruleSummary?.parameterAssumptions.map(text => <p key={text}>{text}</p>)}
+        <p>检查了 {plan.selection.candidates.length} 个候选，其中 {plan.selection.candidates.filter((item) => item.accepted).length} 个通过约束。逐项淘汰原因保存在方案结果中。</p>
+      </details>
+    </section>
+    <section className="pass-deck">
+      <header className="section-label"><span>逐道展开</span><h2>{plan.parameterRecommendationAvailable ? "参数建议" : "厚度与压下率"}</h2></header>
+      {plan.passes.map((pass) => <PassCard
+        key={pass.index}
+        pass={pass}
+        isFinal={pass.index === plan.passCount}
+        finishingBand={plan.finishingBand}
+      />)}
+    </section>
+    <AnnealCard plan={plan} />
+    <EnvelopeCard />
+  </div>;
 }
 
-function formatParam(value: number | null | undefined) {
-  if (value == null || !Number.isFinite(value)) return "—";
-  if (Number.isInteger(value)) return String(value);
-  return String(Number(value.toFixed(4)));
+function RouteRail({ plan }: { plan: ProcessFrameworkPlan }) {
+  const points = [
+    { label: "来料", value: plan.input.entryThickness },
+    ...plan.passes.map((pass) => ({ label: pass.index === plan.passCount ? "成品" : `第${pass.index}道`, value: pass.exitThickness })),
+  ];
+  return <section className="route-rail-card">
+    <header className="section-label">
+      <div><span>厚度路径</span><h2>工艺路线</h2></div>
+    </header>
+    <div className="route-rail">
+      {points.map((point, index) => <div className="gauge-point" key={`${point.label}-${index}`}>
+        <span>{String(index).padStart(2, "0")}</span>
+        <i />
+        <b>{point.value < 1 ? point.value.toFixed(3) : format(point.value)}</b>
+        <small>{point.label} · mm</small>
+      </div>)}
+    </div>
+  </section>;
+}
+
+function PassCard({ pass, isFinal, finishingBand }: {
+  pass: PassPlan;
+  isFinal: boolean;
+  finishingBand: ProcessFrameworkPlan["finishingBand"];
+}) {
+  const middle = pass.parameters.find((parameter) => parameter.code === "intermediate_thickness_set_mode");
+  const settings = pass.parameters.filter((parameter) => parameter.code !== "intermediate_thickness_set_mode");
+  const constraintText = isFinal
+    ? finishingBand === "single_pass"
+      ? "单道完成 · 两架相差5个百分点"
+      : finishingBand === "preferred"
+      ? "末道优选区"
+      : finishingBand === "review"
+        ? "末道复核区"
+        : "末道轻压"
+    : pass.index === 1
+      ? "首道优先承担压下"
+      : "同机架逐道约降5个百分点";
+  return <article className={`pass-module risk-frame-${pass.risk}`}>
+    <header className="pass-heading">
+      <div className="pass-number"><small>PASS</small><b>{String(pass.index).padStart(2, "0")}</b></div>
+      <div className="pass-gauge">
+        <span>{format(pass.entryThickness)}</span><i>F1</i><strong>{format(pass.intermediateThickness)}</strong><i>F2</i><span>{format(pass.exitThickness)}</span><small>mm</small>
+      </div>
+      <em className={`risk-badge risk-${pass.risk}`}>{pass.assessment.dataCoverage === "unavailable" ? "负荷未评估" : `数据：${riskLabel(pass.assessment.dataCoverage)}`}</em>
+    </header>
+
+    <div className="reduction-band">
+      <div><span>本道压下</span><b>{format(pass.totalReductionPercent)}%</b></div>
+      <div><span>F1 主变形</span><b>{format(pass.f1ReductionPercent)}%</b></div>
+      <div><span>F2 精调</span><b>{format(pass.f2ReductionPercent)}%</b></div>
+      <div><span>中间厚度</span><b>{format(middle?.value ?? pass.intermediateThickness)} mm</b></div>
+    </div>
+
+    <div className={`stand-relation ${pass.f1MinusF2PercentPoints > 0 ? "is-aligned" : "is-review"}`}>
+      <span>机架分配</span>
+      <b>F1 比 F2 {pass.f1MinusF2PercentPoints > 0 ? `多压 ${format(pass.f1MinusF2PercentPoints)} 个百分点` : "未形成主次关系"}</b>
+      <em>{constraintText}</em>
+    </div>
+    {pass.materialPolicy ? <p className="pass-material-note">F1来料：{pass.materialPolicy.f1.stageCondition} · F2来料：{pass.materialPolicy.f2.stageCondition}</p> : null}
+
+    {pass.parameterStatus === "route_only" ? <div className="route-only-note">
+      <span>张力、辊缝、轧制力</span><b>暂不推荐</b>
+    </div> : <>
+      <div className="setting-strip">
+        {settings.map((parameter) => <article key={parameter.code} className={`setting-tile risk-line-${parameter.risk}`}>
+          <span>{parameter.label}</span>
+          <strong>{format(parameter.value)}<small>{parameter.unit}</small></strong>
+          {parameter.unitTension != null ? <small className="unit-tension-value">{format(parameter.unitTension)} kN/mm²</small> : null}
+          <em>历史绝对误差P95 {format(parameter.p95Error)}</em>
+        </article>)}
+      </div>
+
+      {pass.f1Force && pass.f2Force ? <div className="force-bay">
+        <ForceStation label="F1" force={pass.f1Force} />
+        <ForceStation label="F2" force={pass.f2Force} />
+      </div> : null}
+    </>}
+  </article>;
+}
+
+function ForceStation({ label, force }: { label: string; force: ForcePrediction }) {
+  const max = Math.max(force.total, 1);
+  return <section className="force-station">
+    <header>
+      <span>{label} 预计轧制力{Math.abs(force.materialFactor - 1) >= 0.01 ? <em>材料×{format(force.materialFactor)}</em> : null}</span>
+      <strong>{format(force.total)} <small>T</small></strong>
+    </header>
+    <div className="force-split" aria-label={`${label}两侧轧制力`}>
+      <div style={{ flexBasis: `${(force.drive / max) * 100}%` }} className={`risk-fill-${force.driveRisk}`}><span>传动侧</span><b>{format(force.drive)}</b></div>
+      <div style={{ flexBasis: `${(force.operation / max) * 100}%` }} className={`risk-fill-${force.operationRisk}`}><span>操作侧</span><b>{format(force.operation)}</b></div>
+    </div>
+    <small>
+      DAT参考 {format(force.total)} T · 物理基准 {format(force.physicsBaseline)} T · 保守校核 {format(force.safetyTotal)} / 1000 T
+      （{format(force.equipmentUtilizationPercent)}%）
+    </small>
+    <small>含张力偏低场景 {format(force.lowTensionCheckTotal)} T；校核余量是经验筛选值。两侧为固定比例参考，不能预测偏载。</small>
+  </section>;
+}
+
+function AnnealCard({ plan }: { plan: ProcessFrameworkPlan }) {
+  const finalText = plan.anneal.final === "not_required" ? "不安排" :
+    plan.anneal.final === "partial_anneal_recipe_required" ? `${targetStateLabel(plan.input.targetState)} · 工艺卡待补充` :
+    plan.anneal.final === "plant_recipe_required" ? "厂内工艺卡待补充" :
+    `${plan.anneal.temperatureC}℃ · ${plan.anneal.holdHours?.[0]}—${plan.anneal.holdHours?.[1]} h`;
+  return <section className="thermal-card">
+    <div className="thermal-symbol" aria-hidden="true"><i /><i /><i /></div>
+    <div className="thermal-copy">
+      <span>材料状态</span>
+      <h2>连续轧制范围</h2>
+      <p>{plan.anneal.reason}</p>
+    </div>
+    <div className="thermal-values">
+      <span>中间退火<b>现阶段不纳入</b></span>
+      <span>成品退火<b>{finalText}</b></span>
+    </div>
+  </section>;
+}
+
+function EnvelopeCard() {
+  return <details className="envelope-drawer">
+    <summary><span>高速数据范围 <em>不是设备上限</em></span><b>展开</b></summary>
+    <div className="envelope-cards">
+      {getOperatingEnvelopeSummary().map((row) => <article key={row.code}>
+        <span>{row.label}</span>
+        <b>{format(row.p05)}—{format(row.p95)} <small>{row.unit}</small></b>
+        <em>警戒 {format(row.p99)} {row.unit}</em>
+      </article>)}
+    </div>
+  </details>;
+}
+
+function format(value: number) {
+  if (!Number.isFinite(value)) return "—";
+  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(3)));
 }

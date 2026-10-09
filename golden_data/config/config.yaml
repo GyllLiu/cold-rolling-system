@@ -1,0 +1,59 @@
+{
+  "version": "golden-cleaning-v1.0",
+  "random_seed": 20260829,
+  "worker_processes": 6,
+  "sample_interval_seconds": 1.0,
+  "run_speed_min_m_per_min": 10.0,
+  "adaptive_speed_ratio_of_p95": 0.8,
+  "adaptive_speed_absolute_floor_m_per_min": 50.0,
+  "fixed_speed_comparison_m_per_min": 400.0,
+  "minimum_stable_duration_seconds": 30,
+  "window_seconds": 30,
+  "window_step_seconds": 30,
+  "head_trim_seconds": 8,
+  "tail_trim_seconds": 8,
+  "maximum_gap_seconds": 2.1,
+  "maximum_abs_speed_slope_m_per_min_per_second": 20.0,
+  "physical_limits": {
+    "minimum_thickness_mm": 0.05,
+    "maximum_thickness_mm": 12.0,
+    "minimum_width_mm": 500.0,
+    "maximum_width_mm": 1800.0,
+    "rolling_force_reference_max_t": 1000.0,
+    "rolling_force_hard_max_t": 1250.0,
+    "tension_reference_max_t": 14.0,
+    "tension_hard_max_t": 17.5
+  },
+  "stability_caps": {
+    "speed_cv_a": 0.03,
+    "speed_cv_b": 0.06,
+    "force_cv_a": 0.05,
+    "force_cv_b": 0.10,
+    "tension_cv_a": 0.06,
+    "tension_cv_b": 0.12
+  },
+  "score_thresholds": {
+    "gold_a": 85.0,
+    "gold_b": 70.0
+  },
+  "score_weights": {
+    "speed_level": 10.0,
+    "speed_stability": 10.0,
+    "f1_force_stability": 10.0,
+    "f2_force_stability": 10.0,
+    "entry_tension_stability": 5.0,
+    "interstand_tension_stability": 5.0,
+    "exit_tension_stability": 5.0,
+    "duration": 10.0,
+    "data_completeness": 10.0,
+    "setpoint_quietness": 10.0,
+    "alarm_free": 10.0,
+    "thickness_quality": 5.0
+  },
+  "setpoint_change_tolerance": {
+    "thickness_mm": 0.001,
+    "tension_t": 0.02,
+    "gap_mm": 0.005
+  },
+  "output_dir": "../../outputs/golden_recipe_v1"
+}

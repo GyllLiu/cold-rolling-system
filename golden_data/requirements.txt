@@ -1,0 +1,2 @@
+# The cleaner uses Python 3.10+ standard library only.
+# No package installation is required.

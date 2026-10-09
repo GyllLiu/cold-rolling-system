@@ -1,0 +1,34 @@
+{
+  "version": "factory-route-v0.7.2",
+  "scope": "complete F1+F2 passes without intermediate annealing",
+  "confirmed": {
+    "equipment_thickness_mm": [0.1, 7.0],
+    "thickness_division": "linear_thirds",
+    "hard_pass_drop_points": 5.0,
+    "single_pass_f1_minus_f2_points": 5.0,
+    "hard_vs_o_relative_reduction": [0.1, 0.2],
+    "1100_vs_1060_relative_reduction": [0.05, 0.1],
+    "3003_opening_f1_max": 0.45,
+    "o_becomes_work_hardened_after_f1": true,
+    "rank_by_load": false,
+    "intermediate_annealing": "excluded"
+  },
+  "engineering": {
+    "status": "configurable trial settings, not manufacturer-certified quality or safety limits",
+    "hard_pass_drop_tolerance_points": 2.0,
+    "reference_1060_o_reduction_ceiling": 0.6,
+    "reference_ceiling_basis": "retained 1060 O F1 geometric search ceiling; other stages are reduced using material and hardening priors and must pass equipment screening",
+    "alloy_capacity_mapping": "sqrt(reference strength / alloy strength), engineering sensitivity only; 1100 constrained by the manufacturer relative range",
+    "finishing_f1_targets_at_thirds": [0.28, 0.35, 0.42, 0.49],
+    "finishing_f2_targets_at_thirds": [0.225, 0.3, 0.37, 0.44],
+    "finishing_preference_half_width": 0.035,
+    "maximum_pass_count": 8,
+    "geometry_candidates_per_count": 64
+  },
+  "sources": [{
+    "title": "ASM Handbook Volume 2 Aluminum Mill and Engineered Wrought Products",
+    "url": "https://materialsdata.nist.gov/bitstream/handle/11115/168/Properties%20of%20Aluminum%20Mill%20Products.pdf?isAllowed=y&sequence=3",
+    "locator": "Table 8 printed page 49; strain hardening discussion and Figure 8",
+    "use": "typical yield-strength knots for 1060, 1100 and 3003; supports material differences, not a universal allowable rolling reduction"
+  }]
+}

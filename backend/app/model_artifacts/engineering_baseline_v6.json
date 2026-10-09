@@ -1,0 +1,617 @@
+{
+  "schema_version": "cold-rolling-engineering-baseline-v0.6",
+  "generated_at": "2026-08-23T15:08:54.925166+00:00",
+  "status": "provisional_high_speed_observed_envelope",
+  "units": {
+    "thickness": "mm",
+    "width": "mm",
+    "force": "T",
+    "total_tension": "T",
+    "unit_tension": "kN/mm²"
+  },
+  "data": {
+    "production_case_count": 555,
+    "side_force_case_count": 536,
+    "days": [
+      "260703",
+      "260712",
+      "260713",
+      "260714",
+      "260716",
+      "260717",
+      "260718",
+      "260719",
+      "260724",
+      "260725",
+      "260728",
+      "260729",
+      "260802",
+      "260803",
+      "260804",
+      "260805"
+    ],
+    "temporal_audit_day": "260805",
+    "filter": "learning_eligible and digital_state_usable and stable_high_speed_seconds>=120"
+  },
+  "envelopes": {
+    "f1_reduction_ratio": {
+      "count": 555,
+      "p01": 0.149966,
+      "p05": 0.232867,
+      "median": 0.33,
+      "p95": 0.5,
+      "p95_bootstrap_95ci": [
+        0.469554,
+        0.522388
+      ],
+      "p99": 0.542857,
+      "max_observed": 0.557143,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_reduction_ratio": {
+      "count": 555,
+      "p01": 0.149714,
+      "p05": 0.212873,
+      "median": 0.3,
+      "p95": 0.451364,
+      "p95_bootstrap_95ci": [
+        0.428571,
+        0.483871
+      ],
+      "p99": 0.516129,
+      "max_observed": 0.53125,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "total_reduction_ratio": {
+      "count": 555,
+      "p01": 0.277455,
+      "p05": 0.404375,
+      "median": 0.531905,
+      "p95": 0.723077,
+      "p95_bootstrap_95ci": [
+        0.692308,
+        0.753846
+      ],
+      "p99": 0.772727,
+      "max_observed": 0.785714,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "true_strain_per_tandem_pass": {
+      "count": 555,
+      "p01": 0.324993,
+      "p05": 0.518156,
+      "median": 0.759084,
+      "p95": 1.284016,
+      "p95_bootstrap_95ci": [
+        1.178655,
+        1.401799
+      ],
+      "p99": 1.481605,
+      "max_observed": 1.540445,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_true_strain_share": {
+      "count": 555,
+      "p01": 0.474114,
+      "p05": 0.495032,
+      "median": 0.526279,
+      "p95": 0.576487,
+      "p95_bootstrap_95ci": [
+        0.572859,
+        0.585054
+      ],
+      "p99": 0.60671,
+      "max_observed": 0.637393,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_thickness_reduction_share": {
+      "count": 555,
+      "p01": 0.530105,
+      "p05": 0.572917,
+      "median": 0.624113,
+      "p95": 0.698372,
+      "p95_bootstrap_95ci": [
+        0.689076,
+        0.702128
+      ],
+      "p99": 0.714286,
+      "max_observed": 0.739796,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "uncoiler_tension_t": {
+      "count": 555,
+      "p01": 3.545902,
+      "p05": 4.052501,
+      "median": 7.0,
+      "p95": 8.922998,
+      "p95_bootstrap_95ci": [
+        8.340076,
+        9.040012
+      ],
+      "p99": 9.686805,
+      "max_observed": 10.120003,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "interstand_tension_t": {
+      "count": 555,
+      "p01": 2.764695,
+      "p05": 3.795502,
+      "median": 8.0,
+      "p95": 12.85502,
+      "p95_bootstrap_95ci": [
+        12.310007,
+        13.0
+      ],
+      "p99": 14.0,
+      "max_observed": 14.0,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "coiler_tension_t": {
+      "count": 555,
+      "p01": 2.389997,
+      "p05": 3.067,
+      "median": 7.0,
+      "p95": 11.65957,
+      "p95_bootstrap_95ci": [
+        11.075412,
+        11.855565
+      ],
+      "p99": 12.210073,
+      "max_observed": 12.875043,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "uncoiler_unit_tension_kn_mm2": {
+      "count": 555,
+      "p01": 0.007212,
+      "p05": 0.00788,
+      "median": 0.015144,
+      "p95": 0.036283,
+      "p95_bootstrap_95ci": [
+        0.034688,
+        0.04026
+      ],
+      "p99": 0.048833,
+      "max_observed": 0.063845,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "interstand_unit_tension_kn_mm2": {
+      "count": 555,
+      "p01": 0.016991,
+      "p05": 0.019225,
+      "median": 0.026657,
+      "p95": 0.048231,
+      "p95_bootstrap_95ci": [
+        0.045688,
+        0.051325
+      ],
+      "p99": 0.063317,
+      "max_observed": 0.074212,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "coiler_unit_tension_kn_mm2": {
+      "count": 555,
+      "p01": 0.01912,
+      "p05": 0.021782,
+      "median": 0.032649,
+      "p95": 0.057637,
+      "p95_bootstrap_95ci": [
+        0.054969,
+        0.060932
+      ],
+      "p99": 0.073635,
+      "max_observed": 0.081948,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_total_force_t": {
+      "count": 555,
+      "p01": 112.868261,
+      "p05": 188.95792,
+      "median": 311.739838,
+      "p95": 497.051009,
+      "p95_bootstrap_95ci": [
+        467.580479,
+        507.546509
+      ],
+      "p99": 533.085387,
+      "max_observed": 584.592529,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_total_force_t": {
+      "count": 555,
+      "p01": 125.150437,
+      "p05": 187.740591,
+      "median": 322.350494,
+      "p95": 454.105642,
+      "p95_bootstrap_95ci": [
+        442.348892,
+        470.105101
+      ],
+      "p99": 532.381717,
+      "max_observed": 641.267029,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_high_speed_gap_mm": {
+      "count": 555,
+      "p01": 0.765242,
+      "p05": 0.898047,
+      "median": 2.694863,
+      "p95": 4.670023,
+      "p95_bootstrap_95ci": [
+        4.547698,
+        4.76344
+      ],
+      "p99": 5.1807,
+      "max_observed": 6.810848,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_high_speed_gap_mm": {
+      "count": 555,
+      "p01": 0.572098,
+      "p05": 0.807831,
+      "median": 1.696449,
+      "p95": 3.271531,
+      "p95_bootstrap_95ci": [
+        3.141561,
+        3.422116
+      ],
+      "p99": 3.841156,
+      "max_observed": 5.735823,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_operation_force_t": {
+      "count": 536,
+      "p01": 55.773091,
+      "p05": 94.513873,
+      "median": 154.606903,
+      "p95": 247.934454,
+      "p95_bootstrap_95ci": [
+        233.869155,
+        254.256836
+      ],
+      "p99": 264.746012,
+      "max_observed": 292.704178,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_drive_force_t": {
+      "count": 536,
+      "p01": 56.818381,
+      "p05": 94.629341,
+      "median": 155.266995,
+      "p95": 245.270081,
+      "p95_bootstrap_95ci": [
+        232.736285,
+        250.693557
+      ],
+      "p99": 264.777403,
+      "max_observed": 287.651062,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_operation_force_t": {
+      "count": 536,
+      "p01": 63.145018,
+      "p05": 95.92076,
+      "median": 161.714366,
+      "p95": 225.020042,
+      "p95_bootstrap_95ci": [
+        221.34787,
+        235.382355
+      ],
+      "p99": 268.196856,
+      "max_observed": 324.931107,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_drive_force_t": {
+      "count": 536,
+      "p01": 61.89009,
+      "p05": 94.380127,
+      "median": 158.126721,
+      "p95": 225.695217,
+      "p95_bootstrap_95ci": [
+        218.761772,
+        229.503278
+      ],
+      "p99": 265.491545,
+      "max_observed": 316.029678,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_operation_share": {
+      "count": 536,
+      "p01": 0.488028,
+      "p05": 0.49256,
+      "median": 0.499559,
+      "p95": 0.505978,
+      "p95_bootstrap_95ci": [
+        0.504988,
+        0.506781
+      ],
+      "p99": 0.508795,
+      "max_observed": 0.512229,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_operation_share": {
+      "count": 536,
+      "p01": 0.48954,
+      "p05": 0.493581,
+      "median": 0.506032,
+      "p95": 0.514885,
+      "p95_bootstrap_95ci": [
+        0.514319,
+        0.516116
+      ],
+      "p99": 0.522184,
+      "max_observed": 0.527561,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f1_side_imbalance_ratio": {
+      "count": 536,
+      "p01": 5.6e-05,
+      "p05": 0.000518,
+      "median": 0.004937,
+      "p95": 0.017038,
+      "p95_bootstrap_95ci": [
+        0.01502,
+        0.018267
+      ],
+      "p99": 0.023984,
+      "max_observed": 0.044543,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    },
+    "f2_side_imbalance_ratio": {
+      "count": 536,
+      "p01": 0.000408,
+      "p05": 0.001782,
+      "median": 0.01321,
+      "p95": 0.02977,
+      "p95_bootstrap_95ci": [
+        0.028639,
+        0.032231
+      ],
+      "p99": 0.044369,
+      "max_observed": 0.055123,
+      "classification": {
+        "normal": "P05—P95 historical high-speed operating band",
+        "warning": "P01—P05 or P95—P99 historical edge band",
+        "outside_history": "below P01 or above P99"
+      }
+    }
+  },
+  "route_policy": {
+    "target_true_strain_per_tandem_pass": 0.759084,
+    "normal_max_true_strain_per_tandem_pass": 1.284016,
+    "planning_formula": "choose the fewest complete F1+F2 passes satisfying manufacturer stand-reduction and force limits; historical envelopes are warnings",
+    "f1_f2_distribution": "front-loaded route strain; F1 true-strain share rises from opening to finishing pass",
+    "manufacturer_stand_limits": {
+      "1xxx": {
+        "f1_max_reduction": 0.6,
+        "f2_max_reduction": 0.46,
+        "thin_f1_max_reduction": 0.55,
+        "thin_f2_max_reduction": 0.46
+      },
+      "3xxx": {
+        "f1_max_reduction": 0.55,
+        "f2_max_reduction": 0.45,
+        "thin_f1_max_reduction": 0.5,
+        "thin_f2_max_reduction": 0.4
+      }
+    },
+    "hard_incoming_reduction_margin": 0.05,
+    "thin_exit_threshold_mm": 1.0,
+    "f1_true_strain_share_opening": 0.52,
+    "f1_true_strain_share_finishing": 0.58,
+    "distribution_bands": [
+      {
+        "total_reduction_band": [
+          0.0,
+          0.4
+        ],
+        "count": 25,
+        "f1_true_strain_share_p10": 0.485058,
+        "f1_true_strain_share_median": 0.51594,
+        "f1_true_strain_share_p90": 0.54087
+      },
+      {
+        "total_reduction_band": [
+          0.4,
+          0.55
+        ],
+        "count": 296,
+        "f1_true_strain_share_p10": 0.501783,
+        "f1_true_strain_share_median": 0.519554,
+        "f1_true_strain_share_p90": 0.559235
+      },
+      {
+        "total_reduction_band": [
+          0.55,
+          0.7
+        ],
+        "count": 197,
+        "f1_true_strain_share_p10": 0.502279,
+        "f1_true_strain_share_median": 0.536211,
+        "f1_true_strain_share_p90": 0.575616
+      },
+      {
+        "total_reduction_band": [
+          0.7,
+          1.0
+        ],
+        "count": 37,
+        "f1_true_strain_share_p10": 0.504932,
+        "f1_true_strain_share_median": 0.528749,
+        "f1_true_strain_share_p90": 0.551902
+      }
+    ],
+    "pass_strain_taper": 0.07,
+    "pass_strain_taper_method": "linear front-loaded true-strain weights, normalized to preserve total true strain",
+    "refeed": "coil then reload; strip direction unchanged"
+  },
+  "tension_order_policy": {
+    "status": "vendor_rule_confirmed_by_high_speed_dat",
+    "comparison_basis": "unit_tension_kN_per_mm2",
+    "relation": "uncoiler_unit <= interstand_unit <= coiler_unit",
+    "formula": "q = 9.80665*T/(width*local_thickness)",
+    "local_sections": {
+      "uncoiler": "width*entry_thickness",
+      "interstand": "width*intermediate_thickness",
+      "coiler": "width*exit_thickness"
+    },
+    "strict_compliant_count": 519,
+    "total_case_count": 555,
+    "strict_compliant_percent": 93.5135,
+    "total_tension_strict_compliant_count": 14,
+    "total_tension_strict_compliant_percent": 2.5225,
+    "application": "minimum-change isotonic projection in unit-tension space, then convert back to HMI tonnes"
+  },
+  "confirmed_plant_limits": {
+    "uncoiler_tension_t_max": 14.0,
+    "interstand_tension_t_max": 14.0,
+    "coiler_tension_t_max": 14.0,
+    "f1_total_force_t_max": 1000.0,
+    "f2_total_force_t_max": 1000.0,
+    "status": "manufacturer-confirmed hard upper limits"
+  },
+  "annealing_policy": {
+    "intermediate_review_cumulative_reduction": {
+      "1060": 0.9,
+      "1100": 0.9,
+      "3003": 0.7
+    },
+    "threshold_status": {
+      "1060": "vendor experience review threshold; not an automatic anneal command",
+      "1100": "vendor experience review threshold; not an automatic anneal command",
+      "3003": "vendor reply recommends review above approximately 70% cumulative reduction"
+    },
+    "final_o_temper_reference": {
+      "1100": {
+        "temperature_c": 350,
+        "hold_hours": [
+          0.5,
+          2.0
+        ],
+        "source": "Australian Aluminium Council Rolled Products Manual 2024 Table 21"
+      },
+      "3003": {
+        "temperature_c": 410,
+        "hold_hours": [
+          0.5,
+          2.0
+        ],
+        "source": "Australian Aluminium Council Rolled Products Manual 2024 Table 21"
+      },
+      "1060": {
+        "temperature_c": null,
+        "hold_hours": null,
+        "source": "plant recipe required; 1060 is not explicit in cited table"
+      }
+    },
+    "intermediate_rule": "flag process review when the alloy-specific cumulative reduction threshold is reached; do not auto-prescribe furnace parameters"
+  },
+  "side_force_policy": {
+    "method": "predicted stand total multiplied by the historical median operation-side share; drive side is the remainder",
+    "f1_operation_share": 0.499559,
+    "f2_operation_share": 0.506032,
+    "balance_monitor": "compare absolute drive-operation difference / stand total against P95/P99"
+  },
+  "classification": {
+    "normal": "inside P05—P95 of accepted high-speed history",
+    "warning": "P01—P05 or P95—P99; route planner should add a pass or require review",
+    "outside_history": "outside P01—P99; no numeric recommendation"
+  },
+  "limitations": [
+    "These are historical operating envelopes, not equipment nameplate, alarm or statutory safety limits.",
+    "DAT has no validated alloy/pass linkage, so 1060/1100/3003 currently share the same statistical envelope.",
+    "Intermediate annealing events are absent from DAT and cannot be learned reliably.",
+    "Final authority remains the equipment manual, alarm settings and approved plant process card."
+  ]
+}

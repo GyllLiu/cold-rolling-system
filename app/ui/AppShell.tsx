@@ -1,26 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { api } from "../lib/api";
-import type { ModelStatus } from "../lib/types";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [connected, setConnected] = useState<boolean | null>(null);
-  const [model, setModel] = useState<ModelStatus | null>(null);
 
   useEffect(() => {
     let active = true;
-    Promise.all([api<{ status: string }>("/api/health"), api<ModelStatus>("/api/model/status")])
-      .then(([, modelStatus]) => {
-        if (active) {
-          setConnected(true);
-          setModel(modelStatus);
-        }
-      })
+    api<{ status: string }>("/api/health")
+      .then(() => active && setConnected(true))
       .catch(() => active && setConnected(false));
-    return () => {
-      active = false;
-    };
+    return () => { active = false; };
   }, []);
 
   return (
@@ -28,23 +22,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <header className="parameter-topbar">
         <div className="parameter-brand">
           <span className="parameter-brand-mark">YH</span>
-          <span>
-            <b>冷二联首设参数</b>
-            <small>COLD TANDEM · DIRECT PREDICTION</small>
-          </span>
+          <span><b>永恒科技 · 冷二联工艺规划</b></span>
         </div>
-        <div className="parameter-model-state">
-          <span className={`connection-dot connection-${connected === null ? "checking" : connected ? "online" : "offline"}`} />
-          <span>
-            <b>{connected === null ? "模型检查中" : connected ? "模型在线" : "模型离线"}</b>
-            <small>{model?.model_version ?? "DIRECT V0.3"}</small>
-          </span>
-        </div>
+        <nav className="parameter-navigation" aria-label="主要功能">
+          <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>道次推荐</Link>
+          <Link href="/capture" aria-current={pathname === "/capture" ? "page" : undefined}>拍照记录</Link>
+        </nav>
+        {connected === false ? <div className="parameter-model-state">
+          <span className="connection-dot connection-offline" />
+          <span><b>服务异常</b></span>
+        </div> : null}
       </header>
       <main className="parameter-main">{children}</main>
-      <footer className="parameter-footer">
-        只读首设建议 · 不写入PLC · 0719封存验证
-      </footer>
     </div>
   );
 }

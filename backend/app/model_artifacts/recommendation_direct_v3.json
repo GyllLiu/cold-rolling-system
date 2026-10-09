@@ -213,7 +213,7 @@
     },
     "tm1_gap_command_median": {
       "label": "F1综合辊缝直接预测",
-      "unit": "μm",
+      "unit": "um",
       "role": "machine_setup",
       "priority": "primary",
       "reliability": "medium",
@@ -329,7 +329,7 @@
     },
     "tm2_gap_command_median": {
       "label": "F2综合辊缝直接预测",
-      "unit": "μm",
+      "unit": "um",
       "role": "machine_setup",
       "priority": "primary",
       "reliability": "medium",
@@ -520,7 +520,7 @@
     },
     "uncoiler_tension_set_median": {
       "label": "开卷张力直接预测",
-      "unit": "",
+      "unit": "T",
       "role": "machine_setup",
       "priority": "secondary",
       "reliability": "low",
@@ -711,7 +711,7 @@
     },
     "interstand_tension_set_median": {
       "label": "机架张力直接预测",
-      "unit": "",
+      "unit": "T",
       "role": "machine_setup",
       "priority": "secondary",
       "reliability": "medium",
@@ -902,7 +902,7 @@
     },
     "coiler_tension_set_median": {
       "label": "卷取张力直接预测",
-      "unit": "",
+      "unit": "T",
       "role": "machine_setup",
       "priority": "secondary",
       "reliability": "medium",
@@ -1325,7 +1325,7 @@
     },
     "tm1_tilt_set_median": {
       "label": "F1倾斜量直接预测",
-      "unit": "μm",
+      "unit": "um",
       "role": "machine_setup",
       "priority": "secondary",
       "reliability": "low",
@@ -1441,7 +1441,7 @@
     },
     "tm2_tilt_set_median": {
       "label": "F2倾斜量直接预测",
-      "unit": "μm",
+      "unit": "um",
       "role": "machine_setup",
       "priority": "secondary",
       "reliability": "low",

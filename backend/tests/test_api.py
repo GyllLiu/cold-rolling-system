@@ -1,3 +1,4 @@
+import json
 import os
 import tempfile
 from pathlib import Path
@@ -11,6 +12,7 @@ test_database.unlink(missing_ok=True)
 os.environ["DATABASE_URL"] = f"sqlite:///{test_database.as_posix()}"
 from app.main import app
 from app.database import ensure_schema_compatibility
+from app.recommendation import ROLLBACK_ARTIFACT_PATH
 
 
 client = TestClient(app)
@@ -49,7 +51,7 @@ def test_recommendation_uses_direct_model_without_historical_lookup():
     assert repeated.status_code == 200
     assert payload["status"] == "recommendable"
     assert payload["result_payload"]["can_apply"] is False
-    assert payload["model_version"] == "direct-ridge-high-speed-v0.3"
+    assert payload["model_version"] == "direct-ridge-startup-flatness-v0.4.1"
     assert payload["result_payload"]["model"]["training_datasets"] == [
         "260712",
         "260713",
@@ -62,18 +64,57 @@ def test_recommendation_uses_direct_model_without_historical_lookup():
     assert payload["result_payload"]["model"]["historical_neighbour_method_used_at_inference"] is False
     assert payload["result_payload"]["similar_cases"] == []
     parameters = payload["result_payload"]["parameters"]
-    assert len(parameters) == 13
+    assert len(parameters) == 6
     assert {
         "intermediate_thickness_set_mode",
-        "tm1_gap_command_median",
-        "tm2_gap_command_median",
-        "tm1_tilt_set_median",
-        "tm2_tilt_set_median",
+        "tm1_closed_gap_set_median",
+        "tm2_closed_gap_set_median",
+        "uncoiler_tension_set_median",
+        "interstand_tension_set_median",
+        "coiler_tension_set_median",
     } <= {row["code"] for row in parameters}
-    assert all("直接预测" in row["label"] or "预计" in row["label"] for row in parameters)
+    assert [row["code"] for row in parameters] == [
+        "intermediate_thickness_set_mode",
+        "uncoiler_tension_set_median",
+        "interstand_tension_set_median",
+        "coiler_tension_set_median",
+        "tm1_closed_gap_set_median",
+        "tm2_closed_gap_set_median",
+    ]
+    labels = {row["code"]: row["label"] for row in parameters}
+    assert labels["intermediate_thickness_set_mode"] == "中间厚度推荐"
+    assert labels["uncoiler_tension_set_median"] == "开卷张力推荐"
+    assert labels["interstand_tension_set_median"] == "机架张力推荐"
+    assert labels["coiler_tension_set_median"] == "卷取张力推荐"
+    assert labels["tm1_closed_gap_set_median"] == "F1推荐辊缝"
+    assert labels["tm2_closed_gap_set_median"] == "F2推荐辊缝"
+    assert all("推荐辊缝" in labels[code] for code in (
+        "tm1_closed_gap_set_median",
+        "tm2_closed_gap_set_median",
+    ))
+    assert all("安全首设辊缝" not in row["label"] for row in parameters)
+    assert all("闭合辊缝首设" not in row["label"] for row in parameters)
+    assert all("保守首设" not in row["label"] for row in parameters)
+    risks = " ".join(payload["result_payload"]["risks"])
+    assert "高速稳定生产段训练得到" in risks
+    assert "入口在线实测厚度可由DAT自动传入" not in risks
+    assert "未提供入口在线实测厚度" not in risks
+    assert "保守首设" not in risks
+    assert payload["result_payload"]["flatness_monitor"]["zone_count"] == 49
+    assert payload["result_payload"]["flatness_monitor"]["actionable"] is False
     assert [row["reference"] for row in parameters] == [
         row["reference"] for row in repeated.json()["result_payload"]["parameters"]
     ]
+
+
+def test_v04_artifact_is_preserved_for_rollback():
+    v4_path = ROLLBACK_ARTIFACT_PATH
+    payload = json.loads(v4_path.read_text(encoding="utf-8"))
+    assert payload["model_version"] == "direct-ridge-startup-flatness-v0.4"
+    assert payload["models"]["tm1_closed_gap_set_median"]["label"] == "F1闭合辊缝首设"
+    assert payload["models"]["tm2_closed_gap_set_median"]["label"] == "F2闭合辊缝首设"
+    assert payload["training_case_count"] == 281
+    assert payload["validation_case_count"] == 64
 
 
 def test_direct_model_rejects_out_of_coverage_specification():
@@ -101,8 +142,8 @@ def test_model_status_reports_frozen_independent_validation():
     assert payload["training_case_count"] == 281
     assert payload["validation_case_count"] == 64
     assert payload["high_speed_only"] is True
-    assert payload["direct_win_count"] == 11
-    assert payload["target_count"] == 13
+    assert payload["direct_win_count"] == 5
+    assert payload["target_count"] == 6
     assert payload["mean_mae_improvement_percent"] > 0
     assert payload["historical_neighbour_method_used_at_inference"] is False
 

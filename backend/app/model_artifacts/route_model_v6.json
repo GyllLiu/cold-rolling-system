@@ -1,0 +1,1402 @@
+{
+  "schema_version": "cold-rolling-route-model-v1",
+  "model_version": "high-speed-champion-challenger-v0.6",
+  "generated_at": "2026-08-20T16:04:13.051162+00:00",
+  "training_policy": "high_speed_stable_only",
+  "selection_days": [
+    "260724",
+    "260725",
+    "260728",
+    "260729",
+    "260802",
+    "260803",
+    "260804"
+  ],
+  "holdout_day": "260805",
+  "case_count": 555,
+  "development_case_count": 521,
+  "holdout_case_count": 34,
+  "supported_alloys": [
+    "1060",
+    "1100",
+    "3003"
+  ],
+  "alloy_specific_models": false,
+  "feature_bounds": {
+    "entry_thickness_set_mode": [
+      0.45,
+      7.0
+    ],
+    "exit_thickness_set_mode": [
+      0.285,
+      5.17
+    ],
+    "width_set_mode": [
+      1000.0,
+      1575.0
+    ]
+  },
+  "models": {
+    "intermediate_thickness_set_mode": {
+      "label": "中间厚度推荐",
+      "unit": "mm",
+      "role": "thickness_control",
+      "priority": "primary",
+      "reliability": "high",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 1,
+      "ridge_lambda": 0.01,
+      "target_transform": "reduction_share",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "coefficients": [
+        0.626098487488,
+        0.000923353359,
+        0.00288600076,
+        -0.002542302857,
+        0.034013869582
+      ],
+      "hard_min": 0.01,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.044992,
+        "p80_absolute_error": 0.0683,
+        "p95_absolute_error": 0.150771,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.031116
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.046073
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.023394
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.067741
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.078086,
+        "p95_half_width": 0.160337
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.03586,
+          "rmse": 0.048059,
+          "p80_absolute_error": 0.060761,
+          "p95_absolute_error": 0.107288,
+          "bias": 0.007329,
+          "r2": 0.998731
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.134922,
+          "rmse": 0.204684,
+          "p80_absolute_error": 0.2,
+          "p95_absolute_error": 0.3925,
+          "bias": 0.004922,
+          "r2": 0.976983
+        },
+        "mae_improvement_percent": 73.421
+      },
+      "selection": {
+        "source": "frozen_v0.4",
+        "challenger": "ridge_spec3_d1_l0.1_reduction_share_raw",
+        "reasons": [
+          "0805 MAE下降"
+        ]
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.044887,
+        "p80_absolute_error": 0.078086,
+        "p95_absolute_error": 0.160337,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.033629
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.047138
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.059125
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.045832
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.038911
+          }
+        ]
+      }
+    },
+    "uncoiler_tension_set_median": {
+      "label": "开卷张力推荐",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "coefficients": [
+        7.256673845314,
+        0.430457141288,
+        0.469511477278,
+        0.049857391534,
+        0.09824793301,
+        -0.244422707686,
+        -0.249832811211,
+        0.007678000646,
+        -0.051162047085,
+        -0.185920675407,
+        -0.070426944675,
+        -0.109791997849,
+        0.000547910371,
+        0.010615617449,
+        0.025770468365
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.417211,
+        "p80_absolute_error": 0.714191,
+        "p95_absolute_error": 1.084295,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.257225
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.435683
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.433016
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.468976
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.714191,
+        "p95_half_width": 1.084295
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.416618,
+          "rmse": 0.511931,
+          "p80_absolute_error": 0.583211,
+          "p95_absolute_error": 0.814588,
+          "bias": -0.046743,
+          "r2": 0.715519
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.403205,
+          "rmse": 0.611175,
+          "p80_absolute_error": 0.997,
+          "p95_absolute_error": 1.0,
+          "bias": -0.123984,
+          "r2": 0.594528
+        },
+        "mae_improvement_percent": -3.327
+      },
+      "selection": {
+        "source": "frozen_v0.4",
+        "challenger": "ridge_thickness2_d2_l0.1_raw_balanced",
+        "reasons": [
+          "开发期最差日MAE下降",
+          "多数未来日期折未改善"
+        ]
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.407059,
+        "p80_absolute_error": 0.63549,
+        "p95_absolute_error": 0.879966,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.420261
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.394721
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.388707
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.361447
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.469922
+          }
+        ]
+      }
+    },
+    "interstand_tension_set_median": {
+      "label": "机架张力推荐",
+      "unit": "T",
+      "feature_set": "thickness2",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.115268065268065,
+        1.8114149184149184
+      ],
+      "feature_scale": [
+        2.2456973074465045,
+        0.9880350825482896
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "coefficients": [
+        8.821814380992654,
+        2.373674286898003,
+        0.6956206259128097,
+        -0.10818448372566083,
+        -0.29998184637163283,
+        0.013918392975735555
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "training_case_count": 429,
+      "validation": {
+        "rolling": {
+          "fold_count": 7,
+          "equal_day_mae": 0.545177969357412,
+          "worst_day_mae": 1.0366608163605695,
+          "equal_day_p95": 1.2386965058732375,
+          "absolute_bias": 0.3535952237080494
+        },
+        "holdout_260805": {
+          "n": 34,
+          "mae": 1.211984450991481,
+          "p95": 2.65316286528397,
+          "bias": -0.7134093729018816,
+          "r2": 0.8085403763892338
+        }
+      }
+    },
+    "coiler_tension_set_median": {
+      "label": "卷取张力推荐",
+      "unit": "T",
+      "feature_set": "thickness2",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.115268065268065,
+        1.8114149184149184
+      ],
+      "feature_scale": [
+        2.2456973074465045,
+        0.9880350825482896
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "coefficients": [
+        7.359888358768675,
+        1.2134035143487294,
+        1.3539746277614515,
+        -0.3660901218787891,
+        0.14757817848772425,
+        -0.13604928015306575
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "training_case_count": 429,
+      "validation": {
+        "rolling": {
+          "fold_count": 7,
+          "equal_day_mae": 0.96637152832953,
+          "worst_day_mae": 1.5373409361194943,
+          "equal_day_p95": 1.7861445467173513,
+          "absolute_bias": 0.7204038401638877
+        },
+        "holdout_260805": {
+          "n": 34,
+          "mae": 0.817442116068398,
+          "p95": 2.0121829559684086,
+          "bias": -0.24431706167788908,
+          "r2": 0.8341898031963101
+        }
+      }
+    },
+    "tm1_closed_gap_set_median": {
+      "label": "F1推荐辊缝",
+      "unit": "mm",
+      "role": "machine_setup",
+      "priority": "primary",
+      "reliability": "medium",
+      "feature_set": "physics7",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "log_thickness_ratio",
+        "entry_cross_section_proxy",
+        "exit_cross_section_proxy"
+      ],
+      "degree": 2,
+      "ridge_lambda": 1.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        0.83697181882,
+        4991.766192170819,
+        2066.670629893239
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        0.25562643761,
+        2884.952799091373,
+        1110.794241976532
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "coefficients": [
+        2.771748087561,
+        0.296002051369,
+        0.316270778915,
+        -0.067864305143,
+        0.044589456703,
+        0.040378691698,
+        0.279810555891,
+        0.298592513669,
+        -0.026202515967,
+        -0.044563751294,
+        0.045055971019,
+        0.029756491194,
+        -0.012411992067,
+        -0.000383732332,
+        -0.00080828569,
+        0.045289044944,
+        0.076233268609,
+        -0.005844592442,
+        -0.012947500134,
+        0.003100841536,
+        0.072399126595,
+        0.031172384348,
+        0.077466293881,
+        -0.073885088647,
+        -0.033842982773,
+        -0.110963681547,
+        0.044624042246,
+        0.011338685542,
+        0.018076267415,
+        0.030920679187,
+        -0.071979792676,
+        -0.048372935094,
+        0.004232972718,
+        -0.022046526243,
+        -0.056087964689,
+        -0.063441772298
+      ],
+      "hard_min": 0.0,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.141882,
+        "p80_absolute_error": 0.234733,
+        "p95_absolute_error": 0.324727,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.092531
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.140072
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.144403
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.167787
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.234733,
+        "p95_half_width": 0.329629
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.149884,
+          "rmse": 0.183876,
+          "p80_absolute_error": 0.248508,
+          "p95_absolute_error": 0.340863,
+          "bias": -0.057022,
+          "r2": 0.97792
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.210156,
+          "rmse": 0.29863,
+          "p80_absolute_error": 0.4,
+          "p95_absolute_error": 0.5,
+          "bias": -0.017969,
+          "r2": 0.94176
+        },
+        "mae_improvement_percent": 28.68
+      },
+      "selection": {
+        "source": "frozen_v0.4",
+        "challenger": "ridge_thickness2_d1_l10_raw_raw",
+        "reasons": [
+          "开发期最差日MAE下降",
+          "开发期绝对Bias下降"
+        ]
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.134571,
+        "p80_absolute_error": 0.220346,
+        "p95_absolute_error": 0.329629,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.151019
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.139311
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.124389
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.120767
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.137077
+          }
+        ]
+      }
+    },
+    "tm2_closed_gap_set_median": {
+      "label": "F2推荐辊缝",
+      "unit": "mm",
+      "feature_set": "spec3",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.123857965451056,
+        1.7894568138195777,
+        1239.2437619961613
+      ],
+      "feature_scale": [
+        2.2440909592048874,
+        0.962427893231728,
+        108.62962521579004
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "coefficients": [
+        1.8354427147230905,
+        0.017461368006808413,
+        0.7090706528432321,
+        -0.06360140535194407,
+        -0.09700521199005618,
+        0.02743585969859742,
+        0.03467880364459888,
+        0.0926073087231949,
+        -0.03013172186596492,
+        -0.006786659346653525
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "training_case_count": 521,
+      "validation": {
+        "rolling": {
+          "fold_count": 7,
+          "equal_day_mae": 0.10977073234700438,
+          "worst_day_mae": 0.17054174061162156,
+          "equal_day_p95": 0.20902519296259953,
+          "absolute_bias": 0.07107797948954145
+        },
+        "holdout_260805": {
+          "n": 34,
+          "mae": 0.1446624889716448,
+          "p95": 0.3500910195463533,
+          "bias": 0.007701328746868274,
+          "r2": 0.9555547048735441
+        }
+      }
+    },
+    "f1_roll_force_sum_median": {
+      "label": "F1预计总轧制力",
+      "unit": "T",
+      "feature_set": "spec3",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.115268065268065,
+        1.8114149184149184,
+        1236.0839160839162
+      ],
+      "feature_scale": [
+        2.2456973074465045,
+        0.9880350825482896,
+        111.0108562596835
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "coefficients": [
+        338.44616029678986,
+        79.18281398044626,
+        -31.708399070188115,
+        27.481911235735925,
+        5.4289875845955144,
+        -22.709470309495334,
+        -2.0633722542779394,
+        -5.554236593515817,
+        4.795193550650119,
+        1.7747894755940374
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "training_case_count": 429,
+      "validation": {
+        "rolling": {
+          "fold_count": 7,
+          "equal_day_mae": 31.56491591301249,
+          "worst_day_mae": 53.708416330835604,
+          "equal_day_p95": 67.89247812821738,
+          "absolute_bias": 14.52210951941356
+        },
+        "holdout_260805": {
+          "n": 34,
+          "mae": 46.11343178221092,
+          "p95": 102.32761635940392,
+          "bias": -4.168001147279397,
+          "r2": 0.578820053871467
+        }
+      }
+    },
+    "f2_roll_force_sum_median": {
+      "label": "F2预计总轧制力",
+      "unit": "T",
+      "feature_set": "spec3",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode"
+      ],
+      "degree": 2,
+      "ridge_lambda": 0.1,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.123857965451056,
+        1.7894568138195777,
+        1239.2437619961613
+      ],
+      "feature_scale": [
+        2.2440909592048874,
+        0.962427893231728,
+        108.62962521579004
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "coefficients": [
+        348.0428475477076,
+        86.4693235440098,
+        -19.78661359697526,
+        28.109611906703815,
+        -53.96617863919996,
+        58.865504596979136,
+        -5.388868722127731,
+        -24.477055647287113,
+        9.803382550912719,
+        1.2470499441887632
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "training_case_count": 521,
+      "validation": {
+        "rolling": {
+          "fold_count": 7,
+          "equal_day_mae": 31.449841943598113,
+          "worst_day_mae": 50.93883964100927,
+          "equal_day_p95": 62.04577709773324,
+          "absolute_bias": 13.115653393180688
+        },
+        "holdout_260805": {
+          "n": 34,
+          "mae": 42.46086044815245,
+          "p95": 82.91590572866433,
+          "bias": 16.075321832184727,
+          "r2": 0.6638467430301704
+        }
+      }
+    }
+  },
+  "selection": {
+    "intermediate_thickness_set_mode": {
+      "label": "中间厚度推荐",
+      "winner": "ridge_spec3_d1_l0.1_reduction_share_raw",
+      "replace_v04": false,
+      "decision": "keep_v0.4",
+      "reasons": [
+        "0805 MAE下降"
+      ],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.034580156574977663,
+        "worst_day_mae": 0.0728507468517544,
+        "equal_day_p95": 0.10336645408930534,
+        "absolute_bias": 0.01844273896261023
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 0.06482725780902757,
+        "p95": 0.14157808862403354,
+        "bias": 0.00584142270714569,
+        "r2": 0.9955832095555662
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.03725976269818261,
+        "worst_day_mae": 0.07420886013635423,
+        "equal_day_p95": 0.1107199794172401,
+        "absolute_bias": 0.021358349798242686
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 0.06410007833190436,
+        "p95": 0.1622281930348191,
+        "bias": 0.015556022942287672,
+        "r2": 0.995357909787829
+      }
+    },
+    "uncoiler_tension_set_median": {
+      "label": "开卷张力推荐",
+      "winner": "ridge_thickness2_d2_l0.1_raw_balanced",
+      "replace_v04": false,
+      "decision": "keep_v0.4",
+      "reasons": [
+        "开发期最差日MAE下降",
+        "多数未来日期折未改善"
+      ],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.7197539116870234,
+        "worst_day_mae": 1.4597011558505244,
+        "equal_day_p95": 1.3235162361229518,
+        "absolute_bias": 0.5352663296181709
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 0.7281966527413352,
+        "p95": 2.2827974622735,
+        "bias": -0.23360324423798126,
+        "r2": 0.6135168693226356
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.7373352323867678,
+        "worst_day_mae": 1.4443683951002182,
+        "equal_day_p95": 1.389570295991643,
+        "absolute_bias": 0.5504163215003327
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 0.8692831104436258,
+        "p95": 2.627672721156286,
+        "bias": -0.4405851045515083,
+        "r2": 0.4416564949563838
+      }
+    },
+    "interstand_tension_set_median": {
+      "label": "机架张力推荐",
+      "winner": "ridge_thickness2_d2_l10_raw_balanced",
+      "replace_v04": true,
+      "decision": "use_challenger",
+      "reasons": [],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.545177969357412,
+        "worst_day_mae": 1.0366608163605695,
+        "equal_day_p95": 1.2386965058732375,
+        "absolute_bias": 0.3535952237080494
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 1.211984450991481,
+        "p95": 2.65316286528397,
+        "bias": -0.7134093729018816,
+        "r2": 0.8085403763892338
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.6615622815885613,
+        "worst_day_mae": 1.2097757105933857,
+        "equal_day_p95": 1.3514949132336416,
+        "absolute_bias": 0.5196680530498107
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 1.2285166238094283,
+        "p95": 3.0359552101949507,
+        "bias": -1.0618706233435073,
+        "r2": 0.7905543867062167
+      }
+    },
+    "coiler_tension_set_median": {
+      "label": "卷取张力推荐",
+      "winner": "ridge_thickness2_d2_l10_raw_balanced",
+      "replace_v04": true,
+      "decision": "use_challenger",
+      "reasons": [],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.96637152832953,
+        "worst_day_mae": 1.5373409361194943,
+        "equal_day_p95": 1.7861445467173513,
+        "absolute_bias": 0.7204038401638877
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 0.817442116068398,
+        "p95": 2.0121829559684086,
+        "bias": -0.24431706167788908,
+        "r2": 0.8341898031963101
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 1.0450360034961597,
+        "worst_day_mae": 1.7987625489039194,
+        "equal_day_p95": 1.9415560928663183,
+        "absolute_bias": 0.8485199726056429
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 0.8944258225403301,
+        "p95": 2.1929968102191673,
+        "bias": -0.7201583469959696,
+        "r2": 0.7982901164597862
+      }
+    },
+    "tm1_closed_gap_set_median": {
+      "label": "F1推荐辊缝",
+      "winner": "ridge_thickness2_d1_l10_raw_raw",
+      "replace_v04": false,
+      "decision": "keep_v0.4",
+      "reasons": [
+        "开发期最差日MAE下降",
+        "开发期绝对Bias下降"
+      ],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.12316250013710901,
+        "worst_day_mae": 0.2388240408064446,
+        "equal_day_p95": 0.2527548685082149,
+        "absolute_bias": 0.0552517281137043
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 0.15667584548794558,
+        "p95": 0.4182092914857639,
+        "bias": 0.030819038979601417,
+        "r2": 0.9721837473926124
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.12892297524538177,
+        "worst_day_mae": 0.23263504631530904,
+        "equal_day_p95": 0.26413413876546077,
+        "absolute_bias": 0.05435475404792668
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 0.22839062756577536,
+        "p95": 0.6582487637029948,
+        "bias": 0.06689906910512931,
+        "r2": 0.9347893349536621
+      }
+    },
+    "tm2_closed_gap_set_median": {
+      "label": "F2推荐辊缝",
+      "winner": "ridge_spec3_d2_l10_raw_raw",
+      "replace_v04": true,
+      "decision": "use_challenger",
+      "reasons": [],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.10977073234700438,
+        "worst_day_mae": 0.17054174061162156,
+        "equal_day_p95": 0.20902519296259953,
+        "absolute_bias": 0.07107797948954145
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 0.1446624889716448,
+        "p95": 0.3500910195463533,
+        "bias": 0.007701328746868274,
+        "r2": 0.9555547048735441
+      },
+      "baseline_development": {
+        "fold_count": 7,
+        "equal_day_mae": 0.2458333729955441,
+        "worst_day_mae": 0.3826816243942357,
+        "equal_day_p95": 0.3816748020034823,
+        "absolute_bias": 0.22673649041147015
+      },
+      "baseline_holdout_260805": {
+        "n": 34,
+        "mae": 0.32468860093547985,
+        "p95": 0.6365109266641702,
+        "bias": 0.2823893573051222,
+        "r2": 0.7986206099232189
+      }
+    },
+    "f1_roll_force_sum_median": {
+      "label": "F1预计总轧制力",
+      "winner": "ridge_spec3_d2_l10_raw_balanced",
+      "replace_v04": null,
+      "decision": "use_challenger",
+      "reasons": [
+        "新增轧制力输出，无v0.4基线"
+      ],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 31.56491591301249,
+        "worst_day_mae": 53.708416330835604,
+        "equal_day_p95": 67.89247812821738,
+        "absolute_bias": 14.52210951941356
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 46.11343178221092,
+        "p95": 102.32761635940392,
+        "bias": -4.168001147279397,
+        "r2": 0.578820053871467
+      },
+      "baseline_development": null,
+      "baseline_holdout_260805": null
+    },
+    "f2_roll_force_sum_median": {
+      "label": "F2预计总轧制力",
+      "winner": "ridge_spec3_d2_l0.1_raw_raw",
+      "replace_v04": null,
+      "decision": "use_challenger",
+      "reasons": [
+        "新增轧制力输出，无v0.4基线"
+      ],
+      "challenger_development": {
+        "fold_count": 7,
+        "equal_day_mae": 31.449841943598113,
+        "worst_day_mae": 50.93883964100927,
+        "equal_day_p95": 62.04577709773324,
+        "absolute_bias": 13.115653393180688
+      },
+      "challenger_holdout_260805": {
+        "n": 34,
+        "mae": 42.46086044815245,
+        "p95": 82.91590572866433,
+        "bias": 16.075321832184727,
+        "r2": 0.6638467430301704
+      },
+      "baseline_development": null,
+      "baseline_holdout_260805": null
+    }
+  }
+}

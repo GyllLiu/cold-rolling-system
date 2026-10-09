@@ -1,0 +1,3273 @@
+{
+  "model_version": "direct-ridge-startup-flatness-v0.4.1",
+  "generated_at": "2026-08-18T14:18:46.650957+00:00",
+  "model_family": "standardized physics-feature polynomial ridge regression",
+  "inference_method": "fixed coefficient equation; no neighbour lookup or averaging",
+  "training_datasets": [
+    "260712",
+    "260713",
+    "260714",
+    "260716",
+    "260717",
+    "260718"
+  ],
+  "validation_dataset": "260719",
+  "training_case_count": 281,
+  "validation_case_count": 64,
+  "training_policy": {
+    "learning_eligible_only": true,
+    "high_speed_plateau_only": true,
+    "low_speed_role": "operator_tuning_excluded_from_targets",
+    "model_selection": "60% rolling-origin date validation + 40% whole-spec held-out validation",
+    "validation_used_for_tuning": false,
+    "validation_status": "date-isolated reused benchmark; not a never-seen blind test",
+    "historical_neighbour_method_used_at_inference": false
+  },
+  "parameter_policy": {
+    "startup_outputs": [
+      "intermediate_thickness_set_mode",
+      "tm1_closed_gap_set_median",
+      "tm2_closed_gap_set_median",
+      "uncoiler_tension_set_median",
+      "interstand_tension_set_median",
+      "coiler_tension_set_median"
+    ],
+    "removed_from_startup": [
+      "main_speed_set_median",
+      "f1_bending_set_median",
+      "f2_bending_set_median",
+      "tm1_tilt_set_median",
+      "tm2_tilt_set_median",
+      "f1_roll_force_sum_median",
+      "f2_roll_force_sum_median",
+      "tm1_gap_command_median",
+      "tm2_gap_command_median"
+    ],
+    "closed_gap_safety": "high-speed stable running gap reference only; not a safe coil-on first set; operator must leave a safety margin; never auto-write PLC",
+    "operator_warning": "F1/F2输出由高速稳定生产段训练得到，作为上卷时的人工推荐值；主操确认后输入。当前无PLC，系统不会自动下发。",
+    "plc_available": false,
+    "can_apply": false
+  },
+  "input_features": [
+    "entry_thickness_set_mode",
+    "exit_thickness_set_mode",
+    "width_set_mode",
+    "total_reduction_ratio",
+    "entry_thickness_actual_median"
+  ],
+  "feature_engineering": {
+    "log_thickness_ratio": "ln(entry_thickness / target_exit_thickness)",
+    "entry_cross_section_proxy": "entry_thickness * width",
+    "exit_cross_section_proxy": "target_exit_thickness * width"
+  },
+  "input_coverage": {
+    "entry_thickness_set_mode": {
+      "min": 0.57,
+      "p01": 0.756,
+      "p99": 7.0,
+      "max": 7.0
+    },
+    "exit_thickness_set_mode": {
+      "min": 0.338,
+      "p01": 0.365,
+      "p99": 3.827,
+      "max": 4.94
+    },
+    "width_set_mode": {
+      "min": 1000.0,
+      "p01": 1000.0,
+      "p99": 1560.0,
+      "max": 1575.0
+    },
+    "total_reduction_ratio": {
+      "min": 0.272727,
+      "p01": 0.281481,
+      "p99": 0.785714,
+      "max": 0.785714
+    },
+    "entry_thickness_actual_median": {
+      "min": 0.561821,
+      "p01": 0.763441,
+      "p99": 7.194118,
+      "max": 7.268403
+    }
+  },
+  "width_ablation": {
+    "intermediate_thickness_set_mode": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.043203,
+      "best_no_width_hybrid_validation_score": 0.044807,
+      "hybrid_validation_improvement_percent": 3.579,
+      "selected_final_test_mae": 0.03586,
+      "best_no_width_final_test_mae": 0.040702,
+      "final_test_mae_improvement_percent": 11.896,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    },
+    "tm1_closed_gap_set_median": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.135548,
+      "best_no_width_hybrid_validation_score": 0.138418,
+      "hybrid_validation_improvement_percent": 2.073,
+      "selected_final_test_mae": 0.149884,
+      "best_no_width_final_test_mae": 0.154276,
+      "final_test_mae_improvement_percent": 2.847,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    },
+    "tm2_closed_gap_set_median": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.139817,
+      "best_no_width_hybrid_validation_score": 0.143147,
+      "hybrid_validation_improvement_percent": 2.326,
+      "selected_final_test_mae": 0.109086,
+      "best_no_width_final_test_mae": 0.112082,
+      "final_test_mae_improvement_percent": 2.673,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    },
+    "uncoiler_tension_set_median": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.402059,
+      "best_no_width_hybrid_validation_score": 0.411735,
+      "hybrid_validation_improvement_percent": 2.35,
+      "selected_final_test_mae": 0.416618,
+      "best_no_width_final_test_mae": 0.425274,
+      "final_test_mae_improvement_percent": 2.035,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    },
+    "interstand_tension_set_median": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.508421,
+      "best_no_width_hybrid_validation_score": 0.544194,
+      "hybrid_validation_improvement_percent": 6.574,
+      "selected_final_test_mae": 0.601281,
+      "best_no_width_final_test_mae": 0.500836,
+      "final_test_mae_improvement_percent": -20.055,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    },
+    "coiler_tension_set_median": {
+      "selected_uses_width": true,
+      "selected_hybrid_validation_score": 0.599318,
+      "best_no_width_hybrid_validation_score": 0.641099,
+      "hybrid_validation_improvement_percent": 6.517,
+      "selected_final_test_mae": 0.648807,
+      "best_no_width_final_test_mae": 0.612694,
+      "final_test_mae_improvement_percent": -5.894,
+      "interpretation": "width retained because it improved the pre-test hybrid validation score; it is a load/tension correction feature, not the target thickness definition"
+    }
+  },
+  "models": {
+    "intermediate_thickness_set_mode": {
+      "label": "中间厚度推荐",
+      "unit": "mm",
+      "role": "thickness_control",
+      "priority": "primary",
+      "reliability": "high",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 1,
+      "ridge_lambda": 0.01,
+      "target_transform": "reduction_share",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "coefficients": [
+        0.626098487488,
+        0.000923353359,
+        0.00288600076,
+        -0.002542302857,
+        0.034013869582
+      ],
+      "hard_min": 0.01,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.044992,
+        "p80_absolute_error": 0.0683,
+        "p95_absolute_error": 0.150771,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.031116
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.046073
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.023394
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.067741
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.078086,
+        "p95_half_width": 0.160337
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.03586,
+          "rmse": 0.048059,
+          "p80_absolute_error": 0.060761,
+          "p95_absolute_error": 0.107288,
+          "bias": 0.007329,
+          "r2": 0.998731
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.134922,
+          "rmse": 0.204684,
+          "p80_absolute_error": 0.2,
+          "p95_absolute_error": 0.3925,
+          "bias": 0.004922,
+          "r2": 0.976983
+        },
+        "mae_improvement_percent": 73.421
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.043203
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.044887,
+        "p80_absolute_error": 0.078086,
+        "p95_absolute_error": 0.160337,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.033629
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.047138
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.059125
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.045832
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.038911
+          }
+        ]
+      }
+    },
+    "tm1_closed_gap_set_median": {
+      "label": "F1推荐辊缝",
+      "unit": "mm",
+      "role": "machine_setup",
+      "priority": "primary",
+      "reliability": "medium",
+      "feature_set": "physics7",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "log_thickness_ratio",
+        "entry_cross_section_proxy",
+        "exit_cross_section_proxy"
+      ],
+      "degree": 2,
+      "ridge_lambda": 1.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        0.83697181882,
+        4991.766192170819,
+        2066.670629893239
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        0.25562643761,
+        2884.952799091373,
+        1110.794241976532
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "coefficients": [
+        2.771748087561,
+        0.296002051369,
+        0.316270778915,
+        -0.067864305143,
+        0.044589456703,
+        0.040378691698,
+        0.279810555891,
+        0.298592513669,
+        -0.026202515967,
+        -0.044563751294,
+        0.045055971019,
+        0.029756491194,
+        -0.012411992067,
+        -0.000383732332,
+        -0.00080828569,
+        0.045289044944,
+        0.076233268609,
+        -0.005844592442,
+        -0.012947500134,
+        0.003100841536,
+        0.072399126595,
+        0.031172384348,
+        0.077466293881,
+        -0.073885088647,
+        -0.033842982773,
+        -0.110963681547,
+        0.044624042246,
+        0.011338685542,
+        0.018076267415,
+        0.030920679187,
+        -0.071979792676,
+        -0.048372935094,
+        0.004232972718,
+        -0.022046526243,
+        -0.056087964689,
+        -0.063441772298
+      ],
+      "hard_min": 0.0,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.141882,
+        "p80_absolute_error": 0.234733,
+        "p95_absolute_error": 0.324727,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.092531
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.140072
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.144403
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.167787
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.234733,
+        "p95_half_width": 0.329629
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.149884,
+          "rmse": 0.183876,
+          "p80_absolute_error": 0.248508,
+          "p95_absolute_error": 0.340863,
+          "bias": -0.057022,
+          "r2": 0.97792
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.210156,
+          "rmse": 0.29863,
+          "p80_absolute_error": 0.4,
+          "p95_absolute_error": 0.5,
+          "bias": -0.017969,
+          "r2": 0.94176
+        },
+        "mae_improvement_percent": 28.68
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.135548
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.134571,
+        "p80_absolute_error": 0.220346,
+        "p95_absolute_error": 0.329629,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.151019
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.139311
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.124389
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.120767
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.137077
+          }
+        ]
+      }
+    },
+    "tm2_closed_gap_set_median": {
+      "label": "F2推荐辊缝",
+      "unit": "mm",
+      "role": "machine_setup",
+      "priority": "primary",
+      "reliability": "medium",
+      "feature_set": "physics7",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio",
+        "log_thickness_ratio",
+        "entry_cross_section_proxy",
+        "exit_cross_section_proxy"
+      ],
+      "degree": 2,
+      "ridge_lambda": 1.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263,
+        0.83697181882,
+        4991.766192170819,
+        2066.670629893239
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501,
+        0.25562643761,
+        2884.952799091373,
+        1110.794241976532
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "coefficients": [
+        2.159455583713,
+        0.1543316874,
+        0.218231778679,
+        -0.049385207484,
+        -0.075169478387,
+        -0.07059005745,
+        0.141772238179,
+        0.21212886563,
+        0.039751389255,
+        -0.046941503956,
+        -0.001615811418,
+        -0.004334988064,
+        -0.018269141343,
+        0.023602993974,
+        -0.017186445364,
+        -0.006713017697,
+        0.132197732133,
+        -0.008918787546,
+        -0.030816491412,
+        0.0016161833,
+        0.063506996714,
+        0.032234616713,
+        0.118849087813,
+        -0.060556019645,
+        -0.023062359702,
+        -0.137430642319,
+        -0.004999338014,
+        -0.011380777093,
+        -0.045901375086,
+        0.008502216243,
+        0.029740583442,
+        -0.078119543244,
+        -0.045499831316,
+        -0.015468590196,
+        -0.068907827713,
+        -0.060509636243
+      ],
+      "hard_min": 0.0,
+      "hard_max": 20.0,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.14549,
+        "p80_absolute_error": 0.227347,
+        "p95_absolute_error": 0.453773,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.089633
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.160555
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.152876
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.152802
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.227347,
+        "p95_half_width": 0.453773
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.109086,
+          "rmse": 0.146951,
+          "p80_absolute_error": 0.151369,
+          "p95_absolute_error": 0.313802,
+          "bias": -0.051445,
+          "r2": 0.967434
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.169531,
+          "rmse": 0.250702,
+          "p80_absolute_error": 0.3,
+          "p95_absolute_error": 0.5,
+          "bias": -0.066406,
+          "r2": 0.905216
+        },
+        "mae_improvement_percent": 35.654
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.139817
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.141093,
+        "p80_absolute_error": 0.223737,
+        "p95_absolute_error": 0.436489,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.146819
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.128191
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.146789
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.130226
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.153338
+          }
+        ]
+      }
+    },
+    "uncoiler_tension_set_median": {
+      "label": "开卷张力推荐",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "low",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 2,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "coefficients": [
+        7.256673845314,
+        0.430457141288,
+        0.469511477278,
+        0.049857391534,
+        0.09824793301,
+        -0.244422707686,
+        -0.249832811211,
+        0.007678000646,
+        -0.051162047085,
+        -0.185920675407,
+        -0.070426944675,
+        -0.109791997849,
+        0.000547910371,
+        0.010615617449,
+        0.025770468365
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.417211,
+        "p80_absolute_error": 0.714191,
+        "p95_absolute_error": 1.084295,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.257225
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.435683
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.433016
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.468976
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.714191,
+        "p95_half_width": 1.084295
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.416618,
+          "rmse": 0.511931,
+          "p80_absolute_error": 0.583211,
+          "p95_absolute_error": 0.814588,
+          "bias": -0.046743,
+          "r2": 0.715519
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.403205,
+          "rmse": 0.611175,
+          "p80_absolute_error": 0.997,
+          "p95_absolute_error": 1.0,
+          "bias": -0.123984,
+          "r2": 0.594528
+        },
+        "mae_improvement_percent": -3.327
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.402059
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.407059,
+        "p80_absolute_error": 0.63549,
+        "p95_absolute_error": 0.879966,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.420261
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.394721
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.388707
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.361447
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.469922
+          }
+        ]
+      }
+    },
+    "interstand_tension_set_median": {
+      "label": "机架张力推荐",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "medium",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 2,
+      "ridge_lambda": 0.01,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "coefficients": [
+        8.230631678913,
+        1.824780382065,
+        0.747673526819,
+        0.284956391886,
+        0.889263676224,
+        -5.250075205544,
+        7.012161298933,
+        0.440702594172,
+        3.476687591072,
+        -2.365180475361,
+        -0.52299927076,
+        -2.334394102177,
+        0.103357731882,
+        -0.299064571601,
+        -0.368254143057
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.542837,
+        "p80_absolute_error": 0.826833,
+        "p95_absolute_error": 1.429597,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.389791
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.528614
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.516686
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.658663
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.826833,
+        "p95_half_width": 1.429597
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.601281,
+          "rmse": 0.746828,
+          "p80_absolute_error": 0.830408,
+          "p95_absolute_error": 1.378964,
+          "bias": -0.063115,
+          "r2": 0.924434
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.603986,
+          "rmse": 0.889497,
+          "p80_absolute_error": 1.0,
+          "p95_absolute_error": 2.14873,
+          "bias": 0.056642,
+          "r2": 0.892805
+        },
+        "mae_improvement_percent": 0.448
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.508421
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.485894,
+        "p80_absolute_error": 0.753924,
+        "p95_absolute_error": 1.402348,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.44362
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.409624
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.46307
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.574513
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.539398
+          }
+        ]
+      }
+    },
+    "coiler_tension_set_median": {
+      "label": "卷取张力推荐",
+      "unit": "T",
+      "role": "machine_setup",
+      "priority": "secondary",
+      "reliability": "medium",
+      "feature_set": "spec4",
+      "feature_names": [
+        "entry_thickness_set_mode",
+        "exit_thickness_set_mode",
+        "width_set_mode",
+        "total_reduction_ratio"
+      ],
+      "degree": 1,
+      "ridge_lambda": 10.0,
+      "target_transform": "raw",
+      "feature_mean": [
+        4.013985765125,
+        1.662291814947,
+        1235.252669039146,
+        0.553574046263
+      ],
+      "feature_scale": [
+        2.256901267393,
+        0.861674555386,
+        105.243372594585,
+        0.104467121501
+      ],
+      "basis_terms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "coefficients": [
+        6.461199323843,
+        1.000155642329,
+        1.225843529518,
+        0.297987574076,
+        0.110639632469
+      ],
+      "hard_min": 0.0,
+      "hard_max": null,
+      "rolling_origin": {
+        "evaluated_case_count": 206,
+        "mae": 0.590952,
+        "p80_absolute_error": 0.914176,
+        "p95_absolute_error": 1.502137,
+        "folds": [
+          {
+            "validation_dataset": "260714",
+            "training_case_count": 75,
+            "validation_case_count": 32,
+            "mae": 0.724191
+          },
+          {
+            "validation_dataset": "260716",
+            "training_case_count": 107,
+            "validation_case_count": 66,
+            "mae": 0.548529
+          },
+          {
+            "validation_dataset": "260717",
+            "training_case_count": 173,
+            "validation_case_count": 47,
+            "mae": 0.549062
+          },
+          {
+            "validation_dataset": "260718",
+            "training_case_count": 220,
+            "validation_case_count": 61,
+            "mae": 0.599234
+          }
+        ]
+      },
+      "prediction_interval": {
+        "method": "max of rolling-date and held-out-spec residual quantiles",
+        "coverage": 0.8,
+        "half_width": 0.914176,
+        "p95_half_width": 1.657826
+      },
+      "final_test": {
+        "direct": {
+          "mae": 0.648807,
+          "rmse": 0.932222,
+          "p80_absolute_error": 0.907302,
+          "p95_absolute_error": 2.062649,
+          "bias": -0.001111,
+          "r2": 0.873373
+        },
+        "historical_5nn_median_baseline": {
+          "mae": 0.917511,
+          "rmse": 1.217736,
+          "p80_absolute_error": 1.191995,
+          "p95_absolute_error": 2.659786,
+          "bias": -0.050308,
+          "r2": 0.783931
+        },
+        "mae_improvement_percent": 29.286
+      },
+      "selection": {
+        "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+        "combined_score": 0.599318
+      },
+      "grouped_spec_validation": {
+        "evaluated_case_count": 281,
+        "mae": 0.590415,
+        "p80_absolute_error": 0.898372,
+        "p95_absolute_error": 1.657826,
+        "folds": [
+          {
+            "fold": 1,
+            "training_case_count": 224,
+            "validation_case_count": 57,
+            "validation_spec_count": 41,
+            "mae": 0.544036
+          },
+          {
+            "fold": 2,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.615192
+          },
+          {
+            "fold": 3,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.511237
+          },
+          {
+            "fold": 4,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.663856
+          },
+          {
+            "fold": 5,
+            "training_case_count": 225,
+            "validation_case_count": 56,
+            "validation_spec_count": 42,
+            "mae": 0.618582
+          }
+        ]
+      }
+    }
+  },
+  "spec_overlap": {
+    "test_case_count": 64,
+    "exact_spec_overlap_count": 5,
+    "exact_spec_overlap_percent": 7.812
+  },
+  "exit_quality_observation": {
+    "case_count": 64,
+    "median_segment_p95_absolute_error_mm": 0.00819,
+    "median_segment_p95_relative_error_percent": 0.52468,
+    "worst_segment_p95_relative_error_percent": 1.459211
+  },
+  "flatness_monitor": {
+    "role": "runtime observational baseline; not a startup input and not automatic correction",
+    "native_unit": "DAT原始值",
+    "unit_status": "DAT metadata blank; engineering unit unconfirmed",
+    "zone_count": 49,
+    "zone_orientation": "unconfirmed; low/high sensor numbers not mapped to operation/drive side",
+    "lag_alignment": "not yet applied; required before causal adjustment modelling",
+    "training_case_count": 278,
+    "validation_case_count": 63,
+    "models": {
+      "flatness_std_median": {
+        "label": "横向离散基线",
+        "unit": "DAT原始值",
+        "role": "flatness_monitor",
+        "priority": "monitor",
+        "reliability": "monitor",
+        "feature_set": "physics8_actual",
+        "feature_names": [
+          "entry_thickness_set_mode",
+          "exit_thickness_set_mode",
+          "width_set_mode",
+          "total_reduction_ratio",
+          "log_thickness_ratio",
+          "entry_cross_section_proxy",
+          "exit_cross_section_proxy",
+          "entry_thickness_actual_median"
+        ],
+        "degree": 2,
+        "ridge_lambda": 100.0,
+        "target_transform": "raw",
+        "feature_mean": [
+          3.988956834532,
+          1.655410071942,
+          1234.589928057554,
+          0.552672723022,
+          0.8349966269,
+          4957.001079136691,
+          2056.782183453237,
+          3.969337834532
+        ],
+        "feature_scale": [
+          2.256057870101,
+          0.863247493317,
+          105.607173082465,
+          0.104575765072,
+          0.256027075009,
+          2880.82272287108,
+          1111.986687858726,
+          2.23391562587
+        ],
+        "basis_terms": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        "coefficients": [
+          2.059956587226,
+          -0.045016288543,
+          -0.118326900821,
+          -0.180269984002,
+          0.156039247619,
+          0.149167554083,
+          -0.070885770501,
+          -0.141390969033,
+          -0.039231044282,
+          0.065309416147,
+          0.043261597048,
+          -0.012105510608,
+          -0.03550440586,
+          -0.029982610165,
+          0.054686213845,
+          0.03560594386,
+          0.074384064,
+          -0.024553903532,
+          0.004367666112,
+          -0.012831337045,
+          -0.018700086767,
+          0.039270842751,
+          -0.018344504391,
+          0.049585421008,
+          0.085401435545,
+          -0.081630079202,
+          -0.064961251428,
+          0.021642824496,
+          0.014355340839,
+          -0.02208233853,
+          0.022863492111,
+          0.028066114307,
+          -0.04982887776,
+          -0.031293358607,
+          -0.027907380899,
+          0.039031509079,
+          -0.040526396992,
+          -0.030813732301,
+          -0.020065503606,
+          0.054789790716,
+          0.038243352709,
+          0.06102253994,
+          -0.012244313987,
+          0.038232752672,
+          0.084174197961
+        ],
+        "hard_min": 0.0,
+        "hard_max": null,
+        "rolling_origin": {
+          "evaluated_case_count": 203,
+          "mae": 0.801344,
+          "p80_absolute_error": 1.132056,
+          "p95_absolute_error": 2.535857,
+          "folds": [
+            {
+              "validation_dataset": "260714",
+              "training_case_count": 75,
+              "validation_case_count": 31,
+              "mae": 0.829239
+            },
+            {
+              "validation_dataset": "260716",
+              "training_case_count": 106,
+              "validation_case_count": 65,
+              "mae": 0.706014
+            },
+            {
+              "validation_dataset": "260717",
+              "training_case_count": 171,
+              "validation_case_count": 46,
+              "mae": 0.882899
+            },
+            {
+              "validation_dataset": "260718",
+              "training_case_count": 217,
+              "validation_case_count": 61,
+              "mae": 0.827249
+            }
+          ]
+        },
+        "prediction_interval": {
+          "method": "max of rolling-date and held-out-spec residual quantiles",
+          "coverage": 0.8,
+          "half_width": 1.132056,
+          "p95_half_width": 2.535857
+        },
+        "final_test": {
+          "direct": {
+            "mae": 0.769492,
+            "rmse": 1.024511,
+            "p80_absolute_error": 1.108348,
+            "p95_absolute_error": 1.852989,
+            "bias": 0.070781,
+            "r2": 0.086015
+          },
+          "historical_5nn_median_baseline": {
+            "mae": 0.79144,
+            "rmse": 1.094893,
+            "p80_absolute_error": 1.074725,
+            "p95_absolute_error": 2.285691,
+            "bias": -0.210573,
+            "r2": -0.043876
+          },
+          "mae_improvement_percent": 2.773
+        },
+        "selection": {
+          "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+          "combined_score": 0.796339
+        },
+        "grouped_spec_validation": {
+          "evaluated_case_count": 278,
+          "mae": 0.773823,
+          "p80_absolute_error": 1.084299,
+          "p95_absolute_error": 2.137762,
+          "folds": [
+            {
+              "fold": 1,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 40,
+              "mae": 0.848008
+            },
+            {
+              "fold": 2,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 0.892799
+            },
+            {
+              "fold": 3,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 0.692063
+            },
+            {
+              "fold": 4,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 0.677924
+            },
+            {
+              "fold": 5,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 0.756293
+            }
+          ]
+        }
+      },
+      "flatness_lr_asymmetry_median": {
+        "label": "左右不对称基线",
+        "unit": "DAT原始值",
+        "role": "flatness_monitor",
+        "priority": "monitor",
+        "reliability": "monitor",
+        "feature_set": "physics7",
+        "feature_names": [
+          "entry_thickness_set_mode",
+          "exit_thickness_set_mode",
+          "width_set_mode",
+          "total_reduction_ratio",
+          "log_thickness_ratio",
+          "entry_cross_section_proxy",
+          "exit_cross_section_proxy"
+        ],
+        "degree": 1,
+        "ridge_lambda": 0.1,
+        "target_transform": "raw",
+        "feature_mean": [
+          3.988956834532,
+          1.655410071942,
+          1234.589928057554,
+          0.552672723022,
+          0.8349966269,
+          4957.001079136691,
+          2056.782183453237
+        ],
+        "feature_scale": [
+          2.256057870101,
+          0.863247493317,
+          105.607173082465,
+          0.104575765072,
+          0.256027075009,
+          2880.82272287108,
+          1111.986687858726
+        ],
+        "basis_terms": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "coefficients": [
+          -1.410552206174,
+          3.076920638371,
+          -0.093504109956,
+          0.718803799545,
+          -1.802180507477,
+          2.136393158186,
+          -3.961822029587,
+          0.611792365907
+        ],
+        "hard_min": null,
+        "hard_max": null,
+        "rolling_origin": {
+          "evaluated_case_count": 203,
+          "mae": 1.277921,
+          "p80_absolute_error": 2.079736,
+          "p95_absolute_error": 3.877186,
+          "folds": [
+            {
+              "validation_dataset": "260714",
+              "training_case_count": 75,
+              "validation_case_count": 31,
+              "mae": 1.124596
+            },
+            {
+              "validation_dataset": "260716",
+              "training_case_count": 106,
+              "validation_case_count": 65,
+              "mae": 1.162279
+            },
+            {
+              "validation_dataset": "260717",
+              "training_case_count": 171,
+              "validation_case_count": 46,
+              "mae": 1.4515
+            },
+            {
+              "validation_dataset": "260718",
+              "training_case_count": 217,
+              "validation_case_count": 61,
+              "mae": 1.34817
+            }
+          ]
+        },
+        "prediction_interval": {
+          "method": "max of rolling-date and held-out-spec residual quantiles",
+          "coverage": 0.8,
+          "half_width": 2.079736,
+          "p95_half_width": 3.912117
+        },
+        "final_test": {
+          "direct": {
+            "mae": 1.199185,
+            "rmse": 1.640183,
+            "p80_absolute_error": 1.661009,
+            "p95_absolute_error": 3.684219,
+            "bias": -0.349794,
+            "r2": 0.054018
+          },
+          "historical_5nn_median_baseline": {
+            "mae": 1.376916,
+            "rmse": 1.777951,
+            "p80_absolute_error": 2.120484,
+            "p95_absolute_error": 4.070948,
+            "bias": -0.370784,
+            "r2": -0.111573
+          },
+          "mae_improvement_percent": 12.908
+        },
+        "selection": {
+          "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+          "combined_score": 1.307081
+        },
+        "grouped_spec_validation": {
+          "evaluated_case_count": 278,
+          "mae": 1.360248,
+          "p80_absolute_error": 2.046269,
+          "p95_absolute_error": 3.912117,
+          "folds": [
+            {
+              "fold": 1,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 40,
+              "mae": 1.317207
+            },
+            {
+              "fold": 2,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 1.832461
+            },
+            {
+              "fold": 3,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 1.270522
+            },
+            {
+              "fold": 4,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 1.353439
+            },
+            {
+              "fold": 5,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 1.02144
+            }
+          ]
+        }
+      },
+      "flatness_edge_minus_center_median": {
+        "label": "边部－中部基线",
+        "unit": "DAT原始值",
+        "role": "flatness_monitor",
+        "priority": "monitor",
+        "reliability": "monitor",
+        "feature_set": "physics8_actual",
+        "feature_names": [
+          "entry_thickness_set_mode",
+          "exit_thickness_set_mode",
+          "width_set_mode",
+          "total_reduction_ratio",
+          "log_thickness_ratio",
+          "entry_cross_section_proxy",
+          "exit_cross_section_proxy",
+          "entry_thickness_actual_median"
+        ],
+        "degree": 2,
+        "ridge_lambda": 100.0,
+        "target_transform": "raw",
+        "feature_mean": [
+          3.988956834532,
+          1.655410071942,
+          1234.589928057554,
+          0.552672723022,
+          0.8349966269,
+          4957.001079136691,
+          2056.782183453237,
+          3.969337834532
+        ],
+        "feature_scale": [
+          2.256057870101,
+          0.863247493317,
+          105.607173082465,
+          0.104575765072,
+          0.256027075009,
+          2880.82272287108,
+          1111.986687858726,
+          2.23391562587
+        ],
+        "basis_terms": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        "coefficients": [
+          -0.892032063579,
+          0.181006661868,
+          0.102301052087,
+          -0.342418741562,
+          0.188975267908,
+          0.187718591766,
+          0.122342270973,
+          0.045146148724,
+          0.205229489272,
+          0.057855341935,
+          0.110471900882,
+          -0.031329533708,
+          0.065822862245,
+          0.063871656256,
+          0.032085080209,
+          0.079810124733,
+          0.077255276242,
+          0.14481995918,
+          0.011370809948,
+          0.196337854734,
+          0.048846514991,
+          0.088136116322,
+          0.146465763839,
+          0.12878709892,
+          0.102690857562,
+          -0.201473148846,
+          -0.121580710307,
+          0.083023537981,
+          0.110731419116,
+          -0.055804221119,
+          -0.276165762249,
+          0.009008128941,
+          0.031519782083,
+          0.123858675894,
+          0.077490237216,
+          0.265112029312,
+          0.051207887195,
+          0.006144092921,
+          0.077834854086,
+          0.041766696648,
+          0.094462018363,
+          0.044064528952,
+          0.185886074694,
+          0.089647472368,
+          0.098146445029
+        ],
+        "hard_min": null,
+        "hard_max": null,
+        "rolling_origin": {
+          "evaluated_case_count": 203,
+          "mae": 2.439282,
+          "p80_absolute_error": 3.857974,
+          "p95_absolute_error": 6.016322,
+          "folds": [
+            {
+              "validation_dataset": "260714",
+              "training_case_count": 75,
+              "validation_case_count": 31,
+              "mae": 2.066195
+            },
+            {
+              "validation_dataset": "260716",
+              "training_case_count": 106,
+              "validation_case_count": 65,
+              "mae": 2.392758
+            },
+            {
+              "validation_dataset": "260717",
+              "training_case_count": 171,
+              "validation_case_count": 46,
+              "mae": 2.037366
+            },
+            {
+              "validation_dataset": "260718",
+              "training_case_count": 217,
+              "validation_case_count": 61,
+              "mae": 2.981543
+            }
+          ]
+        },
+        "prediction_interval": {
+          "method": "max of rolling-date and held-out-spec residual quantiles",
+          "coverage": 0.8,
+          "half_width": 3.857974,
+          "p95_half_width": 6.016322
+        },
+        "final_test": {
+          "direct": {
+            "mae": 2.547818,
+            "rmse": 3.514606,
+            "p80_absolute_error": 4.407319,
+            "p95_absolute_error": 7.021274,
+            "bias": 0.662564,
+            "r2": 0.071265
+          },
+          "historical_5nn_median_baseline": {
+            "mae": 2.384679,
+            "rmse": 3.409174,
+            "p80_absolute_error": 3.704578,
+            "p95_absolute_error": 7.810371,
+            "bias": 0.852305,
+            "r2": 0.12615
+          },
+          "mae_improvement_percent": -6.841
+        },
+        "selection": {
+          "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+          "combined_score": 2.316987
+        },
+        "grouped_spec_validation": {
+          "evaluated_case_count": 278,
+          "mae": 2.238269,
+          "p80_absolute_error": 3.508761,
+          "p95_absolute_error": 5.677337,
+          "folds": [
+            {
+              "fold": 1,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 40,
+              "mae": 2.166312
+            },
+            {
+              "fold": 2,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 2.14246
+            },
+            {
+              "fold": 3,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 2.128197
+            },
+            {
+              "fold": 4,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 2.407311
+            },
+            {
+              "fold": 5,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 2.352119
+            }
+          ]
+        }
+      },
+      "flatness_temporal_std_median": {
+        "label": "版型时序波动基线",
+        "unit": "DAT原始值",
+        "role": "flatness_monitor",
+        "priority": "monitor",
+        "reliability": "monitor",
+        "feature_set": "physics8_actual",
+        "feature_names": [
+          "entry_thickness_set_mode",
+          "exit_thickness_set_mode",
+          "width_set_mode",
+          "total_reduction_ratio",
+          "log_thickness_ratio",
+          "entry_cross_section_proxy",
+          "exit_cross_section_proxy",
+          "entry_thickness_actual_median"
+        ],
+        "degree": 2,
+        "ridge_lambda": 100.0,
+        "target_transform": "raw",
+        "feature_mean": [
+          3.988956834532,
+          1.655410071942,
+          1234.589928057554,
+          0.552672723022,
+          0.8349966269,
+          4957.001079136691,
+          2056.782183453237,
+          3.969337834532
+        ],
+        "feature_scale": [
+          2.256057870101,
+          0.863247493317,
+          105.607173082465,
+          0.104575765072,
+          0.256027075009,
+          2880.82272287108,
+          1111.986687858726,
+          2.23391562587
+        ],
+        "basis_terms": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            7
+          ]
+        ],
+        "coefficients": [
+          0.886711051037,
+          -0.015694374218,
+          -0.035279541435,
+          -0.0545546139,
+          0.039882705559,
+          0.039116238363,
+          -0.022588797047,
+          -0.040788079757,
+          -0.020573948194,
+          0.026386840136,
+          0.024228278093,
+          0.006804157009,
+          -0.008564511777,
+          -0.012017858702,
+          0.022298636234,
+          0.020638367882,
+          0.023878478709,
+          -0.002781591268,
+          0.019536149205,
+          0.010144362432,
+          -0.000390142819,
+          0.02280702932,
+          -0.007003947321,
+          0.025509935288,
+          0.026513167178,
+          -0.035627891178,
+          -0.044213480328,
+          0.008379359158,
+          0.005498282192,
+          0.006225711713,
+          0.011313040102,
+          0.014450735019,
+          -0.01469831197,
+          0.008507513221,
+          -0.014569894419,
+          0.020314096735,
+          -0.020540672419,
+          -0.00273125244,
+          -0.018578379728,
+          0.019185632074,
+          0.016900755584,
+          0.019758959239,
+          -0.018224946912,
+          0.02145172307,
+          0.020938168443
+        ],
+        "hard_min": 0.0,
+        "hard_max": null,
+        "rolling_origin": {
+          "evaluated_case_count": 203,
+          "mae": 0.313387,
+          "p80_absolute_error": 0.431648,
+          "p95_absolute_error": 0.818554,
+          "folds": [
+            {
+              "validation_dataset": "260714",
+              "training_case_count": 75,
+              "validation_case_count": 31,
+              "mae": 0.29164
+            },
+            {
+              "validation_dataset": "260716",
+              "training_case_count": 106,
+              "validation_case_count": 65,
+              "mae": 0.336312
+            },
+            {
+              "validation_dataset": "260717",
+              "training_case_count": 171,
+              "validation_case_count": 46,
+              "mae": 0.265149
+            },
+            {
+              "validation_dataset": "260718",
+              "training_case_count": 217,
+              "validation_case_count": 61,
+              "mae": 0.336386
+            }
+          ]
+        },
+        "prediction_interval": {
+          "method": "max of rolling-date and held-out-spec residual quantiles",
+          "coverage": 0.8,
+          "half_width": 0.431648,
+          "p95_half_width": 0.818554
+        },
+        "final_test": {
+          "direct": {
+            "mae": 0.316542,
+            "rmse": 0.470989,
+            "p80_absolute_error": 0.511661,
+            "p95_absolute_error": 0.750883,
+            "bias": 0.045168,
+            "r2": -0.022942
+          },
+          "historical_5nn_median_baseline": {
+            "mae": 0.307213,
+            "rmse": 0.439174,
+            "p80_absolute_error": 0.436297,
+            "p95_absolute_error": 0.893512,
+            "bias": 0.036531,
+            "r2": 0.110592
+          },
+          "mae_improvement_percent": -3.037
+        },
+        "selection": {
+          "method": "60% rolling-origin date MAE + 40% held-out-spec MAE",
+          "combined_score": 0.301116
+        },
+        "grouped_spec_validation": {
+          "evaluated_case_count": 278,
+          "mae": 0.291731,
+          "p80_absolute_error": 0.42516,
+          "p95_absolute_error": 0.735016,
+          "folds": [
+            {
+              "fold": 1,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 40,
+              "mae": 0.273249
+            },
+            {
+              "fold": 2,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 0.335187
+            },
+            {
+              "fold": 3,
+              "training_case_count": 222,
+              "validation_case_count": 56,
+              "validation_spec_count": 42,
+              "mae": 0.2671
+            },
+            {
+              "fold": 4,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 0.319938
+            },
+            {
+              "fold": 5,
+              "training_case_count": 223,
+              "validation_case_count": 55,
+              "validation_spec_count": 41,
+              "mae": 0.263175
+            }
+          ]
+        }
+      }
+    },
+    "observed_distributions": {
+      "flatness_std_median": {
+        "count": 278,
+        "min": 0.969203,
+        "p05": 1.3149,
+        "median": 2.444479,
+        "p95": 5.12209,
+        "max": 8.435928
+      },
+      "flatness_lr_asymmetry_median": {
+        "count": 278,
+        "min": -13.762751,
+        "p05": -4.439392,
+        "median": -1.331472,
+        "p95": 1.063949,
+        "max": 4.80856
+      },
+      "flatness_edge_minus_center_median": {
+        "count": 278,
+        "min": -9.413771,
+        "p05": -3.665289,
+        "median": 0.124171,
+        "p95": 6.161061,
+        "max": 14.402985
+      },
+      "flatness_temporal_std_median": {
+        "count": 278,
+        "min": 0.306042,
+        "p05": 0.60112,
+        "median": 1.052947,
+        "p95": 1.857705,
+        "max": 3.425797
+      }
+    },
+    "runtime_associations": {
+      "flatness_std_median": [
+        {
+          "control": "coiler_tension_set_median",
+          "label": "卷取张力设定",
+          "spearman_rho": 0.3256,
+          "absolute_rho": 0.3256,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_negative_bending_actual_median",
+          "label": "F2实际负弯辊",
+          "spearman_rho": 0.3227,
+          "absolute_rho": 0.3227,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_positive_bending_actual_median",
+          "label": "F2实际正弯辊",
+          "spearman_rho": 0.2418,
+          "absolute_rho": 0.2418,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_force_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧轧制力",
+          "spearman_rho": 0.2346,
+          "absolute_rho": 0.2346,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_positive_bending_actual_median",
+          "label": "F1实际正弯辊",
+          "spearman_rho": 0.2075,
+          "absolute_rho": 0.2075,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_gap_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧辊缝",
+          "spearman_rho": 0.1817,
+          "absolute_rho": 0.1817,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "tm2_tilt_adjustment_median",
+          "label": "F2倾斜调节量",
+          "spearman_rho": 0.1551,
+          "absolute_rho": 0.1551,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "interstand_tension_set_median",
+          "label": "机架张力设定",
+          "spearman_rho": 0.1115,
+          "absolute_rho": 0.1115,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_negative_bending_actual_median",
+          "label": "F1实际负弯辊",
+          "spearman_rho": -0.0657,
+          "absolute_rho": 0.0657,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_force_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧轧制力",
+          "spearman_rho": 0.0614,
+          "absolute_rho": 0.0614,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_gap_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧辊缝",
+          "spearman_rho": -0.0178,
+          "absolute_rho": 0.0178,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "uncoiler_tension_set_median",
+          "label": "开卷张力设定",
+          "spearman_rho": 0.0039,
+          "absolute_rho": 0.0039,
+          "sample_count": 119,
+          "spec_group_count": 47
+        }
+      ],
+      "flatness_lr_asymmetry_median": [
+        {
+          "control": "f1_gap_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧辊缝",
+          "spearman_rho": -0.3561,
+          "absolute_rho": 0.3561,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_force_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧轧制力",
+          "spearman_rho": -0.3372,
+          "absolute_rho": 0.3372,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_positive_bending_actual_median",
+          "label": "F2实际正弯辊",
+          "spearman_rho": -0.2332,
+          "absolute_rho": 0.2332,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "tm2_tilt_adjustment_median",
+          "label": "F2倾斜调节量",
+          "spearman_rho": -0.2122,
+          "absolute_rho": 0.2122,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_gap_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧辊缝",
+          "spearman_rho": -0.1888,
+          "absolute_rho": 0.1888,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_force_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧轧制力",
+          "spearman_rho": -0.1685,
+          "absolute_rho": 0.1685,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "interstand_tension_set_median",
+          "label": "机架张力设定",
+          "spearman_rho": 0.1413,
+          "absolute_rho": 0.1413,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "uncoiler_tension_set_median",
+          "label": "开卷张力设定",
+          "spearman_rho": -0.0684,
+          "absolute_rho": 0.0684,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_negative_bending_actual_median",
+          "label": "F1实际负弯辊",
+          "spearman_rho": -0.0575,
+          "absolute_rho": 0.0575,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_positive_bending_actual_median",
+          "label": "F1实际正弯辊",
+          "spearman_rho": 0.0242,
+          "absolute_rho": 0.0242,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_negative_bending_actual_median",
+          "label": "F2实际负弯辊",
+          "spearman_rho": 0.0212,
+          "absolute_rho": 0.0212,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "coiler_tension_set_median",
+          "label": "卷取张力设定",
+          "spearman_rho": -0.0067,
+          "absolute_rho": 0.0067,
+          "sample_count": 119,
+          "spec_group_count": 47
+        }
+      ],
+      "flatness_edge_minus_center_median": [
+        {
+          "control": "f2_force_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧轧制力",
+          "spearman_rho": 0.266,
+          "absolute_rho": 0.266,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_negative_bending_actual_median",
+          "label": "F2实际负弯辊",
+          "spearman_rho": 0.2524,
+          "absolute_rho": 0.2524,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "tm2_tilt_adjustment_median",
+          "label": "F2倾斜调节量",
+          "spearman_rho": -0.2362,
+          "absolute_rho": 0.2362,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_force_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧轧制力",
+          "spearman_rho": 0.1944,
+          "absolute_rho": 0.1944,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "interstand_tension_set_median",
+          "label": "机架张力设定",
+          "spearman_rho": -0.1428,
+          "absolute_rho": 0.1428,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "coiler_tension_set_median",
+          "label": "卷取张力设定",
+          "spearman_rho": 0.1301,
+          "absolute_rho": 0.1301,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_positive_bending_actual_median",
+          "label": "F1实际正弯辊",
+          "spearman_rho": -0.0681,
+          "absolute_rho": 0.0681,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "uncoiler_tension_set_median",
+          "label": "开卷张力设定",
+          "spearman_rho": 0.067,
+          "absolute_rho": 0.067,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_positive_bending_actual_median",
+          "label": "F2实际正弯辊",
+          "spearman_rho": -0.063,
+          "absolute_rho": 0.063,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_negative_bending_actual_median",
+          "label": "F1实际负弯辊",
+          "spearman_rho": -0.0513,
+          "absolute_rho": 0.0513,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_gap_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧辊缝",
+          "spearman_rho": 0.034,
+          "absolute_rho": 0.034,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_gap_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧辊缝",
+          "spearman_rho": 0.0236,
+          "absolute_rho": 0.0236,
+          "sample_count": 119,
+          "spec_group_count": 47
+        }
+      ],
+      "flatness_temporal_std_median": [
+        {
+          "control": "f2_negative_bending_actual_median",
+          "label": "F2实际负弯辊",
+          "spearman_rho": 0.2206,
+          "absolute_rho": 0.2206,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "coiler_tension_set_median",
+          "label": "卷取张力设定",
+          "spearman_rho": 0.1976,
+          "absolute_rho": 0.1976,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "uncoiler_tension_set_median",
+          "label": "开卷张力设定",
+          "spearman_rho": -0.1976,
+          "absolute_rho": 0.1976,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_gap_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧辊缝",
+          "spearman_rho": -0.1944,
+          "absolute_rho": 0.1944,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_positive_bending_actual_median",
+          "label": "F2实际正弯辊",
+          "spearman_rho": 0.1767,
+          "absolute_rho": 0.1767,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_force_drive_minus_operation_median",
+          "label": "F1传动侧－操作侧轧制力",
+          "spearman_rho": 0.1585,
+          "absolute_rho": 0.1585,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_positive_bending_actual_median",
+          "label": "F1实际正弯辊",
+          "spearman_rho": 0.1469,
+          "absolute_rho": 0.1469,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f1_negative_bending_actual_median",
+          "label": "F1实际负弯辊",
+          "spearman_rho": -0.1397,
+          "absolute_rho": 0.1397,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "interstand_tension_set_median",
+          "label": "机架张力设定",
+          "spearman_rho": 0.0835,
+          "absolute_rho": 0.0835,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_force_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧轧制力",
+          "spearman_rho": -0.0811,
+          "absolute_rho": 0.0811,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "f2_gap_drive_minus_operation_median",
+          "label": "F2传动侧－操作侧辊缝",
+          "spearman_rho": 0.0604,
+          "absolute_rho": 0.0604,
+          "sample_count": 119,
+          "spec_group_count": 47
+        },
+        {
+          "control": "tm2_tilt_adjustment_median",
+          "label": "F2倾斜调节量",
+          "spearman_rho": 0.0345,
+          "absolute_rho": 0.0345,
+          "sample_count": 119,
+          "spec_group_count": 47
+        }
+      ]
+    },
+    "data_quality": {
+      "all_row_count": 345,
+      "valid_flatness_row_count": 341,
+      "valid_percent": 98.841,
+      "width_to_active_zone_spearman": 0.9759
+    }
+  },
+  "observed_units_and_ranges": {
+    "tm1_closed_gap_set_median": {
+      "count": 345,
+      "min": 0.9,
+      "median": 2.5,
+      "max": 6.1,
+      "unit": "mm (HMI/range confirmed; DAT metadata blank)"
+    },
+    "tm2_closed_gap_set_median": {
+      "count": 345,
+      "min": 0.9,
+      "median": 2.0,
+      "max": 5.3,
+      "unit": "mm (HMI/range confirmed; DAT metadata blank)"
+    }
+  },
+  "summary": {
+    "target_count": 6,
+    "direct_win_count": 5,
+    "mean_mae_improvement_percent": 27.36,
+    "flatness_target_count": 4,
+    "flatness_direct_win_count": 2,
+    "historical_baseline": "standardized specification 5-nearest median; evaluation only"
+  },
+  "parent_model_version": "direct-ridge-startup-flatness-v0.4",
+  "parent_artifact": "recommendation_direct_v4.json",
+  "parent_artifact_sha256": "ceb341491abe68db99f18eec9c905f96cadc1bdf579ef5101b06d8a4256fa596",
+  "rollback_artifact": "recommendation_direct_v4.json",
+  "change_scope": "display_semantics_only",
+  "coefficients_unchanged_from_parent": true
+}

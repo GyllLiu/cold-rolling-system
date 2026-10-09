@@ -1,0 +1,106 @@
+{
+  "schema_version": "cold-rolling-material-route-library-v1",
+  "library_version": "material-routes-v0.3-vendor-audited",
+  "status": "provisional_high_speed_dat_envelope_requires_process_owner_approval",
+  "definitions": {
+    "tandem_pass": "one traversal through F1 and F2",
+    "pass_number": "1-based sequence number since the selected route start",
+    "refeed_mode": "after F2 the strip is fully coiled, the coil is mounted again and re-fed for the next tandem pass",
+    "refeed_direction_reversed": false,
+    "recommended_gap": "F1/F2 gap predicted from high-speed stable DAT segments and manually entered by the operator; no separate startup/high-speed output",
+    "full_anneal": "approved heat-treatment event that resets the cold-work reference state for the configured alloy and temper route",
+    "partial_anneal": "heat-treatment event that changes material state but must not automatically reset cumulative true strain to zero",
+    "cumulative_true_strain": "ln(thickness_after_last_approved_full_anneal/current_thickness)"
+  },
+  "shadow_defaults_from_current_high_speed_dat": {
+    "approved_for_production": false,
+    "maximum_true_strain_per_tandem_pass": 1.5404450409,
+    "target_true_strain_per_tandem_pass": 0.7590835036,
+    "f1_true_strain_share": 0.5262789832,
+    "source": "555 accepted high-speed stable candidates; shadow route generation only"
+  },
+  "high_speed_dat_envelope": {
+    "approved_as_equipment_nameplate_limit": false,
+    "source": "555 valid high-speed stable segment candidates from currently imported DAT datasets",
+    "source_date_scope": "260703 and selected datasets through 260805",
+    "usage": "temporary data-coverage gate and route screening; not proof of machine safety",
+    "policy": {
+      "at_or_below_p95": "historically_normal_observed_range",
+      "between_p95_and_max": "warning_and_operator_confirmation",
+      "above_max": "reject_as_outside_observed_valid_envelope"
+    },
+    "f1_total_rolling_force_T": { "p95": 497.0510, "maximum_valid_observed": 584.5925 },
+    "f2_total_rolling_force_T": { "p95": 454.1056, "maximum_valid_observed": 641.2670 },
+    "uncoiler_tension_T": { "p95": 8.9230, "maximum_valid_observed": 10.1200 },
+    "interstand_tension_T": { "p95": 12.8550, "maximum_valid_observed": 14.0 },
+    "coiler_tension_T": { "p95": 11.6596, "maximum_valid_observed": 12.8750 },
+    "f1_recommended_gap_mm": { "p95": 4.6700, "maximum_valid_observed": 6.8108, "training_segment": "high_speed_stable_only" },
+    "f2_recommended_gap_mm": { "p95": 3.2715, "maximum_valid_observed": 5.7358, "training_segment": "high_speed_stable_only" },
+    "f1_reduction_ratio": { "p95": 0.5, "maximum_valid_observed": 0.557143 },
+    "f2_reduction_ratio": { "p95": 0.451363, "maximum_valid_observed": 0.53125 }
+  },
+  "plant_equipment_limits": {
+    "approved_for_production": false,
+    "status": "pending_nameplate_alarm_and_hard_stop_limits",
+    "temporary_fallback": "high_speed_dat_envelope",
+    "maximum_motor_current_A": null,
+    "maximum_motor_torque": null,
+    "maximum_motor_power_kW": null,
+    "maximum_f1_force_operation_T": null,
+    "maximum_f1_force_drive_T": null,
+    "maximum_f2_force_operation_T": null,
+    "maximum_f2_force_drive_T": null
+  },
+  "materials": {
+    "1060": {
+      "status": "supported_identity_global_dat_envelope_only",
+      "allowed_input_tempers": ["O", "H12", "H14", "H16", "H18", "H22", "H24", "H26", "UNKNOWN"],
+      "alloy_specific_dat_limits_available": false,
+      "maximum_cumulative_true_strain_before_full_anneal": null,
+      "intermediate_anneal_review_reduction_ratio": 0.9,
+      "approved_anneal_recipes": [],
+      "flow_curve": null
+    },
+    "1100": {
+      "status": "supported_identity_global_dat_envelope_only",
+      "allowed_input_tempers": ["O", "H12", "H14", "H16", "H18", "H22", "H24", "H26", "UNKNOWN"],
+      "alloy_specific_dat_limits_available": false,
+      "maximum_cumulative_true_strain_before_full_anneal": null,
+      "intermediate_anneal_review_reduction_ratio": 0.9,
+      "approved_anneal_recipes": [],
+      "flow_curve": null
+    },
+    "3003": {
+      "status": "supported_identity_global_dat_envelope_only",
+      "allowed_input_tempers": ["O", "H12", "H14", "H16", "H18", "H22", "H24", "H26", "UNKNOWN"],
+      "alloy_specific_dat_limits_available": false,
+      "maximum_cumulative_true_strain_before_full_anneal": null,
+      "intermediate_anneal_review_reduction_ratio": 0.7,
+      "approved_anneal_recipes": [],
+      "flow_curve": null
+    }
+  },
+  "anneal_policy": {
+    "standards_role": "standards define alloy, temper, dimensions and required final properties; they do not provide one universal intermediate-anneal reduction threshold for this mill",
+    "target_O_temper": "final_anneal_required_unless_an_approved_product_route_states_otherwise",
+    "intermediate_anneal_candidate_when": [
+      "no all-cold route remains within the approved equipment envelope",
+      "the next pass would exceed the approved alloy-and-state reduction or cumulative-cold-work limit",
+      "the process owner requires anneal for the selected product route"
+    ],
+    "intermediate_review_thresholds": "1060/1100 at 90% and 3003 at 70% are process-review lines from the vendor reply, not automatic furnace commands",
+    "temperature_time_recipe": "engineering_review_until_plant_furnace_recipe_is_approved",
+    "automatic_recipe_generation": false
+  },
+  "route_release_policy": {
+    "shadow_mode_requires_complete_plant_limits": false,
+    "production_mode_requires_complete_plant_limits": true,
+    "production_mode_requires_approved_material_route": true,
+    "missing_alloy_or_temper": "engineering_review",
+    "unknown_anneal_state": "engineering_review",
+    "gap_training_data": "high_speed_stable_only",
+    "gap_output_distinguishes_startup_and_high_speed": false,
+    "operator_manual_confirmation": true,
+    "automatic_plc_write": false
+  }
+}

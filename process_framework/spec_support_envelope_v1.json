@@ -1,0 +1,1082 @@
+{
+  "schema_version": "cold-rolling-spec-support-envelope-v1",
+  "envelope_version": "spec-support-envelope-v0.1-draft",
+  "status": "shadow_gate_requires_process_owner_approval",
+  "purpose": "Reject or lower confidence for unsupported three-input specification combinations; never predict outputs from neighbours.",
+  "source_row_count": 265,
+  "invalid_source_row_count": 0,
+  "unique_specification_count": 203,
+  "raw_fields": [
+    "entry_thickness_set_mode",
+    "exit_thickness_set_mode",
+    "width_set_mode"
+  ],
+  "transformed_features": [
+    "log_entry_thickness",
+    "log_exit_thickness",
+    "width_mm",
+    "log_entry_exit_ratio"
+  ],
+  "distance_formula": "sqrt(sum(((x_i-nearest_i)/robust_scale_i)^2)); robust_scale=p90-p10",
+  "robust_scales": {
+    "log_entry_thickness": 1.5947294051124072,
+    "log_exit_thickness": 1.5237593354648529,
+    "width_mm": 250.0,
+    "log_entry_exit_ratio": 0.5769003356520419
+  },
+  "raw_bounds": {
+    "entry_thickness_set_mode": {
+      "min": 0.77,
+      "max": 7.0
+    },
+    "exit_thickness_set_mode": {
+      "min": 0.39,
+      "max": 5.17
+    },
+    "width_set_mode": {
+      "min": 1000.0,
+      "max": 1570.0
+    }
+  },
+  "leave_one_unique_spec_out_nearest_distance": {
+    "p90": 0.24534675187405838,
+    "p95": 0.3035973009355949,
+    "p99": 0.4989403320693225,
+    "maximum": 0.5992113810145738,
+    "sample_count": 203
+  },
+  "exact_match_tolerances": {
+    "entry_thickness_mm": 1e-06,
+    "exit_thickness_mm": 1e-06,
+    "width_mm": 0.001
+  },
+  "decision_policy": {
+    "exact_overlap": "gate_pass; coverage does not increase model confidence",
+    "well_supported": "gate_pass; distance <= leave-one-out p90",
+    "edge_supported": "gate_pass_with_low_confidence; p90 < distance <= p95",
+    "sparse_or_outside": "reject; distance > p95",
+    "outside_axis_bounds": "reject; any raw input outside reference bounds"
+  },
+  "support_points": [
+    {
+      "entry_thickness_mm": 0.77,
+      "exit_thickness_mm": 0.465,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 0.8,
+      "exit_thickness_mm": 0.465,
+      "width_mm": 1110.0
+    },
+    {
+      "entry_thickness_mm": 0.92,
+      "exit_thickness_mm": 0.39,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 0.98,
+      "exit_thickness_mm": 0.465,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.4,
+      "width_mm": 1165.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.43,
+      "width_mm": 1165.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.465,
+      "width_mm": 1110.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.465,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.468,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.0,
+      "exit_thickness_mm": 0.49,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 1.2,
+      "exit_thickness_mm": 0.488,
+      "width_mm": 1222.0
+    },
+    {
+      "entry_thickness_mm": 1.2,
+      "exit_thickness_mm": 0.555,
+      "width_mm": 1260.0
+    },
+    {
+      "entry_thickness_mm": 1.2,
+      "exit_thickness_mm": 0.558,
+      "width_mm": 1260.0
+    },
+    {
+      "entry_thickness_mm": 1.2,
+      "exit_thickness_mm": 0.565,
+      "width_mm": 1258.0
+    },
+    {
+      "entry_thickness_mm": 1.2,
+      "exit_thickness_mm": 0.565,
+      "width_mm": 1268.0
+    },
+    {
+      "entry_thickness_mm": 1.22,
+      "exit_thickness_mm": 0.67,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.22,
+      "exit_thickness_mm": 0.68,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.3,
+      "exit_thickness_mm": 0.565,
+      "width_mm": 1300.0
+    },
+    {
+      "entry_thickness_mm": 1.3,
+      "exit_thickness_mm": 0.628,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.33,
+      "exit_thickness_mm": 0.688,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.35,
+      "exit_thickness_mm": 0.65,
+      "width_mm": 1114.0
+    },
+    {
+      "entry_thickness_mm": 1.4,
+      "exit_thickness_mm": 0.665,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 1.4,
+      "exit_thickness_mm": 0.695,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 1.4,
+      "exit_thickness_mm": 0.698,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.635,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.638,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.738,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.745,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.755,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.5,
+      "exit_thickness_mm": 0.755,
+      "width_mm": 1260.0
+    },
+    {
+      "entry_thickness_mm": 1.6,
+      "exit_thickness_mm": 0.565,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 1.6,
+      "exit_thickness_mm": 0.65,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 1.6,
+      "exit_thickness_mm": 0.7,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 1.6,
+      "exit_thickness_mm": 0.8,
+      "width_mm": 1110.0
+    },
+    {
+      "entry_thickness_mm": 1.65,
+      "exit_thickness_mm": 0.655,
+      "width_mm": 1184.0
+    },
+    {
+      "entry_thickness_mm": 1.7,
+      "exit_thickness_mm": 0.51,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 1.7,
+      "exit_thickness_mm": 0.745,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 1.7,
+      "exit_thickness_mm": 0.755,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 1.8,
+      "exit_thickness_mm": 0.8,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 1.8,
+      "exit_thickness_mm": 0.908,
+      "width_mm": 1160.0
+    },
+    {
+      "entry_thickness_mm": 1.9,
+      "exit_thickness_mm": 0.888,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 1.9,
+      "exit_thickness_mm": 0.888,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 1.95,
+      "exit_thickness_mm": 0.95,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.76,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.765,
+      "width_mm": 1305.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.79,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.82,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.888,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.89,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.9,
+      "width_mm": 1184.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.908,
+      "width_mm": 1184.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.908,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.94,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.945,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.97,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.978,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.978,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.985,
+      "width_mm": 1270.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.985,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 0.998,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 1.0,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 1.14,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.0,
+      "exit_thickness_mm": 1.28,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.1,
+      "exit_thickness_mm": 0.983,
+      "width_mm": 1270.0
+    },
+    {
+      "entry_thickness_mm": 2.1,
+      "exit_thickness_mm": 0.99,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 2.1,
+      "exit_thickness_mm": 1.0,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.1,
+      "exit_thickness_mm": 1.295,
+      "width_mm": 1430.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 0.945,
+      "width_mm": 1560.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 0.955,
+      "width_mm": 1570.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 0.985,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 1.0,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 1.075,
+      "width_mm": 1305.0
+    },
+    {
+      "entry_thickness_mm": 2.2,
+      "exit_thickness_mm": 1.13,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 2.3,
+      "exit_thickness_mm": 1.108,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.4,
+      "exit_thickness_mm": 1.188,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 2.4,
+      "exit_thickness_mm": 1.188,
+      "width_mm": 1260.0
+    },
+    {
+      "entry_thickness_mm": 2.4,
+      "exit_thickness_mm": 1.2,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 2.4,
+      "exit_thickness_mm": 1.228,
+      "width_mm": 1160.0
+    },
+    {
+      "entry_thickness_mm": 2.4,
+      "exit_thickness_mm": 1.24,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.1,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.1,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.188,
+      "width_mm": 1208.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.245,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.3,
+      "width_mm": 1350.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.308,
+      "width_mm": 1260.0
+    },
+    {
+      "entry_thickness_mm": 2.5,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 2.6,
+      "exit_thickness_mm": 1.3,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 2.6,
+      "exit_thickness_mm": 1.3,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.6,
+      "exit_thickness_mm": 1.325,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 2.6,
+      "exit_thickness_mm": 1.688,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 2.7,
+      "exit_thickness_mm": 1.188,
+      "width_mm": 1252.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.3,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.33,
+      "width_mm": 1500.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.43,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.448,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.485,
+      "width_mm": 1222.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.487,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.57,
+      "width_mm": 1500.0
+    },
+    {
+      "entry_thickness_mm": 2.8,
+      "exit_thickness_mm": 1.58,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 2.9,
+      "exit_thickness_mm": 1.305,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 2.9,
+      "exit_thickness_mm": 1.4,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 2.9,
+      "exit_thickness_mm": 1.94,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.4,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.4,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.58,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.6,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 3.0,
+      "exit_thickness_mm": 1.748,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 3.1,
+      "exit_thickness_mm": 1.58,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 3.1,
+      "exit_thickness_mm": 1.6,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 3.2,
+      "exit_thickness_mm": 1.333,
+      "width_mm": 1245.0
+    },
+    {
+      "entry_thickness_mm": 3.3,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 3.4,
+      "exit_thickness_mm": 1.93,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 3.4,
+      "exit_thickness_mm": 1.94,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 3.5,
+      "exit_thickness_mm": 1.945,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 3.5,
+      "exit_thickness_mm": 1.96,
+      "width_mm": 1252.0
+    },
+    {
+      "entry_thickness_mm": 3.5,
+      "exit_thickness_mm": 1.978,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 3.8,
+      "exit_thickness_mm": 2.1,
+      "width_mm": 1500.0
+    },
+    {
+      "entry_thickness_mm": 4.0,
+      "exit_thickness_mm": 1.9,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 5.17,
+      "exit_thickness_mm": 3.935,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 5.6,
+      "exit_thickness_mm": 3.3,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 5.7,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1185.0
+    },
+    {
+      "entry_thickness_mm": 5.7,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 1.65,
+      "width_mm": 1184.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1184.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 2.6,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 5.8,
+      "exit_thickness_mm": 2.9,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 5.9,
+      "exit_thickness_mm": 2.3,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1190.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.1,
+      "width_mm": 1270.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.1,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.5,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 6.0,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.1,
+      "exit_thickness_mm": 1.7,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.1,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1265.0
+    },
+    {
+      "entry_thickness_mm": 6.1,
+      "exit_thickness_mm": 3.0,
+      "width_mm": 1265.0
+    },
+    {
+      "entry_thickness_mm": 6.1,
+      "exit_thickness_mm": 3.0,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.1,
+      "exit_thickness_mm": 3.1,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.2,
+      "exit_thickness_mm": 2.6,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.2,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1560.0
+    },
+    {
+      "entry_thickness_mm": 6.2,
+      "exit_thickness_mm": 3.3,
+      "width_mm": 1200.0
+    },
+    {
+      "entry_thickness_mm": 6.2,
+      "exit_thickness_mm": 3.3,
+      "width_mm": 1560.0
+    },
+    {
+      "entry_thickness_mm": 6.3,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.3,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.3,
+      "exit_thickness_mm": 2.935,
+      "width_mm": 1002.0
+    },
+    {
+      "entry_thickness_mm": 6.3,
+      "exit_thickness_mm": 3.0,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.3,
+      "exit_thickness_mm": 3.4,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1070.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1305.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.2,
+      "width_mm": 1305.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.2,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.2,
+      "width_mm": 1570.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.44,
+      "width_mm": 1000.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.46,
+      "width_mm": 1250.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.5,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 2.96,
+      "width_mm": 1500.0
+    },
+    {
+      "entry_thickness_mm": 6.4,
+      "exit_thickness_mm": 3.5,
+      "width_mm": 1310.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 1.6,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 1.9,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 3.1,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.5,
+      "exit_thickness_mm": 3.1,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.6,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.6,
+      "exit_thickness_mm": 1.6,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.6,
+      "exit_thickness_mm": 2.0,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.6,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.6,
+      "exit_thickness_mm": 2.5,
+      "width_mm": 1350.0
+    },
+    {
+      "entry_thickness_mm": 6.7,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.7,
+      "exit_thickness_mm": 2.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 6.7,
+      "exit_thickness_mm": 2.5,
+      "width_mm": 1325.0
+    },
+    {
+      "entry_thickness_mm": 6.7,
+      "exit_thickness_mm": 2.94,
+      "width_mm": 1222.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 2.2,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1194.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 2.935,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 2.945,
+      "width_mm": 1222.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 2.97,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 3.5,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 6.9,
+      "exit_thickness_mm": 5.17,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 1.5,
+      "width_mm": 1320.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 1.8,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.2,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1210.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.4,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.7,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.8,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 2.9,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 3.0,
+      "width_mm": 1280.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 3.935,
+      "width_mm": 1220.0
+    },
+    {
+      "entry_thickness_mm": 7.0,
+      "exit_thickness_mm": 4.94,
+      "width_mm": 1000.0
+    }
+  ],
+  "generated_at": "2026-08-19T15:20:56.884095+00:00",
+  "source_audit": "/Users/garryliu/Documents/Data Anylisis/outputs/process_framework_v1/segment_audit.csv",
+  "source_audit_sha256": "970d26f19580f455ea90dd9c5b57705fd425e917e09ddca04da2d69180e1d2ff",
+  "source_selection": "grade == A and training_pool_candidate == true; individual rows and framework remain unapproved",
+  "approved_for_production": false
+}

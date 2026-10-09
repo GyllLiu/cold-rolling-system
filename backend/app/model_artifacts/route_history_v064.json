@@ -1,0 +1,6885 @@
+{
+  "artifact_version": "high-speed-reverse-route-v0.6.4",
+  "generated_at": "2026-08-26T14:55:54.645258+00:00",
+  "selection": {
+    "learning_eligible": true,
+    "digital_state_usable": true,
+    "minimum_stable_high_speed_seconds": 120,
+    "record_meaning": "one complete tandem pass: entry -> F1 middle -> F2 exit",
+    "limitation": "records are local pass edges and are not linked by coil id"
+  },
+  "case_count": 761,
+  "source_dates": [
+    "2026-07-03",
+    "2026-07-12",
+    "2026-07-13",
+    "2026-07-14",
+    "2026-07-16",
+    "2026-07-17",
+    "2026-07-18",
+    "2026-07-19",
+    "2026-07-24",
+    "2026-07-25",
+    "2026-07-26",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-01",
+    "2026-08-02",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05"
+  ],
+  "records": [
+    {
+      "entry": 0.48,
+      "middle": 0.37,
+      "exit": 0.285,
+      "width": 1000.0,
+      "stable_seconds": 601,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 0.57,
+      "middle": 0.4,
+      "exit": 0.285,
+      "width": 1000.0,
+      "stable_seconds": 1207,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 0.65,
+      "middle": 0.42,
+      "exit": 0.293,
+      "width": 1260.0,
+      "stable_seconds": 1353,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 0.65,
+      "middle": 0.42,
+      "exit": 0.293,
+      "width": 1260.0,
+      "stable_seconds": 1562,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 0.65,
+      "middle": 0.42,
+      "exit": 0.293,
+      "width": 1260.0,
+      "stable_seconds": 2521,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 0.45,
+      "middle": 0.36,
+      "exit": 0.295,
+      "width": 1356.0,
+      "stable_seconds": 1111,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 0.83,
+      "middle": 0.5,
+      "exit": 0.325,
+      "width": 1000.0,
+      "stable_seconds": 1000,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 0.57,
+      "middle": 0.44,
+      "exit": 0.338,
+      "width": 1210.0,
+      "stable_seconds": 466,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.47,
+      "exit": 0.338,
+      "width": 1090.0,
+      "stable_seconds": 1130,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.48,
+      "exit": 0.34,
+      "width": 1112.0,
+      "stable_seconds": 2410,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 0.72,
+      "middle": 0.48,
+      "exit": 0.34,
+      "width": 1090.0,
+      "stable_seconds": 2022,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.48,
+      "exit": 0.345,
+      "width": 1093.0,
+      "stable_seconds": 469,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.49,
+      "exit": 0.35,
+      "width": 1263.0,
+      "stable_seconds": 2167,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 0.8,
+      "middle": 0.51,
+      "exit": 0.35,
+      "width": 1260.0,
+      "stable_seconds": 383,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 0.8,
+      "middle": 0.51,
+      "exit": 0.35,
+      "width": 1260.0,
+      "stable_seconds": 1494,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.485,
+      "exit": 0.353,
+      "width": 1260.0,
+      "stable_seconds": 1303,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 0.57,
+      "middle": 0.45,
+      "exit": 0.355,
+      "width": 1210.0,
+      "stable_seconds": 1200,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 0.65,
+      "middle": 0.485,
+      "exit": 0.365,
+      "width": 1110.0,
+      "stable_seconds": 568,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 0.7,
+      "middle": 0.5,
+      "exit": 0.365,
+      "width": 1000.0,
+      "stable_seconds": 1106,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.56,
+      "exit": 0.365,
+      "width": 1090.0,
+      "stable_seconds": 536,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 0.95,
+      "middle": 0.6,
+      "exit": 0.38,
+      "width": 1200.0,
+      "stable_seconds": 1374,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 0.92,
+      "middle": 0.58,
+      "exit": 0.39,
+      "width": 1200.0,
+      "stable_seconds": 626,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.63,
+      "exit": 0.4,
+      "width": 1165.0,
+      "stable_seconds": 542,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.7,
+      "exit": 0.41,
+      "width": 1250.0,
+      "stable_seconds": 1075,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.65,
+      "exit": 0.43,
+      "width": 1165.0,
+      "stable_seconds": 701,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 0.77,
+      "middle": 0.58,
+      "exit": 0.438,
+      "width": 1110.0,
+      "stable_seconds": 828,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.6,
+      "exit": 0.438,
+      "width": 1210.0,
+      "stable_seconds": 590,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.63,
+      "exit": 0.44,
+      "width": 1163.0,
+      "stable_seconds": 1765,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.63,
+      "exit": 0.44,
+      "width": 1151.0,
+      "stable_seconds": 1574,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.62,
+      "exit": 0.44,
+      "width": 1136.0,
+      "stable_seconds": 922,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.66,
+      "exit": 0.44,
+      "width": 1163.0,
+      "stable_seconds": 1580,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 0.77,
+      "middle": 0.59,
+      "exit": 0.45,
+      "width": 1175.0,
+      "stable_seconds": 2022,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 0.85,
+      "middle": 0.6,
+      "exit": 0.45,
+      "width": 1356.0,
+      "stable_seconds": 743,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.1,
+      "middle": 0.71,
+      "exit": 0.45,
+      "width": 1200.0,
+      "stable_seconds": 785,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 0.77,
+      "middle": 0.59,
+      "exit": 0.465,
+      "width": 1210.0,
+      "stable_seconds": 665,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 0.8,
+      "middle": 0.6,
+      "exit": 0.465,
+      "width": 1110.0,
+      "stable_seconds": 1178,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 0.98,
+      "middle": 0.66,
+      "exit": 0.465,
+      "width": 1210.0,
+      "stable_seconds": 376,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 0.98,
+      "middle": 0.66,
+      "exit": 0.465,
+      "width": 1210.0,
+      "stable_seconds": 235,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.68,
+      "exit": 0.465,
+      "width": 1260.0,
+      "stable_seconds": 1167,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.68,
+      "exit": 0.465,
+      "width": 1210.0,
+      "stable_seconds": 1170,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.67,
+      "exit": 0.465,
+      "width": 1110.0,
+      "stable_seconds": 692,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.68,
+      "exit": 0.468,
+      "width": 1210.0,
+      "stable_seconds": 654,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.68,
+      "exit": 0.468,
+      "width": 1210.0,
+      "stable_seconds": 534,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.65,
+      "exit": 0.48,
+      "width": 1220.0,
+      "stable_seconds": 261,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 0.9,
+      "middle": 0.65,
+      "exit": 0.48,
+      "width": 1220.0,
+      "stable_seconds": 482,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.75,
+      "exit": 0.488,
+      "width": 1222.0,
+      "stable_seconds": 654,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 0.92,
+      "middle": 0.645,
+      "exit": 0.49,
+      "width": 1200.0,
+      "stable_seconds": 344,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.0,
+      "middle": 0.7,
+      "exit": 0.49,
+      "width": 1220.0,
+      "stable_seconds": 748,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.5,
+      "middle": 0.8,
+      "exit": 0.495,
+      "width": 1250.0,
+      "stable_seconds": 1455,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 0.77,
+      "middle": 0.62,
+      "exit": 0.508,
+      "width": 1210.0,
+      "stable_seconds": 618,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 0.92,
+      "middle": 0.68,
+      "exit": 0.51,
+      "width": 1112.0,
+      "stable_seconds": 956,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.25,
+      "middle": 0.8,
+      "exit": 0.51,
+      "width": 1260.0,
+      "stable_seconds": 1742,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.7,
+      "middle": 0.88,
+      "exit": 0.51,
+      "width": 1070.0,
+      "stable_seconds": 474,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 1.7,
+      "middle": 0.88,
+      "exit": 0.51,
+      "width": 1070.0,
+      "stable_seconds": 460,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 1.1,
+      "middle": 0.73,
+      "exit": 0.528,
+      "width": 1110.0,
+      "stable_seconds": 938,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.555,
+      "width": 1260.0,
+      "stable_seconds": 598,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1210.0,
+      "stable_seconds": 532,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1210.0,
+      "stable_seconds": 515,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1260.0,
+      "stable_seconds": 1161,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1260.0,
+      "stable_seconds": 1141,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1260.0,
+      "stable_seconds": 1148,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.558,
+      "width": 1260.0,
+      "stable_seconds": 1147,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.45,
+      "middle": 0.85,
+      "exit": 0.558,
+      "width": 1190.0,
+      "stable_seconds": 533,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.565,
+      "width": 1190.0,
+      "stable_seconds": 632,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.565,
+      "width": 1268.0,
+      "stable_seconds": 520,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.8,
+      "exit": 0.565,
+      "width": 1258.0,
+      "stable_seconds": 596,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.84,
+      "exit": 0.565,
+      "width": 1300.0,
+      "stable_seconds": 585,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.83,
+      "exit": 0.565,
+      "width": 1300.0,
+      "stable_seconds": 589,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 1.6,
+      "middle": 0.91,
+      "exit": 0.565,
+      "width": 1190.0,
+      "stable_seconds": 564,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.1,
+      "middle": 0.765,
+      "exit": 0.567,
+      "width": 1148.0,
+      "stable_seconds": 778,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.568,
+      "width": 1260.0,
+      "stable_seconds": 843,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.568,
+      "width": 1260.0,
+      "stable_seconds": 853,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.8,
+      "exit": 0.568,
+      "width": 1260.0,
+      "stable_seconds": 671,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.5,
+      "middle": 0.9,
+      "exit": 0.568,
+      "width": 1190.0,
+      "stable_seconds": 477,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.6,
+      "middle": 0.95,
+      "exit": 0.57,
+      "width": 1270.0,
+      "stable_seconds": 948,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.2,
+      "middle": 0.82,
+      "exit": 0.585,
+      "width": 1500.0,
+      "stable_seconds": 406,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 1.5,
+      "middle": 0.94,
+      "exit": 0.59,
+      "width": 1563.0,
+      "stable_seconds": 709,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.15,
+      "middle": 0.82,
+      "exit": 0.6,
+      "width": 1060.0,
+      "stable_seconds": 765,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 1.6,
+      "middle": 0.98,
+      "exit": 0.6,
+      "width": 1210.0,
+      "stable_seconds": 911,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.9,
+      "exit": 0.628,
+      "width": 1210.0,
+      "stable_seconds": 803,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.5,
+      "middle": 0.95,
+      "exit": 0.635,
+      "width": 1210.0,
+      "stable_seconds": 624,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.9,
+      "exit": 0.638,
+      "width": 1090.0,
+      "stable_seconds": 671,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.5,
+      "middle": 0.95,
+      "exit": 0.638,
+      "width": 1210.0,
+      "stable_seconds": 830,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.88,
+      "exit": 0.648,
+      "width": 1350.0,
+      "stable_seconds": 1200,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.9,
+      "exit": 0.65,
+      "width": 1320.0,
+      "stable_seconds": 785,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.9,
+      "exit": 0.65,
+      "width": 1320.0,
+      "stable_seconds": 564,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.91,
+      "exit": 0.65,
+      "width": 1350.0,
+      "stable_seconds": 1038,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.35,
+      "middle": 0.92,
+      "exit": 0.65,
+      "width": 1114.0,
+      "stable_seconds": 368,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.46,
+      "middle": 0.95,
+      "exit": 0.65,
+      "width": 1250.0,
+      "stable_seconds": 555,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.02,
+      "exit": 0.65,
+      "width": 1250.0,
+      "stable_seconds": 644,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.6,
+      "middle": 0.98,
+      "exit": 0.65,
+      "width": 1200.0,
+      "stable_seconds": 606,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.9,
+      "middle": 1.05,
+      "exit": 0.65,
+      "width": 1260.0,
+      "stable_seconds": 730,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 1.65,
+      "middle": 1.0,
+      "exit": 0.655,
+      "width": 1184.0,
+      "stable_seconds": 583,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.95,
+      "exit": 0.665,
+      "width": 1280.0,
+      "stable_seconds": 764,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.92,
+      "exit": 0.668,
+      "width": 1260.0,
+      "stable_seconds": 485,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.22,
+      "middle": 0.9,
+      "exit": 0.67,
+      "width": 1210.0,
+      "stable_seconds": 264,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.0,
+      "exit": 0.67,
+      "width": 1260.0,
+      "stable_seconds": 832,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.07,
+      "exit": 0.67,
+      "width": 1110.0,
+      "stable_seconds": 440,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.07,
+      "exit": 0.67,
+      "width": 1110.0,
+      "stable_seconds": 298,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.22,
+      "middle": 0.9,
+      "exit": 0.68,
+      "width": 1210.0,
+      "stable_seconds": 261,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.33,
+      "middle": 0.95,
+      "exit": 0.688,
+      "width": 1210.0,
+      "stable_seconds": 531,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.95,
+      "exit": 0.688,
+      "width": 1208.0,
+      "stable_seconds": 795,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.98,
+      "exit": 0.69,
+      "width": 1210.0,
+      "stable_seconds": 1098,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.48,
+      "middle": 1.0,
+      "exit": 0.69,
+      "width": 1220.0,
+      "stable_seconds": 1170,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.965,
+      "exit": 0.695,
+      "width": 1280.0,
+      "stable_seconds": 562,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 1.3,
+      "middle": 0.95,
+      "exit": 0.698,
+      "width": 1260.0,
+      "stable_seconds": 251,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.98,
+      "exit": 0.698,
+      "width": 1280.0,
+      "stable_seconds": 727,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.95,
+      "exit": 0.698,
+      "width": 1280.0,
+      "stable_seconds": 1031,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1320.0,
+      "stable_seconds": 975,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1320.0,
+      "stable_seconds": 741,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1210.0,
+      "stable_seconds": 947,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1226.0,
+      "stable_seconds": 1260,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1210.0,
+      "stable_seconds": 880,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.7,
+      "width": 1280.0,
+      "stable_seconds": 1031,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 1.45,
+      "middle": 1.0,
+      "exit": 0.7,
+      "width": 1240.0,
+      "stable_seconds": 948,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.45,
+      "middle": 1.0,
+      "exit": 0.7,
+      "width": 1240.0,
+      "stable_seconds": 967,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.7,
+      "width": 1280.0,
+      "stable_seconds": 1397,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 1.65,
+      "middle": 1.07,
+      "exit": 0.7,
+      "width": 1260.0,
+      "stable_seconds": 677,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.18,
+      "exit": 0.7,
+      "width": 1200.0,
+      "stable_seconds": 1400,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.99,
+      "exit": 0.72,
+      "width": 1175.0,
+      "stable_seconds": 740,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 1.75,
+      "middle": 1.1,
+      "exit": 0.725,
+      "width": 1110.0,
+      "stable_seconds": 556,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.4,
+      "middle": 0.98,
+      "exit": 0.728,
+      "width": 1280.0,
+      "stable_seconds": 945,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.728,
+      "width": 1160.0,
+      "stable_seconds": 543,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.4,
+      "middle": 1.0,
+      "exit": 0.738,
+      "width": 1280.0,
+      "stable_seconds": 596,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.738,
+      "width": 1070.0,
+      "stable_seconds": 510,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.1,
+      "exit": 0.738,
+      "width": 1280.0,
+      "stable_seconds": 589,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.745,
+      "width": 1070.0,
+      "stable_seconds": 742,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.1,
+      "exit": 0.745,
+      "width": 1070.0,
+      "stable_seconds": 524,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.1,
+      "exit": 0.745,
+      "width": 1070.0,
+      "stable_seconds": 392,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 426,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 527,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 497,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 533,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 491,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 484,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 472,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 482,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.5,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1210.0,
+      "stable_seconds": 481,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.755,
+      "width": 1260.0,
+      "stable_seconds": 431,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.1,
+      "exit": 0.755,
+      "width": 1210.0,
+      "stable_seconds": 502,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 499,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.08,
+      "exit": 0.758,
+      "width": 1210.0,
+      "stable_seconds": 290,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 643,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.05,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 635,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.08,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 628,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.07,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 496,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.07,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 511,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.07,
+      "exit": 0.758,
+      "width": 1260.0,
+      "stable_seconds": 540,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.08,
+      "exit": 0.758,
+      "width": 1213.0,
+      "stable_seconds": 681,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.1,
+      "exit": 0.76,
+      "width": 1210.0,
+      "stable_seconds": 813,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.23,
+      "exit": 0.76,
+      "width": 1250.0,
+      "stable_seconds": 381,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.2,
+      "exit": 0.765,
+      "width": 1305.0,
+      "stable_seconds": 255,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.23,
+      "exit": 0.77,
+      "width": 1260.0,
+      "stable_seconds": 140,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.23,
+      "exit": 0.77,
+      "width": 1350.0,
+      "stable_seconds": 169,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 1.7,
+      "middle": 1.15,
+      "exit": 0.778,
+      "width": 1295.0,
+      "stable_seconds": 904,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 1.8,
+      "middle": 1.12,
+      "exit": 0.79,
+      "width": 1280.0,
+      "stable_seconds": 865,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.25,
+      "exit": 0.79,
+      "width": 1070.0,
+      "stable_seconds": 637,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.13,
+      "exit": 0.8,
+      "width": 1110.0,
+      "stable_seconds": 672,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 1.8,
+      "middle": 1.2,
+      "exit": 0.8,
+      "width": 1190.0,
+      "stable_seconds": 539,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.28,
+      "exit": 0.82,
+      "width": 1320.0,
+      "stable_seconds": 756,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.15,
+      "exit": 0.868,
+      "width": 1210.0,
+      "stable_seconds": 392,
+      "date": "2026-07-24",
+      "dataset": "260724"
+    },
+    {
+      "entry": 1.85,
+      "middle": 1.23,
+      "exit": 0.868,
+      "width": 1260.0,
+      "stable_seconds": 285,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 1.85,
+      "middle": 1.2,
+      "exit": 0.868,
+      "width": 1260.0,
+      "stable_seconds": 308,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.3,
+      "exit": 0.868,
+      "width": 1210.0,
+      "stable_seconds": 638,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 1.9,
+      "middle": 1.3,
+      "exit": 0.888,
+      "width": 1320.0,
+      "stable_seconds": 507,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 1.9,
+      "middle": 1.3,
+      "exit": 0.888,
+      "width": 1280.0,
+      "stable_seconds": 435,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.888,
+      "width": 1250.0,
+      "stable_seconds": 270,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.34,
+      "exit": 0.89,
+      "width": 1280.0,
+      "stable_seconds": 548,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.42,
+      "exit": 0.89,
+      "width": 1280.0,
+      "stable_seconds": 685,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.9,
+      "width": 1184.0,
+      "stable_seconds": 328,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.9,
+      "width": 1280.0,
+      "stable_seconds": 433,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.9,
+      "width": 1280.0,
+      "stable_seconds": 605,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.9,
+      "width": 1280.0,
+      "stable_seconds": 449,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.33,
+      "exit": 0.9,
+      "width": 1065.0,
+      "stable_seconds": 512,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 1.8,
+      "middle": 1.25,
+      "exit": 0.908,
+      "width": 1160.0,
+      "stable_seconds": 328,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.32,
+      "exit": 0.908,
+      "width": 1184.0,
+      "stable_seconds": 468,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.3,
+      "exit": 0.908,
+      "width": 1190.0,
+      "stable_seconds": 333,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 1.8,
+      "middle": 1.27,
+      "exit": 0.91,
+      "width": 1260.0,
+      "stable_seconds": 538,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.38,
+      "exit": 0.91,
+      "width": 1210.0,
+      "stable_seconds": 686,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 1.6,
+      "middle": 1.2,
+      "exit": 0.94,
+      "width": 1250.0,
+      "stable_seconds": 400,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.35,
+      "exit": 0.94,
+      "width": 1070.0,
+      "stable_seconds": 431,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.35,
+      "exit": 0.94,
+      "width": 1070.0,
+      "stable_seconds": 412,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.29,
+      "exit": 0.94,
+      "width": 1280.0,
+      "stable_seconds": 739,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.35,
+      "exit": 0.94,
+      "width": 1280.0,
+      "stable_seconds": 711,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.35,
+      "exit": 0.945,
+      "width": 1070.0,
+      "stable_seconds": 545,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.35,
+      "exit": 0.945,
+      "width": 1070.0,
+      "stable_seconds": 531,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.4,
+      "exit": 0.945,
+      "width": 1560.0,
+      "stable_seconds": 451,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 1.95,
+      "middle": 1.36,
+      "exit": 0.95,
+      "width": 1250.0,
+      "stable_seconds": 917,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.41,
+      "exit": 0.95,
+      "width": 1280.0,
+      "stable_seconds": 649,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.44,
+      "exit": 0.95,
+      "width": 1320.0,
+      "stable_seconds": 703,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.42,
+      "exit": 0.955,
+      "width": 1570.0,
+      "stable_seconds": 395,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.968,
+      "width": 1250.0,
+      "stable_seconds": 494,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.97,
+      "width": 1280.0,
+      "stable_seconds": 675,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.38,
+      "exit": 0.978,
+      "width": 1070.0,
+      "stable_seconds": 358,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.978,
+      "width": 1280.0,
+      "stable_seconds": 394,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.42,
+      "exit": 0.983,
+      "width": 1270.0,
+      "stable_seconds": 637,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.985,
+      "width": 1280.0,
+      "stable_seconds": 530,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.985,
+      "width": 1270.0,
+      "stable_seconds": 499,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.43,
+      "exit": 0.985,
+      "width": 1220.0,
+      "stable_seconds": 390,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.43,
+      "exit": 0.985,
+      "width": 1220.0,
+      "stable_seconds": 366,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.99,
+      "width": 1170.0,
+      "stable_seconds": 570,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.99,
+      "width": 1170.0,
+      "stable_seconds": 524,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.43,
+      "exit": 0.99,
+      "width": 1310.0,
+      "stable_seconds": 424,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.4,
+      "exit": 0.99,
+      "width": 1270.0,
+      "stable_seconds": 598,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.998,
+      "width": 1280.0,
+      "stable_seconds": 400,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 0.998,
+      "width": 1280.0,
+      "stable_seconds": 373,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 1.8,
+      "middle": 1.35,
+      "exit": 1.0,
+      "width": 1310.0,
+      "stable_seconds": 392,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 1.0,
+      "width": 1270.0,
+      "stable_seconds": 477,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.4,
+      "exit": 1.0,
+      "width": 1190.0,
+      "stable_seconds": 385,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.43,
+      "exit": 1.0,
+      "width": 1280.0,
+      "stable_seconds": 374,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.44,
+      "exit": 1.0,
+      "width": 1280.0,
+      "stable_seconds": 564,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.45,
+      "exit": 1.0,
+      "width": 1280.0,
+      "stable_seconds": 441,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.48,
+      "exit": 1.0,
+      "width": 1280.0,
+      "stable_seconds": 770,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.45,
+      "exit": 1.065,
+      "width": 1200.0,
+      "stable_seconds": 610,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.48,
+      "exit": 1.075,
+      "width": 1305.0,
+      "stable_seconds": 235,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.58,
+      "exit": 1.1,
+      "width": 1280.0,
+      "stable_seconds": 611,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.58,
+      "exit": 1.1,
+      "width": 1280.0,
+      "stable_seconds": 644,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.58,
+      "exit": 1.1,
+      "width": 1175.0,
+      "stable_seconds": 759,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.6,
+      "exit": 1.1,
+      "width": 1320.0,
+      "stable_seconds": 486,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.6,
+      "exit": 1.1,
+      "width": 1280.0,
+      "stable_seconds": 434,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.6,
+      "exit": 1.1,
+      "width": 1280.0,
+      "stable_seconds": 369,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.55,
+      "exit": 1.108,
+      "width": 1220.0,
+      "stable_seconds": 447,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.55,
+      "exit": 1.11,
+      "width": 1223.0,
+      "stable_seconds": 622,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.55,
+      "exit": 1.13,
+      "width": 1310.0,
+      "stable_seconds": 175,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.5,
+      "exit": 1.14,
+      "width": 1220.0,
+      "stable_seconds": 187,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.58,
+      "exit": 1.14,
+      "width": 1000.0,
+      "stable_seconds": 698,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.2,
+      "middle": 1.6,
+      "exit": 1.15,
+      "width": 1060.0,
+      "stable_seconds": 484,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.62,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 567,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 622,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 704,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 670,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.6,
+      "exit": 1.15,
+      "width": 1065.0,
+      "stable_seconds": 300,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.6,
+      "exit": 1.15,
+      "width": 1065.0,
+      "stable_seconds": 407,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 301,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1280.0,
+      "stable_seconds": 312,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1270.0,
+      "stable_seconds": 380,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1270.0,
+      "stable_seconds": 359,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1320.0,
+      "stable_seconds": 350,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.65,
+      "exit": 1.15,
+      "width": 1320.0,
+      "stable_seconds": 340,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.73,
+      "exit": 1.172,
+      "width": 1212.0,
+      "stable_seconds": 345,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.65,
+      "exit": 1.185,
+      "width": 1210.0,
+      "stable_seconds": 436,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.65,
+      "exit": 1.185,
+      "width": 1210.0,
+      "stable_seconds": 393,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.68,
+      "exit": 1.188,
+      "width": 1250.0,
+      "stable_seconds": 422,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.68,
+      "exit": 1.188,
+      "width": 1260.0,
+      "stable_seconds": 439,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.68,
+      "exit": 1.188,
+      "width": 1208.0,
+      "stable_seconds": 296,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.7,
+      "middle": 1.75,
+      "exit": 1.188,
+      "width": 1252.0,
+      "stable_seconds": 510,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.65,
+      "exit": 1.2,
+      "width": 1280.0,
+      "stable_seconds": 468,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 363,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 281,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 324,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 298,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 467,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 494,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1350.0,
+      "stable_seconds": 460,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.7,
+      "exit": 1.2,
+      "width": 1350.0,
+      "stable_seconds": 536,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.78,
+      "exit": 1.2,
+      "width": 1320.0,
+      "stable_seconds": 466,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.228,
+      "width": 1160.0,
+      "stable_seconds": 250,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.75,
+      "exit": 1.23,
+      "width": 1110.0,
+      "stable_seconds": 809,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.7,
+      "exit": 1.238,
+      "width": 1210.0,
+      "stable_seconds": 432,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.24,
+      "width": 1190.0,
+      "stable_seconds": 417,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.72,
+      "exit": 1.24,
+      "width": 1210.0,
+      "stable_seconds": 548,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.73,
+      "exit": 1.245,
+      "width": 1190.0,
+      "stable_seconds": 432,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.73,
+      "exit": 1.245,
+      "width": 1190.0,
+      "stable_seconds": 309,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.73,
+      "exit": 1.25,
+      "width": 1173.0,
+      "stable_seconds": 476,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.73,
+      "exit": 1.25,
+      "width": 1173.0,
+      "stable_seconds": 453,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.0,
+      "middle": 1.6,
+      "exit": 1.28,
+      "width": 1220.0,
+      "stable_seconds": 129,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.7,
+      "middle": 1.82,
+      "exit": 1.288,
+      "width": 1210.0,
+      "stable_seconds": 276,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.8,
+      "exit": 1.288,
+      "width": 1210.0,
+      "stable_seconds": 449,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.1,
+      "middle": 1.65,
+      "exit": 1.295,
+      "width": 1430.0,
+      "stable_seconds": 347,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.298,
+      "width": 1260.0,
+      "stable_seconds": 421,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.76,
+      "exit": 1.3,
+      "width": 1350.0,
+      "stable_seconds": 561,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.75,
+      "exit": 1.3,
+      "width": 1350.0,
+      "stable_seconds": 433,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1350.0,
+      "stable_seconds": 509,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1350.0,
+      "stable_seconds": 526,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1325.0,
+      "stable_seconds": 432,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1260.0,
+      "stable_seconds": 959,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1190.0,
+      "stable_seconds": 424,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1280.0,
+      "stable_seconds": 380,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.8,
+      "exit": 1.3,
+      "width": 1280.0,
+      "stable_seconds": 443,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.3,
+      "width": 1280.0,
+      "stable_seconds": 419,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.85,
+      "exit": 1.3,
+      "width": 1280.0,
+      "stable_seconds": 311,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.3,
+      "width": 1320.0,
+      "stable_seconds": 400,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.3,
+      "width": 1320.0,
+      "stable_seconds": 539,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.88,
+      "exit": 1.3,
+      "width": 1260.0,
+      "stable_seconds": 499,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.3,
+      "width": 1090.0,
+      "stable_seconds": 443,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.9,
+      "middle": 1.9,
+      "exit": 1.305,
+      "width": 1220.0,
+      "stable_seconds": 396,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.308,
+      "width": 1260.0,
+      "stable_seconds": 429,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.3,
+      "middle": 1.73,
+      "exit": 1.31,
+      "width": 1212.0,
+      "stable_seconds": 366,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.83,
+      "exit": 1.31,
+      "width": 1211.0,
+      "stable_seconds": 691,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.85,
+      "exit": 1.325,
+      "width": 1200.0,
+      "stable_seconds": 348,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.85,
+      "exit": 1.33,
+      "width": 1200.0,
+      "stable_seconds": 254,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.7,
+      "middle": 1.85,
+      "exit": 1.33,
+      "width": 1500.0,
+      "stable_seconds": 248,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.85,
+      "exit": 1.33,
+      "width": 1500.0,
+      "stable_seconds": 222,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.0,
+      "exit": 1.33,
+      "width": 1220.0,
+      "stable_seconds": 434,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.05,
+      "exit": 1.333,
+      "width": 1245.0,
+      "stable_seconds": 203,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.05,
+      "exit": 1.333,
+      "width": 1245.0,
+      "stable_seconds": 186,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.4,
+      "middle": 1.7,
+      "exit": 1.335,
+      "width": 1220.0,
+      "stable_seconds": 784,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.335,
+      "width": 1210.0,
+      "stable_seconds": 336,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.8,
+      "exit": 1.348,
+      "width": 1210.0,
+      "stable_seconds": 357,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.84,
+      "exit": 1.35,
+      "width": 1210.0,
+      "stable_seconds": 415,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.85,
+      "exit": 1.35,
+      "width": 1262.0,
+      "stable_seconds": 648,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.83,
+      "exit": 1.365,
+      "width": 1252.0,
+      "stable_seconds": 641,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.6,
+      "middle": 1.89,
+      "exit": 1.38,
+      "width": 1210.0,
+      "stable_seconds": 546,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1320.0,
+      "stable_seconds": 674,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1320.0,
+      "stable_seconds": 696,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1212.0,
+      "stable_seconds": 634,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1212.0,
+      "stable_seconds": 546,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1229.0,
+      "stable_seconds": 754,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1175.0,
+      "stable_seconds": 370,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.4,
+      "width": 1210.0,
+      "stable_seconds": 398,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 543,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.95,
+      "exit": 1.4,
+      "width": 1210.0,
+      "stable_seconds": 489,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.95,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 365,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.95,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 279,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 2.85,
+      "middle": 1.93,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 565,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.0,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 470,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.0,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 465,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.0,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 442,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.0,
+      "exit": 1.4,
+      "width": 1320.0,
+      "stable_seconds": 381,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.03,
+      "exit": 1.4,
+      "width": 1280.0,
+      "stable_seconds": 454,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 5.8,
+      "middle": 2.7,
+      "exit": 1.4,
+      "width": 1190.0,
+      "stable_seconds": 333,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.405,
+      "width": 1220.0,
+      "stable_seconds": 518,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.408,
+      "width": 1220.0,
+      "stable_seconds": 471,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.95,
+      "exit": 1.408,
+      "width": 1140.0,
+      "stable_seconds": 422,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.98,
+      "exit": 1.415,
+      "width": 1222.0,
+      "stable_seconds": 632,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.43,
+      "width": 1310.0,
+      "stable_seconds": 144,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.43,
+      "width": 1222.0,
+      "stable_seconds": 523,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.448,
+      "width": 1220.0,
+      "stable_seconds": 326,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.448,
+      "width": 1220.0,
+      "stable_seconds": 295,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.95,
+      "middle": 2.05,
+      "exit": 1.45,
+      "width": 1500.0,
+      "stable_seconds": 607,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.4,
+      "exit": 1.45,
+      "width": 1000.0,
+      "stable_seconds": 388,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 2.7,
+      "middle": 1.95,
+      "exit": 1.458,
+      "width": 1220.0,
+      "stable_seconds": 552,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.46,
+      "width": 1220.0,
+      "stable_seconds": 283,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.9,
+      "exit": 1.478,
+      "width": 1220.0,
+      "stable_seconds": 368,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.8,
+      "middle": 1.95,
+      "exit": 1.48,
+      "width": 1220.0,
+      "stable_seconds": 448,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.05,
+      "exit": 1.485,
+      "width": 1222.0,
+      "stable_seconds": 633,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.485,
+      "width": 1220.0,
+      "stable_seconds": 384,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.487,
+      "width": 1220.0,
+      "stable_seconds": 306,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.488,
+      "width": 1280.0,
+      "stable_seconds": 379,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.0,
+      "exit": 1.488,
+      "width": 1280.0,
+      "stable_seconds": 370,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.06,
+      "exit": 1.49,
+      "width": 1280.0,
+      "stable_seconds": 384,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.06,
+      "exit": 1.49,
+      "width": 1280.0,
+      "stable_seconds": 455,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.06,
+      "exit": 1.49,
+      "width": 1280.0,
+      "stable_seconds": 562,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.05,
+      "exit": 1.49,
+      "width": 1003.0,
+      "stable_seconds": 265,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 2.5,
+      "middle": 1.9,
+      "exit": 1.5,
+      "width": 1070.0,
+      "stable_seconds": 398,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.1,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 387,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.1,
+      "exit": 1.5,
+      "width": 1280.0,
+      "stable_seconds": 338,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.0,
+      "exit": 1.5,
+      "width": 1070.0,
+      "stable_seconds": 430,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.1,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 534,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.1,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 193,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.1,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 198,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.0,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 420,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.0,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 485,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.0,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 426,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.2,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 469,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.2,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 464,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.2,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 465,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.2,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 464,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.2,
+      "exit": 1.5,
+      "width": 1320.0,
+      "stable_seconds": 483,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.1,
+      "exit": 1.5,
+      "width": 1280.0,
+      "stable_seconds": 803,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.7,
+      "middle": 2.0,
+      "exit": 1.57,
+      "width": 1500.0,
+      "stable_seconds": 197,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.08,
+      "exit": 1.57,
+      "width": 1500.0,
+      "stable_seconds": 131,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.6,
+      "middle": 2.0,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 220,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.6,
+      "middle": 2.0,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 417,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.7,
+      "middle": 2.0,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 401,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.1,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 406,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.1,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 387,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 2.8,
+      "middle": 2.05,
+      "exit": 1.58,
+      "width": 1203.0,
+      "stable_seconds": 328,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.1,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 411,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.1,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 401,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 3.1,
+      "middle": 2.1,
+      "exit": 1.58,
+      "width": 1200.0,
+      "stable_seconds": 393,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.1,
+      "middle": 2.2,
+      "exit": 1.58,
+      "width": 1000.0,
+      "stable_seconds": 432,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.22,
+      "exit": 1.585,
+      "width": 1002.0,
+      "stable_seconds": 607,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.23,
+      "exit": 1.585,
+      "width": 1000.0,
+      "stable_seconds": 555,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.23,
+      "exit": 1.585,
+      "width": 1000.0,
+      "stable_seconds": 634,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.15,
+      "exit": 1.6,
+      "width": 1310.0,
+      "stable_seconds": 353,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.15,
+      "exit": 1.6,
+      "width": 1310.0,
+      "stable_seconds": 488,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.18,
+      "exit": 1.6,
+      "width": 1320.0,
+      "stable_seconds": 508,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.18,
+      "exit": 1.6,
+      "width": 1280.0,
+      "stable_seconds": 425,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 3.1,
+      "middle": 2.2,
+      "exit": 1.6,
+      "width": 1320.0,
+      "stable_seconds": 329,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.25,
+      "exit": 1.6,
+      "width": 1260.0,
+      "stable_seconds": 400,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.0,
+      "exit": 1.6,
+      "width": 1280.0,
+      "stable_seconds": 331,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1280.0,
+      "stable_seconds": 420,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.2,
+      "exit": 1.6,
+      "width": 1280.0,
+      "stable_seconds": 344,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.0,
+      "exit": 1.6,
+      "width": 1280.0,
+      "stable_seconds": 497,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1213.0,
+      "stable_seconds": 442,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1320.0,
+      "stable_seconds": 401,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 2.9,
+      "exit": 1.6,
+      "width": 1260.0,
+      "stable_seconds": 437,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1263.0,
+      "stable_seconds": 403,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1263.0,
+      "stable_seconds": 432,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.1,
+      "exit": 1.6,
+      "width": 1263.0,
+      "stable_seconds": 432,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.0,
+      "exit": 1.65,
+      "width": 1184.0,
+      "stable_seconds": 338,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.2,
+      "exit": 1.65,
+      "width": 1262.0,
+      "stable_seconds": 529,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 6.5,
+      "middle": 2.9,
+      "exit": 1.65,
+      "width": 1260.0,
+      "stable_seconds": 355,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 2.6,
+      "middle": 2.1,
+      "exit": 1.688,
+      "width": 1210.0,
+      "stable_seconds": 273,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.0,
+      "exit": 1.7,
+      "width": 1295.0,
+      "stable_seconds": 699,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.0,
+      "exit": 1.7,
+      "width": 1070.0,
+      "stable_seconds": 303,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.2,
+      "exit": 1.7,
+      "width": 1070.0,
+      "stable_seconds": 380,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.2,
+      "exit": 1.7,
+      "width": 1070.0,
+      "stable_seconds": 378,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.28,
+      "exit": 1.748,
+      "width": 1000.0,
+      "stable_seconds": 310,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.35,
+      "exit": 1.748,
+      "width": 1210.0,
+      "stable_seconds": 217,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.36,
+      "exit": 1.75,
+      "width": 1222.0,
+      "stable_seconds": 523,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 3.2,
+      "middle": 2.35,
+      "exit": 1.75,
+      "width": 1262.0,
+      "stable_seconds": 437,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 3.3,
+      "middle": 2.4,
+      "exit": 1.79,
+      "width": 1222.0,
+      "stable_seconds": 465,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.3,
+      "exit": 1.8,
+      "width": 1262.0,
+      "stable_seconds": 483,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 3.3,
+      "middle": 2.4,
+      "exit": 1.8,
+      "width": 1310.0,
+      "stable_seconds": 207,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 3.4,
+      "middle": 2.4,
+      "exit": 1.8,
+      "width": 1200.0,
+      "stable_seconds": 459,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.7,
+      "middle": 3.2,
+      "exit": 1.8,
+      "width": 1280.0,
+      "stable_seconds": 423,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.2,
+      "exit": 1.8,
+      "width": 1190.0,
+      "stable_seconds": 298,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.2,
+      "exit": 1.8,
+      "width": 1000.0,
+      "stable_seconds": 339,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.3,
+      "exit": 1.8,
+      "width": 1280.0,
+      "stable_seconds": 277,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.2,
+      "exit": 1.8,
+      "width": 1280.0,
+      "stable_seconds": 176,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.2,
+      "exit": 1.8,
+      "width": 1320.0,
+      "stable_seconds": 443,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.5,
+      "exit": 1.8,
+      "width": 1280.0,
+      "stable_seconds": 285,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.5,
+      "exit": 1.8,
+      "width": 1280.0,
+      "stable_seconds": 453,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 2.4,
+      "middle": 2.1,
+      "exit": 1.83,
+      "width": 1003.0,
+      "stable_seconds": 345,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 3.0,
+      "middle": 2.33,
+      "exit": 1.833,
+      "width": 1250.0,
+      "stable_seconds": 403,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.3,
+      "exit": 1.85,
+      "width": 1260.0,
+      "stable_seconds": 1137,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.75,
+      "exit": 1.9,
+      "width": 1310.0,
+      "stable_seconds": 293,
+      "date": "2026-07-13",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.3,
+      "exit": 1.9,
+      "width": 1320.0,
+      "stable_seconds": 444,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.4,
+      "exit": 1.9,
+      "width": 1280.0,
+      "stable_seconds": 218,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.3,
+      "exit": 1.9,
+      "width": 1280.0,
+      "stable_seconds": 291,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.52,
+      "exit": 1.91,
+      "width": 1507.0,
+      "stable_seconds": 322,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 3.4,
+      "middle": 2.55,
+      "exit": 1.93,
+      "width": 1250.0,
+      "stable_seconds": 288,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 2.7,
+      "middle": 2.3,
+      "exit": 1.94,
+      "width": 1220.0,
+      "stable_seconds": 247,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.7,
+      "middle": 2.3,
+      "exit": 1.94,
+      "width": 1220.0,
+      "stable_seconds": 273,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.7,
+      "middle": 2.3,
+      "exit": 1.94,
+      "width": 1220.0,
+      "stable_seconds": 269,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.35,
+      "exit": 1.94,
+      "width": 1000.0,
+      "stable_seconds": 233,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 2.9,
+      "middle": 2.35,
+      "exit": 1.94,
+      "width": 1000.0,
+      "stable_seconds": 200,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 3.4,
+      "middle": 2.5,
+      "exit": 1.94,
+      "width": 1000.0,
+      "stable_seconds": 319,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.4,
+      "middle": 2.5,
+      "exit": 1.94,
+      "width": 1000.0,
+      "stable_seconds": 343,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.45,
+      "middle": 2.45,
+      "exit": 1.94,
+      "width": 1504.0,
+      "stable_seconds": 289,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.5,
+      "exit": 1.94,
+      "width": 1223.0,
+      "stable_seconds": 318,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.5,
+      "exit": 1.94,
+      "width": 1223.0,
+      "stable_seconds": 442,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.94,
+      "width": 1220.0,
+      "stable_seconds": 209,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.945,
+      "width": 1220.0,
+      "stable_seconds": 432,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.945,
+      "width": 1220.0,
+      "stable_seconds": 211,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.95,
+      "width": 1222.0,
+      "stable_seconds": 483,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 3.8,
+      "middle": 2.7,
+      "exit": 1.95,
+      "width": 1500.0,
+      "stable_seconds": 253,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.8,
+      "exit": 1.95,
+      "width": 1222.0,
+      "stable_seconds": 428,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.8,
+      "exit": 1.95,
+      "width": 1222.0,
+      "stable_seconds": 374,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.8,
+      "exit": 1.95,
+      "width": 1222.0,
+      "stable_seconds": 292,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.8,
+      "exit": 1.95,
+      "width": 1000.0,
+      "stable_seconds": 291,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.78,
+      "exit": 1.95,
+      "width": 1002.0,
+      "stable_seconds": 402,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.55,
+      "exit": 1.96,
+      "width": 1252.0,
+      "stable_seconds": 329,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.62,
+      "exit": 1.96,
+      "width": 1223.0,
+      "stable_seconds": 352,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.97,
+      "width": 1000.0,
+      "stable_seconds": 383,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.6,
+      "exit": 1.978,
+      "width": 1220.0,
+      "stable_seconds": 253,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 3.5,
+      "middle": 2.7,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 355,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 4.0,
+      "middle": 2.8,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 322,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 5.7,
+      "middle": 3.23,
+      "exit": 2.0,
+      "width": 1185.0,
+      "stable_seconds": 236,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 5.7,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1190.0,
+      "stable_seconds": 312,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 335,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1184.0,
+      "stable_seconds": 388,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1190.0,
+      "stable_seconds": 246,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 341,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 337,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 349,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 304,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.3,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 262,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.35,
+      "exit": 2.0,
+      "width": 1000.0,
+      "stable_seconds": 397,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 529,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 307,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 434,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 406,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 337,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 338,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1070.0,
+      "stable_seconds": 309,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1305.0,
+      "stable_seconds": 136,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1250.0,
+      "stable_seconds": 311,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.4,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 291,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1065.0,
+      "stable_seconds": 415,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.55,
+      "exit": 2.0,
+      "width": 1320.0,
+      "stable_seconds": 453,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.5,
+      "exit": 2.0,
+      "width": 1280.0,
+      "stable_seconds": 320,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 3.8,
+      "middle": 2.8,
+      "exit": 2.1,
+      "width": 1500.0,
+      "stable_seconds": 219,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1270.0,
+      "stable_seconds": 239,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1280.0,
+      "stable_seconds": 329,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1280.0,
+      "stable_seconds": 406,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1270.0,
+      "stable_seconds": 372,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1310.0,
+      "stable_seconds": 306,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.4,
+      "exit": 2.1,
+      "width": 1280.0,
+      "stable_seconds": 347,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.8,
+      "middle": 3.5,
+      "exit": 2.1,
+      "width": 1173.0,
+      "stable_seconds": 388,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.8,
+      "middle": 3.5,
+      "exit": 2.1,
+      "width": 1173.0,
+      "stable_seconds": 374,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.5,
+      "exit": 2.1,
+      "width": 1210.0,
+      "stable_seconds": 446,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.43,
+      "exit": 2.2,
+      "width": 1214.0,
+      "stable_seconds": 226,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.5,
+      "exit": 2.2,
+      "width": 1320.0,
+      "stable_seconds": 306,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.5,
+      "exit": 2.2,
+      "width": 1060.0,
+      "stable_seconds": 205,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.4,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 144,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.7,
+      "exit": 2.2,
+      "width": 1305.0,
+      "stable_seconds": 247,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.7,
+      "exit": 2.2,
+      "width": 1310.0,
+      "stable_seconds": 210,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.65,
+      "exit": 2.2,
+      "width": 1570.0,
+      "stable_seconds": 298,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.65,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 341,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.75,
+      "exit": 2.2,
+      "width": 1070.0,
+      "stable_seconds": 335,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.9,
+      "middle": 3.8,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 301,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.9,
+      "middle": 3.8,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 249,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.8,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 233,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.7,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 438,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.7,
+      "exit": 2.2,
+      "width": 1280.0,
+      "stable_seconds": 345,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.5,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 399,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.5,
+      "exit": 2.3,
+      "width": 1305.0,
+      "stable_seconds": 175,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.5,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 279,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.6,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 311,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.6,
+      "exit": 2.3,
+      "width": 1175.0,
+      "stable_seconds": 135,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.5,
+      "exit": 2.3,
+      "width": 1220.0,
+      "stable_seconds": 298,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.9,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 448,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.8,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 403,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.7,
+      "exit": 2.3,
+      "width": 1280.0,
+      "stable_seconds": 296,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.5,
+      "exit": 2.385,
+      "width": 1222.0,
+      "stable_seconds": 357,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.5,
+      "exit": 2.385,
+      "width": 1222.0,
+      "stable_seconds": 379,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.8,
+      "middle": 3.7,
+      "exit": 2.385,
+      "width": 1222.0,
+      "stable_seconds": 665,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 3.3,
+      "middle": 2.8,
+      "exit": 2.4,
+      "width": 1500.0,
+      "stable_seconds": 221,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 3.3,
+      "middle": 2.8,
+      "exit": 2.4,
+      "width": 1500.0,
+      "stable_seconds": 213,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 3.9,
+      "middle": 3.0,
+      "exit": 2.4,
+      "width": 1126.0,
+      "stable_seconds": 329,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 5.6,
+      "middle": 3.5,
+      "exit": 2.4,
+      "width": 1350.0,
+      "stable_seconds": 480,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 5.6,
+      "middle": 3.5,
+      "exit": 2.4,
+      "width": 1350.0,
+      "stable_seconds": 474,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.6,
+      "exit": 2.4,
+      "width": 1300.0,
+      "stable_seconds": 296,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.7,
+      "exit": 2.4,
+      "width": 1210.0,
+      "stable_seconds": 457,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.5,
+      "exit": 2.4,
+      "width": 1210.0,
+      "stable_seconds": 311,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.5,
+      "exit": 2.4,
+      "width": 1210.0,
+      "stable_seconds": 488,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.7,
+      "exit": 2.4,
+      "width": 1280.0,
+      "stable_seconds": 324,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.65,
+      "exit": 2.4,
+      "width": 1270.0,
+      "stable_seconds": 325,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1250.0,
+      "stable_seconds": 215,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1310.0,
+      "stable_seconds": 243,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 236,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 297,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.7,
+      "exit": 2.4,
+      "width": 1003.0,
+      "stable_seconds": 471,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.4,
+      "width": 1065.0,
+      "stable_seconds": 314,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.4,
+      "width": 1065.0,
+      "stable_seconds": 329,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 239,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 255,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 239,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 261,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1320.0,
+      "stable_seconds": 258,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1194.0,
+      "stable_seconds": 229,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.9,
+      "middle": 3.9,
+      "exit": 2.4,
+      "width": 1173.0,
+      "stable_seconds": 552,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.9,
+      "middle": 3.9,
+      "exit": 2.4,
+      "width": 1173.0,
+      "stable_seconds": 724,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1210.0,
+      "stable_seconds": 205,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.0,
+      "exit": 2.4,
+      "width": 1280.0,
+      "stable_seconds": 233,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.9,
+      "exit": 2.4,
+      "width": 1280.0,
+      "stable_seconds": 383,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1280.0,
+      "stable_seconds": 431,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 7.0,
+      "middle": 3.8,
+      "exit": 2.4,
+      "width": 1280.0,
+      "stable_seconds": 459,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.44,
+      "width": 1000.0,
+      "stable_seconds": 186,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.2,
+      "exit": 2.445,
+      "width": 1220.0,
+      "stable_seconds": 144,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.6,
+      "exit": 2.45,
+      "width": 1222.0,
+      "stable_seconds": 230,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.45,
+      "width": 1250.0,
+      "stable_seconds": 235,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.45,
+      "width": 1500.0,
+      "stable_seconds": 471,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.8,
+      "middle": 3.9,
+      "exit": 2.458,
+      "width": 1220.0,
+      "stable_seconds": 318,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.46,
+      "width": 1250.0,
+      "stable_seconds": 261,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.46,
+      "width": 1504.0,
+      "stable_seconds": 132,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.75,
+      "exit": 2.48,
+      "width": 1220.0,
+      "stable_seconds": 224,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.5,
+      "exit": 2.48,
+      "width": 1504.0,
+      "stable_seconds": 184,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 4.0,
+      "middle": 3.2,
+      "exit": 2.5,
+      "width": 1100.0,
+      "stable_seconds": 181,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.7,
+      "exit": 2.5,
+      "width": 1305.0,
+      "stable_seconds": 236,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.5,
+      "width": 1250.0,
+      "stable_seconds": 233,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1350.0,
+      "stable_seconds": 259,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.6,
+      "exit": 2.5,
+      "width": 1350.0,
+      "stable_seconds": 260,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.0,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1000.0,
+      "stable_seconds": 331,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 652,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.5,
+      "width": 1000.0,
+      "stable_seconds": 316,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.1,
+      "middle": 3.75,
+      "exit": 2.5,
+      "width": 1204.0,
+      "stable_seconds": 307,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 311,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1112.0,
+      "stable_seconds": 466,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.3,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 266,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1310.0,
+      "stable_seconds": 274,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 221,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 425,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 280,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 285,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.87,
+      "exit": 2.5,
+      "width": 1270.0,
+      "stable_seconds": 285,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.87,
+      "exit": 2.5,
+      "width": 1270.0,
+      "stable_seconds": 268,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1500.0,
+      "stable_seconds": 225,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1500.0,
+      "stable_seconds": 173,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1350.0,
+      "stable_seconds": 375,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1350.0,
+      "stable_seconds": 195,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 295,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.95,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 241,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.95,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 236,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.95,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 254,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.8,
+      "exit": 2.5,
+      "width": 1210.0,
+      "stable_seconds": 315,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1325.0,
+      "stable_seconds": 306,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1320.0,
+      "stable_seconds": 212,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1280.0,
+      "stable_seconds": 264,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.9,
+      "middle": 3.9,
+      "exit": 2.5,
+      "width": 1190.0,
+      "stable_seconds": 138,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 5.8,
+      "middle": 3.8,
+      "exit": 2.6,
+      "width": 1190.0,
+      "stable_seconds": 255,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 180,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 496,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.9,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 249,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.4,
+      "middle": 3.9,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 171,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.8,
+      "exit": 2.6,
+      "width": 1320.0,
+      "stable_seconds": 367,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.6,
+      "middle": 3.8,
+      "exit": 2.6,
+      "width": 1260.0,
+      "stable_seconds": 301,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.2,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 316,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.0,
+      "exit": 2.6,
+      "width": 1280.0,
+      "stable_seconds": 295,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.85,
+      "exit": 2.7,
+      "width": 1280.0,
+      "stable_seconds": 199,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.7,
+      "width": 1280.0,
+      "stable_seconds": 438,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.7,
+      "width": 1570.0,
+      "stable_seconds": 212,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.7,
+      "width": 1310.0,
+      "stable_seconds": 371,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.0,
+      "exit": 2.7,
+      "width": 1300.0,
+      "stable_seconds": 262,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.7,
+      "middle": 3.9,
+      "exit": 2.7,
+      "width": 1280.0,
+      "stable_seconds": 240,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.2,
+      "exit": 2.7,
+      "width": 1280.0,
+      "stable_seconds": 123,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.2,
+      "exit": 2.7,
+      "width": 1280.0,
+      "stable_seconds": 158,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.2,
+      "middle": 3.85,
+      "exit": 2.755,
+      "width": 1100.0,
+      "stable_seconds": 381,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.8,
+      "middle": 4.1,
+      "exit": 2.8,
+      "width": 1200.0,
+      "stable_seconds": 280,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1210.0,
+      "stable_seconds": 217,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 256,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 205,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 411,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 5.9,
+      "middle": 3.9,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 217,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1000.0,
+      "stable_seconds": 336,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 182,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1265.0,
+      "stable_seconds": 395,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1320.0,
+      "stable_seconds": 271,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.1,
+      "exit": 2.8,
+      "width": 1320.0,
+      "stable_seconds": 336,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.1,
+      "exit": 2.8,
+      "width": 1320.0,
+      "stable_seconds": 317,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1320.0,
+      "stable_seconds": 222,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 250,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1560.0,
+      "stable_seconds": 214,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 331,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1175.0,
+      "stable_seconds": 321,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 294,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1270.0,
+      "stable_seconds": 317,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1350.0,
+      "stable_seconds": 205,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1350.0,
+      "stable_seconds": 220,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 179,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 126,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 196,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 233,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.1,
+      "exit": 2.8,
+      "width": 1310.0,
+      "stable_seconds": 140,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1175.0,
+      "stable_seconds": 383,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 203,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 219,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.1,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 177,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 157,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.8,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 208,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 3.9,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 172,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 231,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1500.0,
+      "stable_seconds": 328,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1220.0,
+      "stable_seconds": 177,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.2,
+      "exit": 2.8,
+      "width": 1210.0,
+      "stable_seconds": 316,
+      "date": "2026-07-03",
+      "dataset": "data_foundation"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.0,
+      "exit": 2.8,
+      "width": 1320.0,
+      "stable_seconds": 295,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.3,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 206,
+      "date": "2026-07-25",
+      "dataset": "260725"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 221,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 223,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 223,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.35,
+      "exit": 2.8,
+      "width": 1280.0,
+      "stable_seconds": 194,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.85,
+      "width": 1280.0,
+      "stable_seconds": 372,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 5.5,
+      "middle": 3.9,
+      "exit": 2.9,
+      "width": 1200.0,
+      "stable_seconds": 366,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.8,
+      "middle": 4.1,
+      "exit": 2.9,
+      "width": 1200.0,
+      "stable_seconds": 308,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.1,
+      "exit": 2.9,
+      "width": 1200.0,
+      "stable_seconds": 296,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.9,
+      "width": 1200.0,
+      "stable_seconds": 250,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 2.9,
+      "width": 1200.0,
+      "stable_seconds": 257,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 2.9,
+      "width": 1280.0,
+      "stable_seconds": 208,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.2,
+      "exit": 2.9,
+      "width": 1280.0,
+      "stable_seconds": 215,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.1,
+      "exit": 2.9,
+      "width": 1283.0,
+      "stable_seconds": 331,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.1,
+      "exit": 2.9,
+      "width": 1283.0,
+      "stable_seconds": 258,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.1,
+      "exit": 2.9,
+      "width": 1283.0,
+      "stable_seconds": 230,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.4,
+      "exit": 2.9,
+      "width": 1070.0,
+      "stable_seconds": 306,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.38,
+      "exit": 2.9,
+      "width": 1280.0,
+      "stable_seconds": 172,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.25,
+      "exit": 2.935,
+      "width": 1002.0,
+      "stable_seconds": 245,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.0,
+      "exit": 2.935,
+      "width": 1220.0,
+      "stable_seconds": 250,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.4,
+      "exit": 2.935,
+      "width": 1220.0,
+      "stable_seconds": 228,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.0,
+      "exit": 2.938,
+      "width": 1000.0,
+      "stable_seconds": 214,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.0,
+      "exit": 2.94,
+      "width": 1504.0,
+      "stable_seconds": 227,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.3,
+      "exit": 2.94,
+      "width": 1222.0,
+      "stable_seconds": 205,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.0,
+      "exit": 2.945,
+      "width": 1222.0,
+      "stable_seconds": 294,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.945,
+      "width": 1002.0,
+      "stable_seconds": 256,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.945,
+      "width": 1002.0,
+      "stable_seconds": 141,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.3,
+      "exit": 2.945,
+      "width": 1222.0,
+      "stable_seconds": 337,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.2,
+      "exit": 2.95,
+      "width": 1570.0,
+      "stable_seconds": 193,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.1,
+      "exit": 2.95,
+      "width": 1500.0,
+      "stable_seconds": 289,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.3,
+      "exit": 2.96,
+      "width": 1500.0,
+      "stable_seconds": 179,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.5,
+      "exit": 2.97,
+      "width": 1220.0,
+      "stable_seconds": 133,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.4,
+      "exit": 2.97,
+      "width": 1220.0,
+      "stable_seconds": 168,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 5.8,
+      "middle": 4.1,
+      "exit": 2.98,
+      "width": 1202.0,
+      "stable_seconds": 259,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.98,
+      "width": 1222.0,
+      "stable_seconds": 211,
+      "date": "2026-07-26",
+      "dataset": "260726"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.2,
+      "exit": 2.98,
+      "width": 1222.0,
+      "stable_seconds": 421,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.3,
+      "exit": 2.99,
+      "width": 1000.0,
+      "stable_seconds": 218,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 5.5,
+      "middle": 4.05,
+      "exit": 3.0,
+      "width": 1200.0,
+      "stable_seconds": 434,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.6,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1100.0,
+      "stable_seconds": 246,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1300.0,
+      "stable_seconds": 246,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1300.0,
+      "stable_seconds": 220,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1300.0,
+      "stable_seconds": 291,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1300.0,
+      "stable_seconds": 360,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1200.0,
+      "stable_seconds": 275,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1300.0,
+      "stable_seconds": 384,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1265.0,
+      "stable_seconds": 198,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1265.0,
+      "stable_seconds": 197,
+      "date": "2026-07-12",
+      "dataset": "260712"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1310.0,
+      "stable_seconds": 418,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.25,
+      "exit": 3.0,
+      "width": 1000.0,
+      "stable_seconds": 260,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.25,
+      "exit": 3.0,
+      "width": 1000.0,
+      "stable_seconds": 312,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.1,
+      "exit": 3.0,
+      "width": 1200.0,
+      "stable_seconds": 237,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.1,
+      "exit": 3.0,
+      "width": 1100.0,
+      "stable_seconds": 175,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1000.0,
+      "stable_seconds": 244,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.0,
+      "exit": 3.0,
+      "width": 1100.0,
+      "stable_seconds": 399,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1070.0,
+      "stable_seconds": 250,
+      "date": "2026-07-17",
+      "dataset": "260717"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.4,
+      "exit": 3.0,
+      "width": 1320.0,
+      "stable_seconds": 161,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1320.0,
+      "stable_seconds": 334,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1320.0,
+      "stable_seconds": 423,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1060.0,
+      "stable_seconds": 128,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1320.0,
+      "stable_seconds": 205,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.8,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1320.0,
+      "stable_seconds": 298,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1190.0,
+      "stable_seconds": 157,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.3,
+      "exit": 3.0,
+      "width": 1212.0,
+      "stable_seconds": 132,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.6,
+      "exit": 3.0,
+      "width": 1280.0,
+      "stable_seconds": 202,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.6,
+      "exit": 3.0,
+      "width": 1280.0,
+      "stable_seconds": 202,
+      "date": "2026-07-14",
+      "dataset": "260714"
+    },
+    {
+      "entry": 7.0,
+      "middle": 4.2,
+      "exit": 3.0,
+      "width": 1280.0,
+      "stable_seconds": 221,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.2,
+      "exit": 3.1,
+      "width": 1200.0,
+      "stable_seconds": 310,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.3,
+      "exit": 3.1,
+      "width": 1070.0,
+      "stable_seconds": 171,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.1,
+      "exit": 3.1,
+      "width": 1200.0,
+      "stable_seconds": 191,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.2,
+      "exit": 3.1,
+      "width": 1500.0,
+      "stable_seconds": 171,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.3,
+      "exit": 3.1,
+      "width": 1280.0,
+      "stable_seconds": 162,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.5,
+      "exit": 3.1,
+      "width": 1320.0,
+      "stable_seconds": 167,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.5,
+      "exit": 3.1,
+      "width": 1320.0,
+      "stable_seconds": 216,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.3,
+      "exit": 3.2,
+      "width": 1270.0,
+      "stable_seconds": 291,
+      "date": "2026-07-30",
+      "dataset": "260730"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.5,
+      "exit": 3.2,
+      "width": 1320.0,
+      "stable_seconds": 178,
+      "date": "2026-07-31",
+      "dataset": "260731"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.4,
+      "exit": 3.2,
+      "width": 1070.0,
+      "stable_seconds": 245,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.6,
+      "middle": 4.5,
+      "exit": 3.2,
+      "width": 1270.0,
+      "stable_seconds": 148,
+      "date": "2026-08-02",
+      "dataset": "260802"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.3,
+      "exit": 3.2,
+      "width": 1070.0,
+      "stable_seconds": 536,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.3,
+      "exit": 3.2,
+      "width": 1070.0,
+      "stable_seconds": 273,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 5.6,
+      "middle": 4.25,
+      "exit": 3.3,
+      "width": 1220.0,
+      "stable_seconds": 273,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.3,
+      "exit": 3.3,
+      "width": 1270.0,
+      "stable_seconds": 206,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.5,
+      "exit": 3.3,
+      "width": 1560.0,
+      "stable_seconds": 184,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.5,
+      "exit": 3.3,
+      "width": 1560.0,
+      "stable_seconds": 178,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.5,
+      "exit": 3.3,
+      "width": 1200.0,
+      "stable_seconds": 196,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 5.8,
+      "middle": 4.4,
+      "exit": 3.4,
+      "width": 1280.0,
+      "stable_seconds": 251,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.8,
+      "middle": 4.4,
+      "exit": 3.4,
+      "width": 1300.0,
+      "stable_seconds": 331,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.5,
+      "exit": 3.4,
+      "width": 1300.0,
+      "stable_seconds": 182,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.5,
+      "exit": 3.4,
+      "width": 1070.0,
+      "stable_seconds": 152,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.5,
+      "exit": 3.4,
+      "width": 1200.0,
+      "stable_seconds": 215,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.58,
+      "exit": 3.45,
+      "width": 1504.0,
+      "stable_seconds": 179,
+      "date": "2026-08-04",
+      "dataset": "260804"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1304.0,
+      "stable_seconds": 201,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 5.9,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1304.0,
+      "stable_seconds": 144,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1200.0,
+      "stable_seconds": 138,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.6,
+      "exit": 3.5,
+      "width": 1250.0,
+      "stable_seconds": 348,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.6,
+      "exit": 3.5,
+      "width": 1254.0,
+      "stable_seconds": 196,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.6,
+      "exit": 3.5,
+      "width": 1270.0,
+      "stable_seconds": 182,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.55,
+      "exit": 3.5,
+      "width": 1100.0,
+      "stable_seconds": 217,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1100.0,
+      "stable_seconds": 487,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1270.0,
+      "stable_seconds": 266,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.3,
+      "middle": 4.5,
+      "exit": 3.5,
+      "width": 1270.0,
+      "stable_seconds": 265,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.6,
+      "exit": 3.5,
+      "width": 1310.0,
+      "stable_seconds": 172,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.7,
+      "exit": 3.5,
+      "width": 1200.0,
+      "stable_seconds": 336,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.7,
+      "exit": 3.5,
+      "width": 1100.0,
+      "stable_seconds": 587,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.6,
+      "exit": 3.5,
+      "width": 1280.0,
+      "stable_seconds": 219,
+      "date": "2026-08-01",
+      "dataset": "260801"
+    },
+    {
+      "entry": 6.7,
+      "middle": 4.8,
+      "exit": 3.5,
+      "width": 1070.0,
+      "stable_seconds": 210,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.9,
+      "exit": 3.5,
+      "width": 1280.0,
+      "stable_seconds": 286,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.9,
+      "middle": 4.9,
+      "exit": 3.5,
+      "width": 1280.0,
+      "stable_seconds": 146,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 5.6,
+      "middle": 4.5,
+      "exit": 3.6,
+      "width": 1200.0,
+      "stable_seconds": 306,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.5,
+      "exit": 3.6,
+      "width": 1300.0,
+      "stable_seconds": 196,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.0,
+      "middle": 4.65,
+      "exit": 3.6,
+      "width": 1200.0,
+      "stable_seconds": 215,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.6,
+      "exit": 3.6,
+      "width": 1200.0,
+      "stable_seconds": 215,
+      "date": "2026-07-29",
+      "dataset": "260729"
+    },
+    {
+      "entry": 6.1,
+      "middle": 4.65,
+      "exit": 3.6,
+      "width": 1000.0,
+      "stable_seconds": 176,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 6.2,
+      "middle": 4.65,
+      "exit": 3.6,
+      "width": 1000.0,
+      "stable_seconds": 148,
+      "date": "2026-07-28",
+      "dataset": "260728"
+    },
+    {
+      "entry": 6.0,
+      "middle": 5.0,
+      "exit": 3.8,
+      "width": 1575.0,
+      "stable_seconds": 194,
+      "date": "2026-07-13",
+      "dataset": "260713"
+    },
+    {
+      "entry": 6.4,
+      "middle": 4.8,
+      "exit": 3.8,
+      "width": 1570.0,
+      "stable_seconds": 218,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 6.5,
+      "middle": 4.8,
+      "exit": 3.825,
+      "width": 1000.0,
+      "stable_seconds": 360,
+      "date": "2026-08-05",
+      "dataset": "260805"
+    },
+    {
+      "entry": 5.17,
+      "middle": 4.46,
+      "exit": 3.935,
+      "width": 1220.0,
+      "stable_seconds": 144,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    },
+    {
+      "entry": 7.0,
+      "middle": 5.2,
+      "exit": 3.935,
+      "width": 1220.0,
+      "stable_seconds": 132,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.9,
+      "middle": 5.0,
+      "exit": 3.975,
+      "width": 1222.0,
+      "stable_seconds": 355,
+      "date": "2026-07-16",
+      "dataset": "260716"
+    },
+    {
+      "entry": 6.5,
+      "middle": 5.5,
+      "exit": 4.91,
+      "width": 1220.0,
+      "stable_seconds": 132,
+      "date": "2026-08-03",
+      "dataset": "260803"
+    },
+    {
+      "entry": 7.0,
+      "middle": 5.85,
+      "exit": 4.94,
+      "width": 1000.0,
+      "stable_seconds": 162,
+      "date": "2026-07-18",
+      "dataset": "260718"
+    },
+    {
+      "entry": 6.9,
+      "middle": 5.9,
+      "exit": 5.17,
+      "width": 1280.0,
+      "stable_seconds": 150,
+      "date": "2026-07-19",
+      "dataset": "260719"
+    }
+  ]
+}

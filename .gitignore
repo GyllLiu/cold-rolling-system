@@ -4,11 +4,21 @@ node_modules/
 dist/
 .wrangler/
 .venv/
-data/*.db
-data/*.db-*
-data/card_uploads/
+# Local and production-derived records are never part of the source repository.
+data/
+*.sqlite3
+*.sqlite3-*
+*.dat
+*.DAT
+deploy/*.tar.gz
+deploy/*.env
+deploy/data-audit-*.md
+.openai/hosting.json
 __pycache__/
 .pytest_cache/
 .env
+.env.local
+.env.production
+*.log
 .DS_Store
 tsconfig.tsbuildinfo

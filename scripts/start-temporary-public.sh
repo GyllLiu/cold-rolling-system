@@ -4,10 +4,6 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-if [[ ! -x .venv/bin/python ]]; then
-  echo "缺少 Python 运行环境，请先按 README 完成首次准备。"
-  exit 1
-fi
 if [[ ! -d node_modules ]]; then
   echo "缺少前端依赖，请先运行 npm install。"
   exit 1
@@ -25,7 +21,6 @@ PUBLIC_PASSWORD_HASH="$(caddy hash-password --algorithm bcrypt --plaintext "$PUB
 export PUBLIC_USERNAME PUBLIC_PASSWORD_HASH
 
 cleanup() {
-  [[ -n "${BACKEND_PID:-}" ]] && kill "$BACKEND_PID" 2>/dev/null || true
   [[ -n "${FRONTEND_PID:-}" ]] && kill "$FRONTEND_PID" 2>/dev/null || true
   [[ -n "${CADDY_PID:-}" ]] && kill "$CADDY_PID" 2>/dev/null || true
   [[ -n "${CAFFEINATE_PID:-}" ]] && kill "$CAFFEINATE_PID" 2>/dev/null || true
@@ -34,8 +29,6 @@ trap cleanup EXIT INT TERM
 
 npm run build
 
-.venv/bin/python -m uvicorn --app-dir backend app.main:app --host 127.0.0.1 --port 8000 &
-BACKEND_PID=$!
 npm run start -- --host 127.0.0.1 &
 FRONTEND_PID=$!
 caddy run --config scripts/Caddyfile.temporary --adapter caddyfile &

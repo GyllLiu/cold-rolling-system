@@ -63,7 +63,7 @@ TARGET_SPECS = (
     TargetSpec(
         "tm1_gap_command_median",
         "F1综合辊缝直接预测",
-        "μm",
+        "um",
         "machine_setup",
         "primary",
         0.0,
@@ -72,7 +72,7 @@ TARGET_SPECS = (
     TargetSpec(
         "tm2_gap_command_median",
         "F2综合辊缝直接预测",
-        "μm",
+        "um",
         "machine_setup",
         "primary",
         0.0,
@@ -81,7 +81,7 @@ TARGET_SPECS = (
     TargetSpec(
         "uncoiler_tension_set_median",
         "开卷张力直接预测",
-        "",
+        "T",
         "machine_setup",
         "secondary",
         0.0,
@@ -90,7 +90,7 @@ TARGET_SPECS = (
     TargetSpec(
         "interstand_tension_set_median",
         "机架张力直接预测",
-        "",
+        "T",
         "machine_setup",
         "secondary",
         0.0,
@@ -99,7 +99,7 @@ TARGET_SPECS = (
     TargetSpec(
         "coiler_tension_set_median",
         "卷取张力直接预测",
-        "",
+        "T",
         "machine_setup",
         "secondary",
         0.0,
@@ -122,14 +122,14 @@ TARGET_SPECS = (
     TargetSpec(
         "tm1_tilt_set_median",
         "F1倾斜量直接预测",
-        "μm",
+        "um",
         "machine_setup",
         "secondary",
     ),
     TargetSpec(
         "tm2_tilt_set_median",
         "F2倾斜量直接预测",
-        "μm",
+        "um",
         "machine_setup",
         "secondary",
     ),

@@ -13,23 +13,21 @@ from .schemas import RecommendationRequest
 ARTIFACT_PATH = (
     Path(__file__).resolve().parent
     / "model_artifacts"
-    / "recommendation_direct_v3.json"
+    / "recommendation_direct_v041.json"
+)
+ROLLBACK_ARTIFACT_PATH = (
+    Path(__file__).resolve().parent
+    / "model_artifacts"
+    / "recommendation_direct_v4.json"
 )
 
 PARAMETER_ORDER = (
     "intermediate_thickness_set_mode",
-    "tm1_gap_command_median",
-    "tm2_gap_command_median",
     "uncoiler_tension_set_median",
     "interstand_tension_set_median",
     "coiler_tension_set_median",
-    "f1_bending_set_median",
-    "f2_bending_set_median",
-    "tm1_tilt_set_median",
-    "tm2_tilt_set_median",
-    "main_speed_set_median",
-    "f1_roll_force_sum_median",
-    "f2_roll_force_sum_median",
+    "tm1_closed_gap_set_median",
+    "tm2_closed_gap_set_median",
 )
 
 FEATURE_LABELS = {
@@ -109,6 +107,19 @@ def get_model_metadata() -> dict[str, Any]:
                 "historical_neighbour_method_used_at_inference"
             )
         ),
+        "width_validation_improvement_percent": {
+            target: row.get("hybrid_validation_improvement_percent")
+            for target, row in artifact.get("width_ablation", {}).items()
+        },
+        "flatness_training_case_count": artifact.get("flatness_monitor", {}).get(
+            "training_case_count", 0
+        ),
+        "flatness_validation_case_count": artifact.get("flatness_monitor", {}).get(
+            "validation_case_count", 0
+        ),
+        "flatness_valid_percent": artifact.get("flatness_monitor", {})
+        .get("data_quality", {})
+        .get("valid_percent"),
         "validation_metrics": validation_metrics,
     }
 
@@ -128,6 +139,15 @@ def _request_features(request: RecommendationRequest) -> tuple[dict[str, float],
             )
             / request.entry_thickness,
             "entry_thickness_actual_median": actual,
+            "log_thickness_ratio": math.log(
+                request.entry_thickness / request.target_exit_thickness
+            ),
+            "entry_cross_section_proxy": (
+                request.entry_thickness * request.incoming_width
+            ),
+            "exit_cross_section_proxy": (
+                request.target_exit_thickness * request.incoming_width
+            ),
         },
         actual_defaulted,
     )
@@ -233,11 +253,59 @@ def _parameter_row(
         "role": model.get("role", "machine_setup"),
         "priority": model.get("priority", "secondary"),
         "reliability": model.get("reliability", "low"),
-        "interval_source": "滚动时间验证残差80%区间",
+        "interval_source": "日期滚动与整规格留出残差的保守80%区间",
         "final_test_mae": direct.get("mae"),
         "final_test_p95_error": direct.get("p95_absolute_error"),
         "historical_baseline_mae": baseline.get("mae"),
         "mae_improvement_percent": test.get("mae_improvement_percent"),
+    }
+
+
+def _flatness_monitor_summary(
+    artifact: dict[str, Any], features: dict[str, float]
+) -> dict[str, Any] | None:
+    monitor = artifact.get("flatness_monitor")
+    if not isinstance(monitor, dict):
+        return None
+    metrics = []
+    for target, model in monitor.get("models", {}).items():
+        direct = model.get("final_test", {}).get("direct", {})
+        r2 = direct.get("r2")
+        predictable = isinstance(r2, (int, float)) and r2 >= 0.35
+        reference = _predict(target, model, features) if predictable else None
+        associations = monitor.get("runtime_associations", {}).get(target, [])[:3]
+        metrics.append(
+            {
+                "code": target,
+                "label": model.get("label", target),
+                "native_unit": monitor.get("native_unit", "DAT原始值"),
+                "specification_predictable": predictable,
+                "reference": round(reference, 4) if reference is not None else None,
+                "final_test_mae": direct.get("mae"),
+                "final_test_r2": r2,
+                "top_runtime_associations": associations,
+            }
+        )
+    quality = monitor.get("data_quality", {})
+    return {
+        "status": "runtime_dat_required",
+        "actionable": False,
+        "zone_count": monitor.get("zone_count", 49),
+        "native_unit": monitor.get("native_unit", "DAT原始值"),
+        "unit_status": monitor.get("unit_status", ""),
+        "orientation_status": monitor.get("zone_orientation", ""),
+        "lag_alignment_status": monitor.get("lag_alignment", ""),
+        "training_case_count": monitor.get("training_case_count", 0),
+        "validation_case_count": monitor.get("validation_case_count", 0),
+        "valid_percent": quality.get("valid_percent"),
+        "width_to_active_zone_spearman": quality.get(
+            "width_to_active_zone_spearman"
+        ),
+        "metrics": metrics,
+        "conclusion": (
+            "四项规格前预测R²均低于0.10，不能仅凭入口/出口/宽度预判版型；"
+            "必须在运行后读取49路DAT再判断。"
+        ),
     }
 
 
@@ -266,7 +334,7 @@ def build_recommendation(
             "similar_cases": [],
             "risks": [
                 f"超出训练范围的输入：{'、'.join(outside)}。",
-                "补充该规格的高速稳定数据并重新训练后再给首设。",
+                "补充该规格的高速稳定数据并重新训练后再给推荐值。",
             ],
             "model": metadata,
             "coverage": {
@@ -293,10 +361,12 @@ def build_recommendation(
     ]
     risks = [
         "结果由固定回归方程直接计算，不检索或平均历史卷；系统不会写入PLC，首卷必须由主操确认。",
-        "0719验证衡量的是对高速稳定设定的预测误差；尚无“模型实际下发后”的成品厚度闭环准确率。",
+        "0719是日期隔离复用对照，衡量高速稳定设定的复现误差；尚无“模型实际下发后”的成品厚度闭环准确率。",
+        "F1/F2输出由高速稳定生产段训练得到，作为上卷时的人工推荐值；主操确认后输入。当前无PLC，不自动写入操作台。",
+        "版型无法由产品规格可靠预测；弯辊、倾斜、左右轧制力和左右实际辊缝只在运行后结合49路DAT监控。",
     ]
     if actual_defaulted:
-        risks.append("未提供入口在线实测厚度，本次按入口设定厚度代入。")
+        risks.append("当前无PLC/实时DAT接入，入口厚度由主操手工填写，不会自动传入。")
     if edge:
         risks.append(f"靠近训练边界：{'、'.join(edge)}；已降为低置信参考。")
     if low_reliability:
@@ -312,7 +382,7 @@ def build_recommendation(
     headline = (
         "已生成直接预测，边界规格需谨慎确认"
         if edge
-        else "已生成直接预测首设，需主操确认"
+        else "已生成高速数据推荐值，需主操确认"
     )
     return status, confidence, artifact["model_version"], {
         "headline": headline,
@@ -322,6 +392,7 @@ def build_recommendation(
         "similar_cases": [],
         "risks": risks,
         "model": metadata,
+        "flatness_monitor": _flatness_monitor_summary(artifact, features),
         "coverage": {
             "in_domain": True,
             "edge_features": edge,
