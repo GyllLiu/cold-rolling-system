@@ -14,11 +14,45 @@
 需要 Node.js 22.13+ 和 Python 3。安装前端依赖后运行 `npm run dev`；后端依赖见 `backend/requirements.txt` 与 `backend/requirements-capture-oss.txt`。部署所需环境变量名称在 `deploy/capture-cloud.env.example`，不要把真实 `.env`、数据库或照片提交到 Git。
 
 ```bash
+# 首次克隆后创建本地构建配置；已有配置时不要覆盖。
+cp -n .openai/hosting.example.json .openai/hosting.json
 npm ci
 npm run dev
 ```
 
 原始 DAT 未随仓库上传，因此重新训练或重建依赖原始数据的模型产物时，需在本地另行提供数据；现有运行所需的模型 JSON 已包含在 `backend/app/model_artifacts/`。
+
+拍照页面的本地 API 代理指向 `127.0.0.1:8001`，在另一个终端启动拍照后端：
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r backend/requirements-capture-oss.txt
+.venv/bin/python -m uvicorn backend.app.capture:app --host 127.0.0.1 --port 8001
+```
+
+默认本地 SQLite 和照片保存在忽略目录 `data/capture/`；未配置云凭证时可保存照片，但不进行云端 OCR。云环境变量参考 `deploy/capture-cloud.env.example`，实际凭证不随仓库分发。
+
+## 最新离线训练与页面优化方案（2026-10-26）
+
+- [前端界面优化方案](docs/frontend-ux-plan.md)：供前端开发或其他 AI 接手，属于待实施方案。
+- [参数训练计划与实验结果](docs/pass-parameter-training-plan.md)：第 10 节为本轮 DAT 重训及同期 OCR 配对试验；新模型未发布至线上。
+- `scripts/prepare_parameter_experiment_v073.py`：读取 DAT、提取高速生产候选段。
+- `scripts/train_parameter_experiment_v073.py`：按日期验证参数模型，保存冻结配置、模型和逐条对比。
+- `scripts/train_capture_pilot_v073.py`：对同日、同时间窗 OCR 配对样本做独立的小样本校准实验。
+
+用户已确认“1050标1060”的实际牌号为 **1050**。最新离线标签规则保留原文并解析为 1050，不推广到其他未确认写法；原始实验保留旧规则用于复现。线上推荐模型的材料支持范围未因此自动扩展。
+
+DAT 解析器 `parse_ibapda.py` 与数据基础构建器 `build_data_foundation.py` 已包含在仓库根目录。原始 DAT 和派生训练数据需另行提供，历史脚本默认从仓库上级的 `Data/`、`outputs/` 读取，复现目录结构及命令见训练计划。
+
+训练使用独立环境，不修改采集服务依赖：
+
+```bash
+python3 -m venv .venv-training
+.venv-training/bin/pip install -r scripts/requirements-training.txt
+.venv-training/bin/python -m unittest discover -s tests -p 'test_parameter_experiment_v073.py' -v
+```
+
+现场照片、CSV 导出、原始 DAT、实验模型 `.joblib` 和训练输出不入库；仓库内已发布的模型 JSON 保持原版本。
 
 输入牌号、来料状态、来料厚度、目标厚度、产品宽度和目标状态，输出：
 

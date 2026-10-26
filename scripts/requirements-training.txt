@@ -1,0 +1,5 @@
+# Offline only. Do not install into the capture service environment.
+numpy==2.5.4
+scikit-learn==1.9.1
+scipy==1.18.1
+joblib==1.6.0

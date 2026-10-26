@@ -4,8 +4,13 @@ node_modules/
 dist/
 .wrangler/
 .venv/
+.venv-training/
 # Local and production-derived records are never part of the source repository.
 data/
+Data/
+outputs/
+*.joblib
+*.rar
 *.sqlite3
 *.sqlite3-*
 *.dat

@@ -13,6 +13,7 @@ from .models import DatFile
 
 
 WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DAT_ROOTS = [
     WORKSPACE_ROOT / name
     for name in (
@@ -50,8 +51,8 @@ def scan_dat_directory(db: Session) -> dict:
     if not existing_roots:
         return {"roots": [], "found": 0, "added": 0, "skipped": 0, "errors": ["DAT目录不存在"]}
 
-    if str(WORKSPACE_ROOT) not in sys.path:
-        sys.path.insert(0, str(WORKSPACE_ROOT))
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.insert(0, str(PROJECT_ROOT))
     from build_data_foundation import read_file_metadata
 
     found = added = skipped = 0
